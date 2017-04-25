@@ -1,0 +1,28 @@
+{
+  "name": "totem",
+  "homepage": "https://github.com/toolbarthomas/totem",
+  "version": "1.0.0",
+  "description": "Modular prototype framework for the web.",
+  "main": "totem",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://toolbarthomas@github.com/toolbarthomas/totem.git"
+  },
+  "keywords": [
+    "totem",
+    "modular",
+    "sass",
+    "gulp",
+    "workflow",
+    "framework",
+    "prototyping"
+  ],
+  "author": "Thomas van der Velde <contact@toolbarthomas.net>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/toolbarthomas/totem/issues"
+  }
+}
