@@ -10,7 +10,8 @@ var runSequence = require('run-sequence');
 
 const SRC = './src';
 const DEST = './dist';
-const PACKAGES = './modules';
+const PACKAGES = './bower_components';
+
 function clean()
 {
     return del([DEST]);
@@ -147,7 +148,18 @@ gulp.task('spritesmith', function() {
    return spritesmith();
 });
 
-gulp.task('stylesheets', function(callback) {
+gulp.task('svgstore', function () {
+   return svgstore();
+});
+
+gulp.task('concat', function () {
+   return concat();
+});
+
+gulp.task('twig', function () {
+   return twig();
+});
+
 gulp.task('styles', function(callback) {
     runSequence(
         'sass',
@@ -156,6 +168,17 @@ gulp.task('styles', function(callback) {
         callback
     );
 });
+
+gulp.task('scripts', function(callback) {
+    runSequence(
+        'concat',
+        callback
+    );
+});
+
+gulp.task('pages', function(callback) {
+    runSequence(
+        'twig',
         callback
     );
 });
