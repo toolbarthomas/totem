@@ -1,0 +1,19 @@
+.sprite {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    white-space: nowrap;
+    overflow: hidden;
+    text-indent: 100%;
+    background-image: url({{ outputSprite }});
+    background-repeat: no-repeat;
+}
+
+{{#sprites}}
+.sprite--{{name}} {
+  background-position: {{ divideRetina offset_x }}px {{ divideRetina offset_y }}px;
+  background-size: {{ divideRetina total_width }}px {{ divideRetina total_height }}px;
+  width: {{ divideRetina width }}px;
+  height: {{ divideRetina height }}px;
+}
+{{/sprites}}
