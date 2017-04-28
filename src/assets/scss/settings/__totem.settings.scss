@@ -1,0 +1,8 @@
+/// Totem settings
+$totem-package-path: '../bower_component' !default;
+
+/// Use settings from external sources  (i.e. Bower Components)
+@import #{$totem-package-path} + '/**/*totem.settings.*';
+
+/// Use generic styles from current project
+@import '**/*';

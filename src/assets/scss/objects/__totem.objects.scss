@@ -1,0 +1,5 @@
+/// Use object styles from external sources  (i.e. Bower Components)
+@import #{$totem-package-path} + '/**/*totem.object.*';
+
+/// Use object styles from current project
+@import '**/*';

@@ -1,0 +1,5 @@
+/// Use tools from external sources  (i.e. Bower Components)
+@import #{$totem-package-path} + '/**/*totem.tools.*';
+
+/// Use tools from current project
+@import '**/*';

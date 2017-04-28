@@ -1,0 +1,5 @@
+/// Use themes from external sources  (i.e. Bower Components)
+@import #{$totem-package-path} + '/**/*totem.theme.*';
+
+/// Use generic styles from current project
+@import '**/*';

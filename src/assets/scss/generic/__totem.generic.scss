@@ -1,0 +1,5 @@
+/// Use generic styles from external sources  (i.e. Bower Components)
+@import #{$totem-package-path} + '/**/*totem.generic.*';
+
+/// Use generic styles from current project
+@import '**/*';
