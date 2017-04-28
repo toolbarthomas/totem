@@ -17,13 +17,29 @@ function clean()
     return del([DEST]);
 }
 
+function sync()
+{
+    var sync = gulp.src([
+        SRC + '/assets/**/',
+        '!**/scss/**',
+        '!**/js/components/**',
+        '!**/sprite/**',
+        '!**/svg-sprite/**',
+        '!**/layouts/**',
+        '!**/partials/**',
+        '!**/templates/**'
+    ], { nodir: true })
+    .pipe(plugins.changed(DEST))
+    .pipe(gulp.dest(DEST));
+}
+
 function sass()
 {
     var sass = gulp.src(SRC + '/assets/scss/totem.scss')
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.sassGlob({
         ignorePaths: [
-            '**/__*.scss'
+        '**/__*.scss'
         ]
     }))
     .pipe(plugins.sass().on('error', plugins.sass.logError))
@@ -66,9 +82,9 @@ function spritesmith()
 function svgstore()
 {
     var svgstore = gulp.src(
-    [
+        [
         SRC + '/assets/img/layout/svg-sprite/**.svg'
-    ])
+        ])
     .pipe(plugins.plumber())
     .pipe(plugins.filter(function(file) {
         return file.stat && file.contents.length;
@@ -79,21 +95,21 @@ function svgstore()
 
         return {
             plugins: [
-                {
-                   cleanupIDs: {
-                       prefix: prefix + '-',
-                       minify: true
-                   },
-               },
-               {
-                   removeAttrs: {
-                       attrs: [
-                           '(fill|stroke|class|style)',
-                           'svg:(width|height)'
-                       ]
-                   }
-               }
-           ]
+            {
+                cleanupIDs: {
+                    prefix: prefix + '-',
+                    minify: true
+                },
+            },
+            {
+                removeAttrs: {
+                    attrs: [
+                    '(fill|stroke|class|style)',
+                    'svg:(width|height)'
+                    ]
+                }
+            }
+            ]
         }
     }))
     .pipe(plugins.svgstore({
@@ -107,9 +123,9 @@ function svgstore()
 function concat()
 {
     var concat = gulp.src([
-      SRC + '/assets/js/components/**.js',
-      PACKAGES + '/*totem*/**.js'
-    ])
+        SRC + '/assets/js/components/**.js',
+        PACKAGES + '/*totem*/**.js'
+        ])
     .pipe(plugins.sourcemaps.init())
     .pipe(plugins.concat('totem.js'))
     .pipe(gulp.dest(DEST + '/assets/js/'));
@@ -119,48 +135,64 @@ function concat()
 
 function twig()
 {
-  var twig = gulp.src([
-    SRC + '/**.twig',
-    PACKAGES + '/*totem*/**.twig',
-    '!/**/layouts/**.twig',
-    '!/**/partials/**.twig',
-  ])
-  .pipe(plugins.plumber())
-  .pipe(plugins.twig({
-    base : SRC,
-    errorLogToConsole : true
-  }))
-  .pipe(plugins.faker())
-  .pipe(gulp.dest(DEST + '/pages'));
+    var twig = gulp.src([
+        SRC + '/**.twig',
+        PACKAGES + '/*totem*/**.twig',
+        '!/**/layouts/**.twig',
+        '!/**/partials/**.twig',
+        ])
+    .pipe(plugins.plumber())
+    .pipe(plugins.twig({
+        base : SRC,
+        errorLogToConsole : true
+    }))
+    .pipe(plugins.faker())
+    .pipe(gulp.dest(DEST + '/pages'));
 
-  return twig.pipe(plugins.connect.reload());
+    return twig.pipe(plugins.connect.reload());
+}
+
+function connect()
+{
+    plugins.connect.server({
+        root: DEST,
+        livereload: true
+    });
 }
 
 gulp.task('clean', function() {
-   return clean();
+    return clean();
+});
+
+gulp.task('sync', function() {
+   return sync();
 });
 
 gulp.task('sass', function() {
-   return sass();
+    return sass();
 });
 
 gulp.task('spritesmith', function() {
-   return spritesmith();
+    return spritesmith();
 });
 
 gulp.task('svgstore', function () {
-   return svgstore();
+    return svgstore();
 });
 
 gulp.task('concat', function () {
-   return concat();
+    return concat();
 });
 
 gulp.task('twig', function () {
-   return twig();
+    return twig();
 });
 
-gulp.task('styles', function(callback) {
+gulp.task('connect', function() {
+    return connect();
+});
+
+gulp.task('styles', function( callback ) {
     runSequence(
         'sass',
         'spritesmith',
@@ -169,20 +201,91 @@ gulp.task('styles', function(callback) {
     );
 });
 
-gulp.task('scripts', function(callback) {
+gulp.task('scripts', function( callback ) {
     runSequence(
         'concat',
         callback
     );
 });
 
-gulp.task('pages', function(callback) {
+gulp.task('pages', function( callback ) {
     runSequence(
         'twig',
         callback
     );
 });
 
-gulp.task('default', function(callback) {
-    return;
+gulp.task('watch', function() {
+    // plugins.watch([
+    //         SRC + '/assets/**/*',
+    //     ], function() {
+    //         gulp.start('copy');
+    //     }
+    // );
+
+    // plugins.watch([
+    //         SRC + '/assets/**/*.scss',
+    //         PACKAGES + '/**/*.scss',
+    //     ], function() {
+    //         gulp.start('styles');
+    //     }
+    // );
+
+    // plugins.watch([
+    //         SRC + '/assets/img/layout/svg-sprite/**/*.svg',
+    //     ], function() {
+    //         gulp.start('svgstore');
+    //     }
+    // );
+
+    // plugins.watch([
+    //         SRC + '/assets/img/layout/sprite/**/*.png',
+    //     ], function() {
+    //         gulp.start('spritesmith');
+    //     }
+    // );
+
+    // plugins.watch([
+    //         SRC + '/assets/**/*.js',
+    //         PACKAGES + '/**/tipi.*.js'
+    //     ], function() {
+    //         gulp.start('javascripts');
+    //     }
+    // );
+
+    // plugins.watch([
+    //         SRC + '/**/*.twig',
+    //         PACKAGES + '/*tipi*/*.twig',
+    //     ], function() {
+    //         gulp.start('pages');
+    //     }
+    // );
+});
+
+gulp.task('serve', function( callback ) {
+    runSequence(
+        'clean',
+        [
+            'sync',
+            'styles',
+            'scripts',
+            'pages'
+        ],
+        'connect',
+        'watch',
+        callback
+    );
+});
+
+gulp.task('default', function( callback ) {
+    runSequence(
+        'clean',
+        [
+            'sync',
+            'styles',
+            'scripts',
+            'pages'
+        ],
+        callback
+    );
 });
