@@ -1,0 +1,49 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <title>Totem{{ page.title ? ' - ' ~ page.title : '' }}</title>
+
+        <meta name="description" content="" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="toolbarthomas" />
+
+        <!-- Microsoft Windows Application Settings -->
+        <meta name="application-name" content=""/>
+        <meta name="msapplication-TileColor" content="#000000"/>
+        <meta name="theme-color" content="#000000" />
+
+        <!-- Respsonsive Meta Tags -->
+        <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0" />
+
+        <!-- Web Application Icon -->
+        <link rel="icon" type="image/png" href="/assets/img/layout/appicon.png">
+
+        <!-- Apple Touch Icon -->
+        <link rel="apple-touch-icon" href="/assets/img/layout/apple-touch-icon.png">
+        <link rel="mask-icon" href="/assets/img/layout/appicon.svg" color="#000000">
+
+        <link rel="stylesheet" href="/assets/css/totem.css" type="text/css">
+        <link rel="stylesheet" href="/assets/css/totem.sprite.css" type="text/css">
+    </head>
+    <body>
+        <div class="sticky-end">
+            <div class="sticky-end-body">
+                {% block header %}
+                    {% include 'partials/header.twig' %}
+                {% endblock %}
+
+                {% block content %}
+                    No content defined.
+                {% endblock %}
+            </div>
+            <div class="sticky-end-footer">
+                {% block footer %}
+                    {% include 'partials/footer.twig' %}
+                {% endblock %}
+            </div>
+        </div>
+    </body>
+</html>
