@@ -1,0 +1,7 @@
+@include breakpoint(
+    $min-width: viewport(highroller, min-width)
+) {
+    .trump-smartphone {
+        color: green;
+    }
+}

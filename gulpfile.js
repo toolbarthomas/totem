@@ -29,7 +29,7 @@ function sync()
         '!**/templates/**'
     ], { nodir: true })
     .pipe(plugins.changed(DEST))
-    .pipe(gulp.dest(DEST));
+    .pipe(gulp.dest(DEST + '/assets'));
 
     return sync;
 }
@@ -53,6 +53,9 @@ function sass()
 function cssnano()
 {
     var cssnano = gulp.src(DEST + '/assets/css/*.css')
+    .pipe(plugins.combineMq({
+        beautify: false
+    }))
     .pipe(plugins.cssnano())
     .pipe(plugins.rename({suffix: '.min'}))
     .pipe(gulp.dest(DEST + '/assets/css/'));

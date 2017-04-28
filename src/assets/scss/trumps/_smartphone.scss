@@ -1,0 +1,15 @@
+@include breakpoint(
+    $min-width: viewport(smartphone, min-width)
+) {
+    .trump-smartphone {
+        color: green;
+    }
+}
+
+@include breakpoint(
+    $min-width: viewport(tablet, min-width)
+) {
+    .trump-kaka {
+        color: yellow;
+    }
+}

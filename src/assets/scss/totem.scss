@@ -26,4 +26,11 @@
 
 /// Trumps
 @import '../../../bower_components/totem.trump.*/*';
-@import 'trumps/**/*';
+
+@import 'trumps/smartphone';
+@import 'trumps/phablet';
+@import 'trumps/tablet';
+@import 'trumps/tablet-landscape';
+@import 'trumps/desktop';
+@import 'trumps/widescreen';
+@import 'trumps/highroller';
