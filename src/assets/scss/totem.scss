@@ -1,6 +1,29 @@
-@import 'settings/__totem.settings';
-@import 'tools/__totem.tools';
-@import 'generic/__totem.generic';
-@import 'base/__totem.base';
-@import 'base/__totem.objects';
-@import 'base/__totem.components';
+@charset "UTF-8";
+
+/// Settings
+@import '../../../bower_components/totem.settings.*/*';
+@import 'settings/**/*';
+
+/// Tools
+@import '../../../bower_components/totem.tools.*/*';
+@import 'tools/**/*';
+
+/// Generic
+@import '../../../bower_components/totem.generic.*/*';
+@import 'generic/**/*';
+
+/// Base
+@import '../../../bower_components/totem.base.*/*';
+@import 'base/**/*';
+
+/// Objects
+@import '../../../bower_components/totem.object.*/*';
+@import 'objects/**/*';
+
+/// Components
+@import '../../../bower_components/totem.component.*/*';
+@import 'components/**/*';
+
+/// Trumps
+@import '../../../bower_components/totem.trump.*/*';
+@import 'trumps/**/*';

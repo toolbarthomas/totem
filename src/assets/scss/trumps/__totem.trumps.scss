@@ -1,5 +1,0 @@
-/// Use trumps from external sources  (i.e. Bower Components)
-@import #{$totem-package-path} + '/**/*totem.trump.*';
-
-/// Use generic styles from current project
-@import '**/*';

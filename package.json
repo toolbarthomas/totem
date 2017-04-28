@@ -24,5 +24,21 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/toolbarthomas/totem/issues"
+  },
+  "devDependencies": {
+    "del": "^2.2.2",
+    "gulp": "^3.9.1",
+    "gulp-connect": "^5.0.0",
+    "gulp-load-plugins": "^1.5.0",
+    "gulp-plumber": "^1.1.0",
+    "gulp-sass": "^3.1.0",
+    "gulp-sass-glob": "^1.0.8",
+    "gulp-sourcemaps": "^2.4.1",
+    "gulp-watch": "^4.3.11",
+    "gulp.spritesmith": "^6.3.0",
+    "merge-stream": "^1.0.1",
+    "path": "^0.12.7",
+    "run-sequence": "^1.2.2",
+    "vinyl-buffer": "^1.0.0"
   }
 }
