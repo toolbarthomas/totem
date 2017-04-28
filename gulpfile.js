@@ -11,6 +11,10 @@ var runSequence = require('run-sequence');
 const SRC = './src';
 const DEST = './dist';
 const PACKAGES = './modules';
+function clean()
+{
+    return del([DEST]);
+}
 
 function sass()
 {
