@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/// Define 'trump' styles specific for widescreen sized devices here.
+/// Define 'trump' styles specific for widescreen and smaller sized devices here.
 /// @param { String } $min-width
 ///     min-width for this viewport can be defined in settings/viewports
 ///
@@ -8,7 +8,6 @@
 ///     max-width for this viewport can be defined in settings/viewports
 
 @include breakpoint(
-    $min-width: viewport(widescreen, min-width),
     $max-width: viewport(widescreen, max-width)
 ) {
 

@@ -1,7 +1,11 @@
+@charset "UTF-8";
+
+/// Define 'trump' styles specific for tablet ( landscape orientated ) sized devices here.
+///
+
 @include breakpoint(
-    $min-width: viewport(tablet-landscape, min-width)
+    $min-width: viewport(tablet-landscape, min-width),
+    $max-width: viewport(tablet-landscape, max-width)
 ) {
-    .trump-smartphone {
-        color: green;
-    }
+
 }

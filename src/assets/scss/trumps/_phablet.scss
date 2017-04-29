@@ -1,7 +1,16 @@
+@charset "UTF-8";
+
+/// Define 'trump' styles specific for phablet here
+///
+/// @param { String } $min-width
+///     min-width for this viewport can be defined in settings/viewports
+///
+/// @param { String } $max-width
+///     max-width for this viewport can be defined in settings/viewports
+
 @include breakpoint(
-    $min-width: viewport(phablet, min-width)
+    $min-width: viewport(phablet, min-width),
+    $max-width: viewport(phablet, max-width)
 ) {
-    .trump-smartphone {
-        color: green;
-    }
+
 }

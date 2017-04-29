@@ -1,15 +1,16 @@
-@include breakpoint(
-    $min-width: viewport(smartphone, min-width)
-) {
-    .trump-smartphone {
-        color: green;
-    }
-}
+@charset "UTF-8";
+
+/// Define 'trump' styles specific for smartphone sized devices here
+///
+/// @param { String } $min-width
+///     min-width for this viewport can be defined in settings/viewports
+///
+/// @param { String } $max-width
+///     max-width for this viewport can be defined in settings/viewports
 
 @include breakpoint(
-    $min-width: viewport(tablet, min-width)
+    $min-width: viewport(smartphone, min-width),
+    $max-width: viewport(smartphone, max-width)
 ) {
-    .trump-kaka {
-        color: yellow;
-    }
+
 }
