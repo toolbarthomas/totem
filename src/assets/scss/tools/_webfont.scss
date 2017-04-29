@@ -1,0 +1,80 @@
+@charset "UTF-8";
+
+/// Output @font-face declaration in woff, woff2 and ttf.
+///
+/// @param {Font Family} $font-family
+///     The unique name to load our custom font family
+///
+/// @param {List (String)} $local
+///     Use a local copy of the font family.
+///
+/// @param {String} $src
+///     Combination of its path & filename without extension
+///
+/// @param {String} $font-weight
+///     The font weight value we want to define our webfont
+///
+/// @param {String} $font-style
+///     The font style value we want to define our webfont
+///
+/// @param {Boolean} $woff2
+///     Define the source with the woff2 extension
+///
+/// @param {Boolean} $woff
+///     Define the source with the woff extension
+///
+/// @param {Boolean} $ttf
+///     Define the source with the ttf extension
+
+@mixin webfont(
+    $font-family: false,
+    $local: false,
+    $src: false,
+    $font-weight: normal,
+    $font-style: normal,
+    $woff2: true,
+    $woff: true,
+    $ttf: true
+) {
+    @if $font-family != false and $src != false {
+        $src_output: null;
+
+        @if type-of($local) == 'string'
+        {
+            $local: ($local,);
+        }
+
+        @if type-of($local) == 'list'
+        {
+            @each $item in $local
+            {
+                $src_output: append($src_output, local($item), comma);
+            }
+        }
+
+        @if $woff2 == true
+        {
+            $src_output: append($src_output, url(quote($src + '.woff2')) format('woff2'), comma);
+        }
+
+        @if $woff == true
+        {
+            $src_output: append($src_output, url(quote($src + '.woff')) format('woff'), comma);
+        }
+
+        @if $ttf == true
+        {
+            $src_output: append($src_output, url(quote($src + '.ttf')) format('truetype'), comma);
+        }
+
+        @if $src_output != null
+        {
+            @font-face {
+                font-family: $font-family;
+                src: $src_output;
+                font-weight: $font-weight;
+                font-style: $font-style;
+            }
+        }
+    }
+}
