@@ -15,7 +15,7 @@
 
 @function viewport(
     $breakpoint,
-    $property: 'min-width'
+    $property: min-width
 ) {
     @return map-get(map-get($breakpoints, $breakpoint), $property);
 }

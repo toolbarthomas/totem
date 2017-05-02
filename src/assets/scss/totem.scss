@@ -1,27 +1,33 @@
 @charset "UTF-8";
 
 /// Settings - Store variables ( global and/or default ) here.
-@import '../../../bower_components/totem.settings.*/*';
+@import '../../../bower_components/totem.core.*/scss/settings/*';
+@import '../../../bower_components/totem.module.*/scss/settings/*';
 @import 'settings/**/*';
 
 /// Tools - Mixins & functions are defined here ( include the needed dependencies when using additional compatible libraries )
-@import '../../../bower_components/totem.tools.*/*';
+@import '../../../bower_components/totem.core.*/scss/tools/*';
+@import '../../../bower_components/totem.module.*/scss/tools/*';
 @import 'tools/**/*';
 
 /// Generic - Default styles are defined here.
-@import '../../../bower_components/totem.generic.*/*';
+@import '../../../bower_components/totem.core.*/scss/generic/*';
+@import '../../../bower_components/totem.module.*/scss/generic/*';
 @import 'generic/**/*';
 
-/// Elements - Typography & global styling for common elements are defined here.
-@import '../../../bower_components/totem.element.*/*';
-@import 'elements/**/*';
+/// Base - Typography & global styling for common elements are defined here.
+@import '../../../bower_components/totem.core.*/scss/base/*';
+@import '../../../bower_components/totem.module.*/scss/base/*';
+@import 'base/**/*';
 
 /// Objects - Layout & placement styles, core wrappers are defined here.
-@import '../../../bower_components/totem.object.*/*';
+@import '../../../bower_components/totem.core.*/scss/objects/*';
+@import '../../../bower_components/totem.module.*/scss/objects/*';
 @import 'objects/**/*';
 
 /// Components - Modular blocks that could be nested within other components are defined here.
-@import '../../../bower_components/totem.component.*/*';
+@import '../../../bower_components/totem.core.*/scss/components/*';
+@import '../../../bower_components/totem.module.*/scss/components/*';
 @import 'components/**/*';
 
 /// Trumps - Define devices ( specific ) overrides here
