@@ -12,9 +12,9 @@
 @import '../../../bower_components/totem.generic.*/*';
 @import 'generic/**/*';
 
-/// Base - Typography & global styling for common elements are defined here.
-@import '../../../bower_components/totem.base.*/*';
-@import 'base/**/*';
+/// Elements - Typography & global styling for common elements are defined here.
+@import '../../../bower_components/totem.element.*/*';
+@import 'elements/**/*';
 
 /// Objects - Layout & placement styles, core wrappers are defined here.
 @import '../../../bower_components/totem.object.*/*';
