@@ -1,0 +1,3 @@
+[submodule "submodules/totem.core.typography"]
+	path = submodules/totem.core.typography
+	url = https://toolbarthomas@github.com/toolbarthomas/totem.core.typography.git
