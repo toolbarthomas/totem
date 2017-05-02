@@ -10,31 +10,31 @@ $highroller-breakpoint:         1500px !default;
 
 $breakpoints: (
     'smartphone' : (
-        min-width : $smartphone-breakpoint,
-        max-width : ( $phablet-breakpoint - 1 )
+        'min-width' : $smartphone-breakpoint,
+        'max-width' : ( $phablet-breakpoint - 1 )
     ),
     'phablet' : (
-        min-width : $phablet-breakpoint,
-        max-width : ( $tablet-breakpoint - 1 )
+        'min-width' : $phablet-breakpoint,
+        'max-width' : ( $tablet-breakpoint - 1 )
     ),
     'tablet' : (
-        min-width : $tablet-breakpoint,
-        max-width : ( $tablet-landscape-breakpoint - 1 )
+        'min-width' : $tablet-breakpoint,
+        'max-width' : ( $tablet-landscape-breakpoint - 1 )
     ),
     'tablet-landscape' : (
-        min-width : $tablet-landscape-breakpoint,
-        max-width : ( $desktop-breakpoint - 1 )
+        'min-width' : $tablet-landscape-breakpoint,
+        'max-width' : ( $desktop-breakpoint - 1 )
     ),
     'desktop' : (
-        min-width : $desktop-breakpoint,
-        max-width : ( $widescreen-breakpoint - 1 )
+        'min-width' : $desktop-breakpoint,
+        'max-width' : ( $widescreen-breakpoint - 1 )
     ),
     'widescreen' : (
-        min-width : $widescreen-breakpoint,
-        max-width : ( $highroller-breakpoint - 1 )
+        'min-width' : $widescreen-breakpoint,
+        'max-width' : ( $highroller-breakpoint - 1 )
     ),
     'highroller' : (
-        min-width : $highroller-breakpoint,
-        max-width : false
+        'min-width' : $highroller-breakpoint,
+        'max-width' : false
     )
 ) !default;
