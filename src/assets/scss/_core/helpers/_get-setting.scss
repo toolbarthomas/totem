@@ -1,13 +1,15 @@
+@charset "UTF-8";
+
 /// Helper function to get a setting
 ///
-/// @param { Arglist } $args
+/// @param { Map } $map
 ///     Defined arguments we wan't to use .
 ///
-/// @param { String } $property
-///     The property to return ( specified per type )
+/// @param { String } $key
+///     Submap within the map we wan't to get the value from.
 ///
-/// @example css
-///   font: font('default', 'font-weight'); //Returns the default font-weight for the document.
+/// @param { String } $value
+///     The value to return from the specified $key
 ///
 /// @return { Value }
 
