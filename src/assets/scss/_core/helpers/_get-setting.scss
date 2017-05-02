@@ -1,0 +1,20 @@
+/// Helper function to get a setting
+///
+/// @param { Arglist } $args
+///     Defined arguments we wan't to use .
+///
+/// @param { String } $property
+///     The property to return ( specified per type )
+///
+/// @example css
+///   font: font('default', 'font-weight'); //Returns the default font-weight for the document.
+///
+/// @return { Value }
+
+@function get-setting(
+    $map,
+    $key,
+    $value
+) {
+    @return map-get(map-get($map, $key), $value);
+}
