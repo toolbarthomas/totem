@@ -52,3 +52,26 @@ $colors: (
         'dark': #161616
     )
 ) !default;
+
+
+
+/// Alias shorthand to get color value.
+///
+/// @param { String } $color
+///     Get the property from a specific viewport.
+///
+/// @param { String } $value
+///     The value to return from the specified $viewport
+///
+/// @return { Value }
+
+@function color(
+    $color: false,
+    $value: false
+)
+{
+    @if ($color != false) and ($value != false)
+    {
+        @return get-setting($colors, $color, $value);
+    }
+}
