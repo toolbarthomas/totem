@@ -4,8 +4,8 @@
 ///
 
 @include breakpoint(
-    $min-width: viewport(tablet-landscape, min-width),
-    $max-width: viewport(tablet-landscape, max-width)
+    $min-width: viewport('tablet-landscape', 'min-width'),
+    $max-width: viewport('tablet-landscape', 'max-width')
 ) {
 
 }

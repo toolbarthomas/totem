@@ -9,8 +9,8 @@
 ///     max-width for this viewport can be defined in settings/viewports
 
 @include breakpoint(
-    $min-width: viewport(highroller, min-width),
-    $max-width: viewport(highroller, max-width)
+    $min-width: viewport('highroller', 'min-width'),
+    $max-width: viewport('highroller', 'max-width')
 ) {
 
 }

@@ -9,8 +9,8 @@
 ///     max-width for this viewport can be defined in settings/viewports
 
 @include breakpoint(
-    $min-width: viewport(phablet, min-width),
-    $max-width: viewport(phablet, max-width)
+    $min-width: viewport('phablet', 'min-width'),
+    $max-width: viewport('phablet', 'max-width')
 ) {
 
 }

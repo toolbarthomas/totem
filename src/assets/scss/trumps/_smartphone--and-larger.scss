@@ -9,6 +9,9 @@
 ///     max-width for this viewport can be defined in settings/viewports
 
 @include breakpoint(
-    $min-width: viewport(smartphone, min-width)
+    $min-width: viewport('smartphone', 'min-width')
 ) {
+    .foo {
+        display: none;
+    }
 }

@@ -9,7 +9,7 @@
 ///     max-width for this viewport can be defined in settings/viewports
 
 @include breakpoint(
-    $min-width: viewport(tablet-landscape, min-width)
+    $min-width: viewport('tablet-landscape', 'min-width')
 ) {
 
 }

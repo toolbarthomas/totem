@@ -8,7 +8,7 @@
 ///     max-width for this viewport can be defined in settings/viewports
 
 @include breakpoint(
-    $max-width: viewport(widescreen, max-width)
+    $max-width: viewport('widescreen', 'max-width')
 ) {
 
 }
