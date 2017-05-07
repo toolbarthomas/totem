@@ -279,45 +279,45 @@ gulp.task('minify', function( callback ) {
 
 gulp.task('watch', function() {
     plugins.watch([
-            SRC + '/assets/**/*'
+            SRC + '/assets/**'
         ], function() {
             gulp.start('sync');
         }
     );
 
     plugins.watch([
-            SRC + '/assets/**/*.scss',
-            PACKAGES + '/**/*.scss',
+            SRC + '/assets/**.scss',
+            PACKAGES + '/**.scss',
         ], function() {
             gulp.start('styles');
         }
     );
 
     plugins.watch([
-            SRC + '/assets/img/layout/svg-sprite/**/*.svg',
+            SRC + '/assets/img/layout/svg-sprite/**.svg',
         ], function() {
             gulp.start('svgstore');
         }
     );
 
     plugins.watch([
-            SRC + '/assets/img/layout/sprite/**/*.png',
+            SRC + '/assets/img/layout/sprite/**.png',
         ], function() {
             gulp.start('spritesmith');
         }
     );
 
     plugins.watch([
-            SRC + '/assets/**/*.js',
-            PACKAGES + '/**/tipi.*.js'
+            SRC + '/assets/**.js',
+            PACKAGES + '/*totem*/**.js'
         ], function() {
             gulp.start('javascripts');
         }
     );
 
     plugins.watch([
-            SRC + '/**/*.twig',
-            PACKAGES + '/*tipi*/*.twig',
+            SRC + '/**.twig',
+            PACKAGES + '/*totem*/**.twig'
         ], function() {
             gulp.start('pages');
         }
