@@ -9,7 +9,7 @@ var runSequence = require('run-sequence');
 
 const SRC = './src';
 const DEST = './dist';
-const PACKAGES = './bower_components';
+const PACKAGES = './submodules';
 
 function clean()
 {
@@ -278,50 +278,50 @@ gulp.task('minify', function( callback ) {
 });
 
 gulp.task('watch', function() {
-    // plugins.watch([
-    //         SRC + '/assets/**/*',
-    //     ], function() {
-    //         gulp.start('copy');
-    //     }
-    // );
+    plugins.watch([
+            SRC + '/assets/**/*'
+        ], function() {
+            gulp.start('sync');
+        }
+    );
 
-    // plugins.watch([
-    //         SRC + '/assets/**/*.scss',
-    //         PACKAGES + '/**/*.scss',
-    //     ], function() {
-    //         gulp.start('styles');
-    //     }
-    // );
+    plugins.watch([
+            SRC + '/assets/**/*.scss',
+            PACKAGES + '/**/*.scss',
+        ], function() {
+            gulp.start('styles');
+        }
+    );
 
-    // plugins.watch([
-    //         SRC + '/assets/img/layout/svg-sprite/**/*.svg',
-    //     ], function() {
-    //         gulp.start('svgstore');
-    //     }
-    // );
+    plugins.watch([
+            SRC + '/assets/img/layout/svg-sprite/**/*.svg',
+        ], function() {
+            gulp.start('svgstore');
+        }
+    );
 
-    // plugins.watch([
-    //         SRC + '/assets/img/layout/sprite/**/*.png',
-    //     ], function() {
-    //         gulp.start('spritesmith');
-    //     }
-    // );
+    plugins.watch([
+            SRC + '/assets/img/layout/sprite/**/*.png',
+        ], function() {
+            gulp.start('spritesmith');
+        }
+    );
 
-    // plugins.watch([
-    //         SRC + '/assets/**/*.js',
-    //         PACKAGES + '/**/tipi.*.js'
-    //     ], function() {
-    //         gulp.start('javascripts');
-    //     }
-    // );
+    plugins.watch([
+            SRC + '/assets/**/*.js',
+            PACKAGES + '/**/tipi.*.js'
+        ], function() {
+            gulp.start('javascripts');
+        }
+    );
 
-    // plugins.watch([
-    //         SRC + '/**/*.twig',
-    //         PACKAGES + '/*tipi*/*.twig',
-    //     ], function() {
-    //         gulp.start('pages');
-    //     }
-    // );
+    plugins.watch([
+            SRC + '/**/*.twig',
+            PACKAGES + '/*tipi*/*.twig',
+        ], function() {
+            gulp.start('pages');
+        }
+    );
 });
 
 gulp.task('default', function( callback ) {

@@ -1,53 +1,57 @@
 @charset "UTF-8";
 
+/// Helpers - Additional functions we miss in standard Sass.
+/// Dependency helpers should be included within the main file of the dependency
+@import 'helpers/**/*';
+
 /// Settings - Store variables ( global and/or default ) here.
-@import '../../../bower_components/totem.core.*/scss/settings/*';
-@import '../../../bower_components/totem.module.*/scss/settings/*';
+@import '../../../submodules/totem.core.*/scss/settings/**/*';
+@import '../../../submodules/totem.module.*/scss/settings/**/*';
 @import 'settings/**/*';
 
 /// Tools - Mixins & functions are defined here ( include the needed dependencies when using additional compatible libraries )
-@import '../../../bower_components/totem.core.*/scss/tools/*';
-@import '../../../bower_components/totem.module.*/scss/tools/*';
+@import '../../../submodules/totem.core.*/scss/tools/**/*';
+@import '../../../submodules/totem.module.*/scss/tools/**/*';
 @import 'tools/**/*';
 
 /// Generic - Default styles are defined here.
-@import '../../../bower_components/totem.core.*/scss/generic/*';
-@import '../../../bower_components/totem.module.*/scss/generic/*';
+@import '../../../submodules/totem.core.*/scss/generic/**/*';
+@import '../../../submodules/totem.module.*/scss/generic/**/*';
 @import 'generic/**/*';
 
 /// Base - Typography & global styling for common elements are defined here.
-@import '../../../bower_components/totem.core.*/scss/base/*';
-@import '../../../bower_components/totem.module.*/scss/base/*';
+@import '../../../submodules/totem.core.*/scss/base/**/*';
+@import '../../../submodules/totem.module.*/scss/base/**/*';
 @import 'base/**/*';
 
 /// Objects - Layout & placement styles, core wrappers are defined here.
-@import '../../../bower_components/totem.core.*/scss/objects/*';
-@import '../../../bower_components/totem.module.*/scss/objects/*';
+@import '../../../submodules/totem.core.*/scss/objects/**/*';
+@import '../../../submodules/totem.module.*/scss/objects/**/*';
 @import 'objects/**/*';
 
 /// Components - Modular blocks that could be nested within other components are defined here.
-@import '../../../bower_components/totem.core.*/scss/components/*';
-@import '../../../bower_components/totem.module.*/scss/components/*';
+@import '../../../submodules/totem.core.*/scss/components/**/*';
+@import '../../../submodules/totem.module.*/scss/components/**/*';
 @import 'components/**/*';
 
 /// Trumps - Define devices ( specific ) overrides here
-@import '../../../bower_components/totem.trump.*/*';
-@import 'trumps/smartphone',
-        'trumps/smartphone--and-larger',
-        'trumps/phablet--and-smaller',
-        'trumps/phablet',
-        'trumps/phablet--and-larger',
-        'trumps/tablet--and-smaller',
-        'trumps/tablet',
-        'trumps/tablet--and-larger',
-        'trumps/tablet_landscape--and-smaller',
-        'trumps/tablet_landscape',
-        'trumps/tablet_landscape--and-larger',
-        'trumps/desktop--and-smaller',
-        'trumps/desktop',
-        'trumps/desktop--and-larger',
-        'trumps/widescreen--and-smaller',
-        'trumps/widescreen',
-        'trumps/widescreen--and-larger',
-        'trumps/highroller--and-smaller',
-        'trumps/highroller';
+@import '../../../submodules/totem.trump.*/**/*';
+@import 'trumps/smartphone';
+@import 'trumps/smartphone--and-larger';
+@import 'trumps/phablet--and-smaller';
+@import 'trumps/phablet';
+@import 'trumps/phablet--and-larger';
+@import 'trumps/tablet--and-smaller';
+@import 'trumps/tablet';
+@import 'trumps/tablet--and-larger';
+@import 'trumps/tablet_landscape--and-smaller';
+@import 'trumps/tablet_landscape';
+@import 'trumps/tablet_landscape--and-larger';
+@import 'trumps/desktop--and-smaller';
+@import 'trumps/desktop';
+@import 'trumps/desktop--and-larger';
+@import 'trumps/widescreen--and-smaller';
+@import 'trumps/widescreen';
+@import 'trumps/widescreen--and-larger';
+@import 'trumps/highroller--and-smaller';
+@import 'trumps/highroller';
