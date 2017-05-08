@@ -1,3 +1,9 @@
 [submodule "submodules/totem.core.typography"]
 	path = submodules/totem.core.typography
 	url = https://toolbarthomas@github.com/toolbarthomas/totem.core.typography.git
+[submodule "submodules/totem.core.defaults"]
+	path = submodules/totem.core.defaults
+	url = https://toolbarthomas@github.com/toolbarthomas/totem.core.defaults.git
+[submodule "submodules/totem.core.css-helpers"]
+	path = submodules/totem.core.css-helpers
+	url = https://toolbarthomas@github.com/toolbarthomas/totem.core.css-helpers.git
