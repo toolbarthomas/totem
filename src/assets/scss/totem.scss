@@ -2,56 +2,65 @@
 
 /// Helpers - Additional functions we miss in standard Sass.
 /// Dependency helpers should be included within the main file of the dependency
-@import 'helpers/**/*';
+@import '../../../submodules/totem.core.*/scss/helpers/**';
+@import '../../../submodules/totem.module.*/scss/helpers/**';
+@import 'helpers/**';
 
 /// Settings - Store variables ( global and/or default ) here.
-@import '../../../submodules/totem.core.*/scss/settings/**/*';
-@import '../../../submodules/totem.module.*/scss/settings/**/*';
-@import 'settings/**/*';
+@import '../../../submodules/totem.core.*/scss/settings/**';
+@import '../../../submodules/totem.module.*/scss/settings/**';
+@import 'base/settings/**';
+@import 'modules/settings/**';
 
 /// Tools - Mixins & functions are defined here ( include the needed dependencies when using additional compatible libraries )
-@import '../../../submodules/totem.core.*/scss/tools/**/*';
-@import '../../../submodules/totem.module.*/scss/tools/**/*';
-@import 'tools/**/*';
+@import '../../../submodules/totem.core.*/scss/tools/**';
+@import '../../../submodules/totem.module.*/scss/tools/**';
+@import 'base/tools/**';
+@import 'modules/**/tools/**';
 
 /// Generic - Default styles are defined here.
-@import '../../../submodules/totem.core.*/scss/generic/**/*';
-@import '../../../submodules/totem.module.*/scss/generic/**/*';
-@import 'generic/**/*';
+@import '../../../submodules/totem.core.*/scss/generic/**';
+@import '../../../submodules/totem.module.*/scss/generic/**';
+@import 'base/generic/**';
+@import 'modules/**/generic/**';
 
-/// Base - Typography & global styling for common elements are defined here.
-@import '../../../submodules/totem.core.*/scss/base/**/*';
-@import '../../../submodules/totem.module.*/scss/base/**/*';
-@import 'base/**/*';
+/// Elements - Typography & global styling for common elements are defined here.
+@import '../../../submodules/totem.core.*/scss/base/**';
+@import '../../../submodules/totem.module.*/scss/base/**';
+@import 'base/elements/**';
+@import 'modules/**/objects/**';
 
 /// Objects - Layout & placement styles, core wrappers are defined here.
-@import '../../../submodules/totem.core.*/scss/objects/**/*';
-@import '../../../submodules/totem.module.*/scss/objects/**/*';
-@import 'objects/**/*';
+@import '../../../submodules/totem.core.*/scss/objects/**';
+@import '../../../submodules/totem.module.*/scss/objects/**';
+@import 'base/objects/**';
+@import 'modules/**/objects/**';
 
 /// Components - Modular blocks that could be nested within other components are defined here.
-@import '../../../submodules/totem.core.*/scss/components/**/*';
-@import '../../../submodules/totem.module.*/scss/components/**/*';
-@import 'components/**/*';
+@import '../../../submodules/totem.core.*/scss/components/**';
+@import '../../../submodules/totem.module.*/scss/components/**';
+@import 'base/components/**';
+@import 'modules/**/components/**';
+
 
 /// Trumps - Define devices ( specific ) overrides here
-@import '../../../submodules/totem.trump.*/**/*';
-@import 'trumps/smartphone';
-@import 'trumps/smartphone--and-larger';
-@import 'trumps/phablet--and-smaller';
-@import 'trumps/phablet';
-@import 'trumps/phablet--and-larger';
-@import 'trumps/tablet--and-smaller';
-@import 'trumps/tablet';
-@import 'trumps/tablet--and-larger';
-@import 'trumps/tablet_landscape--and-smaller';
-@import 'trumps/tablet_landscape';
-@import 'trumps/tablet_landscape--and-larger';
-@import 'trumps/desktop--and-smaller';
-@import 'trumps/desktop';
-@import 'trumps/desktop--and-larger';
-@import 'trumps/widescreen--and-smaller';
-@import 'trumps/widescreen';
-@import 'trumps/widescreen--and-larger';
-@import 'trumps/highroller--and-smaller';
-@import 'trumps/highroller';
+@import '../../../submodules/totem.trump.*/**';
+@import 'base/trumps/smartphone';
+@import 'base/trumps/smartphone--and-larger';
+@import 'base/trumps/phablet--and-smaller';
+@import 'base/trumps/phablet';
+@import 'base/trumps/phablet--and-larger';
+@import 'base/trumps/tablet--and-smaller';
+@import 'base/trumps/tablet';
+@import 'base/trumps/tablet--and-larger';
+@import 'base/trumps/tablet_landscape--and-smaller';
+@import 'base/trumps/tablet_landscape';
+@import 'base/trumps/tablet_landscape--and-larger';
+@import 'base/trumps/desktop--and-smaller';
+@import 'base/trumps/desktop';
+@import 'base/trumps/desktop--and-larger';
+@import 'base/trumps/widescreen--and-smaller';
+@import 'base/trumps/widescreen';
+@import 'base/trumps/widescreen--and-larger';
+@import 'base/trumps/highroller--and-smaller';
+@import 'base/trumps/highroller';
