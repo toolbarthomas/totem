@@ -7,3 +7,6 @@
 [submodule "submodules/totem.core.css-helpers"]
 	path = submodules/totem.core.css-helpers
 	url = https://toolbarthomas@github.com/toolbarthomas/totem.core.css-helpers.git
+[submodule "submodules/totem.module.grid"]
+	path = submodules/totem.module.grid
+	url = https://toolbarthomas@github.com/toolbarthomas/totem.module.grid.git
