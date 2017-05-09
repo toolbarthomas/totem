@@ -1,10 +1,10 @@
 @charset "UTF-8";
 
-/// Helpers - Additional functions we miss in standard Sass.
-/// Dependency helpers should be included within the main file of the dependency
+/// Helpers - Additional functions that should be only used within tool definitions.
 @import '../../../submodules/totem.core.*/scss/helpers/**';
 @import '../../../submodules/totem.module.*/scss/helpers/**';
-@import 'helpers/**';
+@import 'base/helpers/**';
+@import 'modules/helpers/**';
 
 /// Settings - Store variables ( global and/or default ) here.
 @import '../../../submodules/totem.core.*/scss/settings/**';
@@ -25,8 +25,8 @@
 @import 'modules/**/generic/**';
 
 /// Elements - Typography & global styling for common elements are defined here.
-@import '../../../submodules/totem.core.*/scss/base/**';
-@import '../../../submodules/totem.module.*/scss/base/**';
+@import '../../../submodules/totem.core.*/scss/elements/**';
+@import '../../../submodules/totem.module.*/scss/elements/**';
 @import 'base/elements/**';
 @import 'modules/**/objects/**';
 
