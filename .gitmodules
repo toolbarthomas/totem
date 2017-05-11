@@ -10,6 +10,6 @@
 [submodule "submodules/totem.module.grid"]
 	path = submodules/totem.module.grid
 	url = https://toolbarthomas@github.com/toolbarthomas/totem.module.grid.git
-[submodule "submodules/totem.core.utilities"]
-	path = submodules/totem.core.utilities
-	url = https://toolbarthomas@github.com/toolbarthomas/totem.core.utilities.git
+[submodule "submodules/totem.utilities"]
+	path = submodules/totem.utilities
+	url = https://toolbarthomas@github.com/toolbarthomas/totem.utilities.git
