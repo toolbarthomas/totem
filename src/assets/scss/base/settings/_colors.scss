@@ -60,18 +60,18 @@ $colors: (
 /// @param { String } $color
 ///     Get the property from a specific viewport.
 ///
-/// @param { String } $value
-///     The value to return from the specified $viewport
+/// @param { String } $tint
+///     The tint to return from the specified $viewport
 ///
 /// @return { Value }
 
 @function color(
     $color: false,
-    $value: false
+    $tint: false
 )
 {
-    @if ($color != false) and ($value != false)
+    @if ($color != false) and ($tint != false)
     {
-        @return get-setting($colors, $color, $value);
+        @return get-setting($colors, $color, $tint);
     }
 }
