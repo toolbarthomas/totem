@@ -22,5 +22,10 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "totem.core.css-helpers": "^1.0.0",
+    "totem.core.defaults": "^1.0.0",
+    "totem.core.utilities": "^1.0.0"
+  }
 }
