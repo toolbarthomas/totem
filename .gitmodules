@@ -13,3 +13,6 @@
 [submodule "submodules/totem.utilities"]
 	path = submodules/totem.utilities
 	url = https://toolbarthomas@github.com/toolbarthomas/totem.utilities.git
+[submodule "submodules/totem.module.wrapper"]
+	path = submodules/totem.module.wrapper
+	url = https://toolbarthomas@github.com/toolbarthomas/totem.module.wrapper.git
