@@ -12,5 +12,5 @@
     $min-width: viewport('smartphone', 'min-width'),
     $max-width: viewport('smartphone', 'max-width')
 ) {
-
+    @include show(smartphone);
 }

@@ -1,0 +1,4 @@
+function setFoo()
+{
+    return 'foo';
+}
