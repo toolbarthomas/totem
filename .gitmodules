@@ -16,3 +16,6 @@
 [submodule "submodules/totem.module.wrapper"]
 	path = submodules/totem.module.wrapper
 	url = https://toolbarthomas@github.com/toolbarthomas/totem.module.wrapper.git
+[submodule "submodules/totem.module.fluid"]
+	path = submodules/totem.module.fluid
+	url = https://toolbarthomas@github.com/toolbarthomas/totem.module.fluid.git
