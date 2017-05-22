@@ -19,3 +19,6 @@
 [submodule "submodules/totem.module.fluid"]
 	path = submodules/totem.module.fluid
 	url = https://toolbarthomas@github.com/toolbarthomas/totem.module.fluid.git
+[submodule "submodules/totem.module.combined"]
+	path = submodules/totem.module.combined
+	url = https://toolbarthomas@github.com/toolbarthomas/totem.module.combined.git
