@@ -22,3 +22,6 @@
 [submodule "submodules/totem.module.combined"]
 	path = submodules/totem.module.combined
 	url = https://toolbarthomas@github.com/toolbarthomas/totem.module.combined.git
+[submodule "submodules/totem.module.valign"]
+	path = submodules/totem.module.valign
+	url = https://toolbarthomas@github.com/toolbarthomas/totem.module.valign.git
