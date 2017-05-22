@@ -25,3 +25,6 @@
 [submodule "submodules/totem.module.valign"]
 	path = submodules/totem.module.valign
 	url = https://toolbarthomas@github.com/toolbarthomas/totem.module.valign.git
+[submodule "submodules/totem.module.sticky-end"]
+	path = submodules/totem.module.sticky-end
+	url = https://toolbarthomas@github.com/toolbarthomas/totem.module.sticky-end.git
