@@ -8,3 +8,5 @@ bower_components
 
 *.map
 *.log
+
+src/assets/scss/base/helpers/totem.sprite.scss

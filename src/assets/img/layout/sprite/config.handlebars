@@ -1,12 +1,12 @@
 .sprite {
-    display: inline-block;
-    vertical-align: middle;
-    position: relative;
-    white-space: nowrap;
-    overflow: hidden;
-    text-indent: 100%;
-    background-image: url({{ outputSprite }});
-    background-repeat: no-repeat;
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-image: url("{{ imageSource }}");
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
 }
 
 {{#sprites}}
@@ -17,3 +17,30 @@
   height: {{ divideRetina height }}px;
 }
 {{/sprites}}
+
+{{#extend "scss"}}
+  {{#content "sprites"}}
+      $sprites: (
+        name: '{{outputName}}',
+        path: '{{spritesheet.escaped_image}}',
+        width: {{divideRetina spritesheet.width}}px,
+        height: {{divideRetina spritesheet.height}}px,
+        sprites: (
+          {{#each sprites}}
+            '{{strings.name}}' : (
+              name: '{{strings.name}}',
+              x: {{divideRetina x}}px,
+              y: {{divideRetina y}}px,
+              offset_x: {{divideRetina offset_x}}px,
+              offset_y: {{divideRetina offset_y}}px,
+              width: {{divideRetina width}}px,
+              height: {{divideRetina height}}px
+            ),
+          {{/each}}
+        )
+      );
+  {{/content}}
+
+  {{#content "spritesheet"}}
+  {{/content}}
+{{/extend}}

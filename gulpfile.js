@@ -65,17 +65,21 @@ function cssnano()
 
 function spritesmith()
 {
+    var revision = new Date().getTime();
+
+    del(DEST + '/assets/img/layout/sprite.*.png');
+
     var spritesmith = gulp.src(SRC + '/assets/img/layout/sprite/**.png')
     .pipe(plugins.plumber())
     .pipe(plugins.spritesmith({
         padding: 4,
-        imgName: 'sprite.png',
-        cssName: 'totem.sprite.css',
+        imgName: 'sprite.' + revision + '.png',
+        cssName: 'totem.sprite.scss',
         cssTemplate: SRC + '/assets/img/layout/sprite/config.handlebars',
         cssHandlebarsHelpers : {
-            outputSprite : function(image)
+            imageSource : function(image)
             {
-                return '/assets/img/layout/sprite.png';
+                return '/assets/img/layout/sprite.' + revision + '.png';
             },
             divideRetina : function(value) {
                 return parseInt(value) / 2;
@@ -88,7 +92,7 @@ function spritesmith()
     .pipe(gulp.dest(DEST + '/assets/img/layout/'));
 
     var css = spritesmith.css
-    .pipe(gulp.dest(DEST + '/assets/css/'));
+    .pipe(gulp.dest(SRC + '/assets/scss/base/helpers'));
 
     return merge(img, css).pipe(plugins.connect.reload());
 }
