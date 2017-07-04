@@ -42,14 +42,16 @@ GULP.task('svgstore', getGulpTask('svgstore'));
 // Scripting tasks
 GULP.task('concat', getGulpTask('concat'));
 
-// Production tasks
-GULP.task('minify', getGulpTask('minify'));
-GULP.task('imagemin', getGulpTask('imagemin'));
+// Content tasks
+GULP.task('twig', getGulpTask('twig'));
 
 // Development tasks
 GULP.task('connect', getGulpTask('connect'));
 GULP.task('watch', getGulpTask('watch'));
 GULP.task('kss', getGulpTask('kss'));
+
+// Production tasks
+GULP.task('minify', getGulpTask('minify'));
 
 GULP.task('stylesheets', function(callback) {
     NODE_MODULES.runSequence(
