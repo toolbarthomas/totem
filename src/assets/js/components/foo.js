@@ -1,4 +1,0 @@
-function setFoo()
-{
-    return 'foo';
-}
