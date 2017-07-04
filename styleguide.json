@@ -5,7 +5,7 @@
     ],
     "destination": "./dist/demo",
     "title": "Styleguide",
-    "homepage": "./styleguide.md",
+    "homepage": "styleguide.md",
     "css": [
         "/assets/css/totem.css"
     ],
