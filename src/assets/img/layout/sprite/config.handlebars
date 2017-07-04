@@ -1,23 +1,3 @@
-.sprite {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-image: url("{{ imageSource }}");
-  overflow: hidden;
-  text-indent: 100%;
-  white-space: nowrap;
-}
-
-{{#sprites}}
-.sprite--{{name}} {
-  background-position: {{ divideRetina offset_x }}px {{ divideRetina offset_y }}px;
-  background-size: {{ divideRetina total_width }}px {{ divideRetina total_height }}px;
-  width: {{ divideRetina width }}px;
-  height: {{ divideRetina height }}px;
-}
-{{/sprites}}
-
 {{#extend "scss"}}
   {{#content "sprites"}}
       $sprites: (
@@ -44,3 +24,23 @@
   {{#content "spritesheet"}}
   {{/content}}
 {{/extend}}
+
+.sprite {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-image: url("{{ imageSource }}");
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+{{#sprites}}
+.sprite--{{name}} {
+  background-position: {{ divideRetina offset_x }}px {{ divideRetina offset_y }}px;
+  background-size: {{ divideRetina total_width }}px {{ divideRetina total_height }}px;
+  width: {{ divideRetina width }}px;
+  height: {{ divideRetina height }}px;
+}
+{{/sprites}}
