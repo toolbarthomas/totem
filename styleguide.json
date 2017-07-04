@@ -1,0 +1,11 @@
+{
+    "source": "./src",
+    "destination": "./dist/demo",
+    "title": "Styleguide",
+    "homepage": "./styleguide.md",
+    "css": [
+        "/assets/css/totem.css"
+    ],
+    "js": false,
+    "verbose": false
+}
