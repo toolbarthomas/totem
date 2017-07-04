@@ -6,7 +6,6 @@ const PLUGINS = require('gulp-load-plugins')();
 
 // Define the required node modules we use for our Gulp workflow
 const NODE_MODULES = {
-    mkdirp: require('mkdirp'),
     buffer: require('vinyl-buffer'),
     del: require('del'),
     merge: require('merge-stream'),
