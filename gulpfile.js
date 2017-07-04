@@ -77,16 +77,16 @@ GULP.task('default', function (callback) {
             'stylesheets',
             'javascripts'
         ],
+        'kss',
         callback
     );
 });
 
-GULP.task('styleguide', function (callback) {
+GULP.task('serve', function (callback) {
     NODE_MODULES.runSequence(
-        'clean',
-        'stylesheets',
-        'kss',
+        'default',
         'connect',
+        'watch',
         callback
     );
 });
