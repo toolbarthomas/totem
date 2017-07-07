@@ -5,7 +5,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
             PATHS.dest + '/resources/**/stylesheets/**/*.css',
             '!**/*.min*'
         ], {
-            no_dir: true
+            nodir: true
         })
         .pipe(PLUGINS.combineMq({
             beautify: false
@@ -21,7 +21,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
             '!' + PATHS.dest + '/resources/base/javascripts/lib/**/*',
             '!**/*.min*'
         ], {
-            no_dir: true
+            nodir: true
         })
         .pipe(PLUGINS.uglify())
         .pipe(PLUGINS.rename({

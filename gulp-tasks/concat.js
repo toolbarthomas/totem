@@ -5,7 +5,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
             PATHS.src + '/resources/objects/**/javascripts/**/*.js',
             PATHS.packages + '/totem.object.*/**/javascripts/**/*.js'
         ], {
-            no_dir: true,
+            nodir: true,
             base: '.'
         })
         .pipe(PLUGINS.sourcemaps.init())
@@ -17,7 +17,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
             PATHS.src + '/resources/components/**/javascripts/**/*.js',
             PATHS.packages + '/totem.component.*/**/javascripts/**/*.js'
         ], {
-            no_dir: true,
+            nodir: true,
             base: '.'
         })
         .pipe(PLUGINS.sourcemaps.init())
