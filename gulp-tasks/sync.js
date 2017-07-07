@@ -17,6 +17,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
             './bower_components/jquery/**',
             './bower_components/svg-sprite-injector/**'
         ], {
+            nodir: true,
             base: '.'
         })
         .pipe(PLUGINS.flatten({
