@@ -48,7 +48,7 @@ GULP.task('twig', getGulpTask('twig'));
 // Development tasks
 GULP.task('connect', getGulpTask('connect'));
 GULP.task('watch', getGulpTask('watch'));
-GULP.task('kss', getGulpTask('kss'));
+GULP.task('styleguide', getGulpTask('styleguide'));
 
 // Production tasks
 GULP.task('minify', getGulpTask('minify'));
@@ -77,9 +77,9 @@ GULP.task('default', function (callback) {
         'sync',
         [
             'stylesheets',
-            'javascripts'
+            'javascripts',
+            'twig'
         ],
-        'kss',
         callback
     );
 });
