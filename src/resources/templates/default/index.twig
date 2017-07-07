@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+        <title>Default template</title>
+
+        <meta name="description" content="" />
+        <meta name="robots" content="index, follow" />
+        <meta name="author" content="" />
+
+        <!-- Microsoft Windows Application Settings -->
+        <meta name="application-name" content=""/>
+        <meta name="msapplpication-TileColor" content="#000000"/>
+        <meta name="theme-color" content="#000000" />
+
+        <!-- Respsonsive Meta Tags -->
+        <meta name="viewport" content="initial-scale=1.0, minimum-scale=1.0" />
+
+        <!-- Web Application Icon -->
+        <link rel="icon" type="image/png" href="/assets/img/layout/appicon.png">
+
+        <!-- Apple Touch Icon -->
+        <link rel="apple-touch-icon" href="/resources/base/images/layout/apple-touch-icon.png">
+        <link rel="mask-icon" href="/resources/base/images/appicon.svg" color="#000000">
+
+        <link rel="stylesheet" href="/resources/templates/default/stylesheets/index.css" type="text/css">
+    </head>
+    <body>
+        <div class="sticky-end">
+            <div class="sticky-end-body">
+                {% block header %}{% endblock %}
+
+                {% block content %}
+                    No content defined.
+                {% endblock %}
+            </div>
+            <div class="sticky-end-footer">
+                {% block footer %}{% endblock %}
+            </div>
+        </div>
+    </body>
+
+    <script src="/resources/base/javascripts/lib/svg-sprite-injector/svg-sprite-injector.js"></script>
+    <script>
+        var cachebreaker = 'cached';
+        svgSpriteInjector('/assets/img/layout/svg-sprite.svg', {
+            revision: cachebreaker
+        });
+    </script>
+
+    <script src="/resources/base/javascripts/lib/modernizr/modernizr-custom.js"></script>
+    <script src="/resources/base/javascripts/lib/jquery/jquery.min.js"></script>
+
+    <script src="/resources/templates/default/javascripts/index.js"></script>
+</html>

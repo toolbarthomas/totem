@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+// Default template
+//
+// The standard Template for our app.
+// All import logic is defined within the Templates directory (for example; this file).
+// The default Template should not be adjusted since it does a globbing import within all types
+// Other Template files should have specific import's to reduce the file size of the generated stylesheet.
+// you should import your types in the following order:
+//
+// 1. Base - Global styling for your app goes here; e.g. branding & typography styles. Your base file should only have on variant to avoid complexity.
+// 2. Objects - Undecorated design patterns like containers and wrappers are defined in this sectionClass-based selectors which define undecorated design patterns, for example media object known from OOCSS. Your app can contain multiple Objects and must defined within it's own folder.
+// 3. Components - Class-based UI components will be defined here, ID-based styling isn't allowed in this section. Your app can contain multiple Components and must defined within it's own folder.
+// 4. Pages - Specific page styling & overrides should be defined here. - Your app can contain multiple Pages and must defined within it's own folder.
+//
+// Each type uses the same order of import, we do this so we can share all stylesheets within the project.
+// The expected import order for all section is defined below:
+//
+// 1. Utilities
+// 2. Helpers - Additional functions that should be only used within tool definitions.
+// 3. Settings - Store variables ( global and/or default ) here.
+// 4. Tools - Mixins & functions are defined here ( include the needed dependencies when using additional compatible libraries )
+// 5. Generic - Default styles are defined here, e.g. reset css
+// 6. Elements - Typography & global styling for common elements are defined here.
+
+// 1. Utilities
+@import "../../../base/stylesheets/utilities/**";
+@import "../../../objects/*/stylesheets/utilities/**";
+@import "../../../components/*/stylesheets/utilities/**";
+@import "../../../pages/*/stylesheets/utilities/**";
+
+// 2. Helpers - Additional functions that should be only used within tool definitions.
+@import "../../../base/stylesheets/helpers/**";
+@import "../../../objects/*/stylesheets/helpers/**";
+@import "../../../components/*/stylesheets/helpers/**";
+@import "../../../pages/*/stylesheets/helpers/**";
+
+// 3. Settings - Store variables ( global and/or default ) here.
+@import "../../../base/stylesheets/settings/**";
+@import "../../../objects/*/stylesheets/settings/**";
+@import "../../../components/*/stylesheets/settings/**";
+@import "../../../pages/*/stylesheets/settings/**";
+
+// 4. Tools - Mixins & functions are defined here ( include the needed dependencies when using additional compatible libraries )
+@import "../../../base/stylesheets/tools/**";
+@import "../../../objects/*/stylesheets/tools/**";
+@import "../../../components/*/stylesheets/tools/**";
+@import "../../../pages/*/stylesheets/tools/**";
+
+// 5. Generic - Default styles are defined here, e.g. reset css
+@import "../../../base/stylesheets/generic/**";
+@import "../../../objects/*/stylesheets/generic/**";
+@import "../../../components/*/stylesheets/generic/**";
+@import "../../../pages/*/stylesheets/generic/**";
+
+// 6. Elements - Typography & global styling for common elements are defined here.
+@import "../../../base/stylesheets/elements/**";
+@import "../../../objects/*/stylesheets/elements/**";
+@import "../../../components/*/stylesheets/elements/**";
+@import "../../../pages/*/stylesheets/elements/**";
