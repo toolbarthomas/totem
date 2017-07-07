@@ -1,19 +1,29 @@
 module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
     return function (callback)
     {
-        return GULP.src([
-            PATHS.src + '/assets/**',
-            '!**/scss/**',
-            '!**/js/components/**',
+        var resources = GULP.src([
+            PATHS.src + '/resources/**',
             '!**/sprite/**',
             '!**/svg-sprite/**',
-            '!**/layouts/**',
-            '!**/partials/**',
-            '!**/templates/**'
+            '!**/*.scss',
+            '!**/*.md',
+            '!**/*.twig',
         ], {
             nodir: true
         })
-        .pipe(PLUGINS.changed(PATHS.dest))
-        .pipe(GULP.dest(PATHS.dest + '/assets'));
+        .pipe(GULP.dest(PATHS.dest + '/resources'));
+
+        var bower_components = GULP.src([
+            './bower_components/jquery/**',
+            './bower_components/svg-sprite-injector/**'
+        ], {
+            base: '.'
+        })
+        .pipe(PLUGINS.flatten({
+            subPath: 1
+        }))
+        .pipe(GULP.dest(PATHS.dest + '/resources/base/javascripts/lib'));
+
+        return NODE_MODULES.merge(resources, bower_components);
     }
 }

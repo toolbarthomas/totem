@@ -1,7 +1,7 @@
 module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
     return function (callback)
     {
-        return GULP.src(PATHS.src + '/assets/scss/totem.scss')
+        return GULP.src(PATHS.src + '/resources/templates/*/stylesheets/index.scss')
         .pipe(PLUGINS.sourcemaps.init())
         .pipe(PLUGINS.sassGlob({
             ignorePaths: [
@@ -10,7 +10,8 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
         }))
         .pipe(PLUGINS.sass().on('error', PLUGINS.sass.logError))
         .pipe(PLUGINS.sourcemaps.write('./'))
-        .pipe(GULP.dest(PATHS.dest + '/assets/css'))
+
+        .pipe(GULP.dest(PATHS.dest + '/resources/templates'))
         .pipe(PLUGINS.connect.reload());
     }
 }

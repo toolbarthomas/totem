@@ -3,19 +3,22 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
         var sources = [
             {
                 input: [
-                    PATHS.src + '/**/*.twig',
-                    '!' + PATHS.src + '/**/assets/**/*.twig',
-                    '!' + PATHS.src + '/**/layouts/**/*.twig',
-                    '!' + PATHS.src + '/**/partials/*.twig',
+                    PATHS.src + '/resources/pages/**/*.twig'
                 ],
-                output: ''
-            },
-            {
-                input: [
-                    PATHS.packages + '/**/*.twig'
-                ],
-                output: '/submodules'
+                output: '/pages'
             }
+            // {
+            //     input: [
+            //         PATHS.src + '/resources/pages/**/*.twig'
+            //     ],
+            //     output: '/resources/pages/'
+            // }
+            // {
+            //     input: [
+            //         PATHS.packages + '/**/*.twig'
+            //     ],
+            //     output: '/submodules'
+            // }
         ];
 
         var streams = [];
@@ -26,7 +29,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
             })
             .pipe(PLUGINS.plumber())
             .pipe(PLUGINS.twig({
-                base: PATHS.src,
+                base: PATHS.src + '/resources',
                 errorLogToConsole: true
             }))
             .pipe(PLUGINS.faker())
