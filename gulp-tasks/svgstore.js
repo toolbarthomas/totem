@@ -2,13 +2,15 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
     return function (callback)
     {
         return svgstore = GULP.src([
-            PATHS.src + '/assets/img/layout/svg-sprite/**/*.svg'
+            PATHS.src + '/resources/base/images/layout/svg-sprite/**/*.svg'
         ])
         .pipe(PLUGINS.plumber())
         .pipe(PLUGINS.filter(function(file) {
             return file.stat && file.contents.length;
         }))
-        .pipe(PLUGINS.rename({prefix: 'glyph-'}))
+        .pipe(PLUGINS.rename({
+            prefix: 'glyph-'
+        }))
         .pipe(PLUGINS.svgmin(function (file) {
             var prefix = NODE_MODULES.path.basename(file.relative, NODE_MODULES.path.extname(file.relative));
 
@@ -34,7 +36,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
         .pipe(PLUGINS.svgstore({
             inlineSvg: true
         }))
-        .pipe(GULP.dest(PATHS.dest + '/assets/img/layout/'))
+        .pipe(GULP.dest(PATHS.dest + '/resources/base/images/layout'))
         .pipe(PLUGINS.connect.reload());
     }
 }
