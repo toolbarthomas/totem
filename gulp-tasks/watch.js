@@ -2,33 +2,31 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
     return function (callback)
     {
         PLUGINS.watch([
-            PATHS.src + '/assets/**'
+            PATHS.src + '/resources/**'
         ], function () {
             return GULP.start('sync');
         });
 
         PLUGINS.watch([
-            PATHS.src + '/assets/**/*.scss',
-            PATHS.PACKAGES + '/**/*.scss',
+            PATHS.src + '/resources/**/stylesheets/**/*.scss',
         ], function () {
             return GULP.start('stylesheets');
         });
 
         PLUGINS.watch([
-            PATHS.src + '/assets/img/layout/svg-sprite/**/*.svg',
+            PATHS.src + '/resources/base/images/layout/svg-sprite/**/*.svg',
         ], function () {
             return GULP.start('svgstore');
         });
 
         PLUGINS.watch([
-            PATHS.src + '/assets/img/layout/sprite/**/*.png',
+            PATHS.src + '/resources/base/images/layout/sprite/**/*.png',
         ], function () {
             return GULP.start('spritesmith');
         });
 
         PLUGINS.watch([
-            PATHS.src + '/assets/**/*.js',
-            PATHS.PACKAGES + '/*totem*/**/*.js'
+            PATHS.src + '/resources/**/javascripts/**/*.js',
         ], function () {
             return GULP.start('javascripts');
         });
