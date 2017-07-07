@@ -27,7 +27,7 @@ const REVISION = new Date().getTime();
 // Helper function for defining tasks
 function getGulpTask(file)
 {
-    return require('./gulp/' + file)(GULP, PLUGINS, NODE_MODULES, PATHS, REVISION);
+    return require('./gulp-tasks/' + file)(GULP, PLUGINS, NODE_MODULES, PATHS, REVISION);
 }
 
 // Prepare tasks
