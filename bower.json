@@ -24,10 +24,8 @@
     "tests"
   ],
   "dependencies": {
-    "totem.utilities": "^1.0.0",
-    "totem.core.css-helpers": "^1.0.0",
-    "totem.core.defaults": "^1.0.0",
-    "totem.core.typography": "^1.0.0",
-    "totem.module.wrapper": "^1.0.0"
+    "bourbon": "^4.2.7",
+    "svg-sprite-injector": "^1.0.0",
+    "jquery": "^2.2.4"
   }
 }
