@@ -1,14 +1,30 @@
 module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
     return function (callback)
     {
-        return GULP.src([
-            PATHS.src + '/assets/js/components/**/*.js',
-            PATHS.packages + '/*totem*/**/*.js'
-        ])
+        var objects = GULP.src([
+            PATHS.src + '/resources/objects/**/javascripts/**/*.js',
+            PATHS.packages + '/totem.object.*/**/javascripts/**/*.js'
+        ], {
+            no_dir: true,
+            base: '.'
+        })
         .pipe(PLUGINS.sourcemaps.init())
-        .pipe(PLUGINS.concat('totem.js'))
+        .pipe(PLUGINS.concat('objects.bundle.js'))
         .pipe(PLUGINS.sourcemaps.write('./'))
-        .pipe(GULP.dest(PATHS.dest + '/assets/js/lib/totem/'))
-        .pipe(PLUGINS.connect.reload());
+        .pipe(GULP.dest(PATHS.dest + '/resources/base/javascripts/'));
+
+        var components = GULP.src([
+            PATHS.src + '/resources/components/**/javascripts/**/*.js',
+            PATHS.packages + '/totem.component.*/**/javascripts/**/*.js'
+        ], {
+            no_dir: true,
+            base: '.'
+        })
+        .pipe(PLUGINS.sourcemaps.init())
+        .pipe(PLUGINS.concat('components.bundle.js'))
+        .pipe(PLUGINS.sourcemaps.write('./'))
+        .pipe(GULP.dest(PATHS.dest + '/resources/base/javascripts/'));
+
+        return NODE_MODULES.merge(objects, components);
     }
 }
