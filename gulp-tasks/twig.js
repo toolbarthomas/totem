@@ -7,18 +7,6 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
                 ],
                 output: '/pages'
             }
-            // {
-            //     input: [
-            //         PATHS.src + '/resources/pages/**/*.twig'
-            //     ],
-            //     output: '/resources/pages/'
-            // }
-            // {
-            //     input: [
-            //         PATHS.packages + '/**/*.twig'
-            //     ],
-            //     output: '/submodules'
-            // }
         ];
 
         var streams = [];

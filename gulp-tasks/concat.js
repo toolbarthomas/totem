@@ -2,8 +2,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
     return function (callback)
     {
         var objects = GULP.src([
-            PATHS.src + '/resources/objects/**/javascripts/**/*.js',
-            PATHS.packages + '/totem.object.*/**/javascripts/**/*.js'
+            PATHS.src + '/resources/objects/**/javascripts/**/*.js'
         ], {
             nodir: true,
             base: '.'
@@ -14,8 +13,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
         .pipe(GULP.dest(PATHS.dest + '/resources/main/javascripts/'));
 
         var components = GULP.src([
-            PATHS.src + '/resources/components/**/javascripts/**/*.js',
-            PATHS.packages + '/totem.component.*/**/javascripts/**/*.js'
+            PATHS.src + '/resources/components/**/javascripts/**/*.js'
         ], {
             nodir: true,
             base: '.'
