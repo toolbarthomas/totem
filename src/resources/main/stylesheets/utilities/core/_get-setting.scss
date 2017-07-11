@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/// Helper function to get a setting.
+///
+/// @param { Map } $map
+///     Defined arguments we wan't to use .
+///
+/// @param { String } $key
+///     Submap within the map we wan't to get the value from.
+///
+/// @param { String } $value
+///     The value to return from the specified $key
+///
+/// @return { Value }
+
+@function get-setting(
+    $map,
+    $key,
+    $value
+) {
+    @return map-get(map-get($map, $key), $value);
+}

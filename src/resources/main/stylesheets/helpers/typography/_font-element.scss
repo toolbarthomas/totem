@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/// Alias shorthand to return a specific typography element/selector.
+///
+/// @param { String } $category
+///     Specify which category of an element to return.
+///
+/// @param { String } $type
+///     The type of element we wan't to return
+///
+/// @return { Value || List }
+
+@function font-element(
+    $category: false,
+    $type: false
+)
+{
+    @if ($category != false) and ($type != false)
+    {
+        @return get-setting($font-elements, $category, $type);
+    }
+}

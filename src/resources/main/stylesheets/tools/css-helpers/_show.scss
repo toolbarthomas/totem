@@ -1,0 +1,7 @@
+@mixin show(
+    $viewport: null
+) {
+    @include css-helper('.show', $viewport) {
+        display: block !important;
+    }
+}

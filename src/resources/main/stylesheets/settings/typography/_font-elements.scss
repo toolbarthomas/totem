@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+$font-elements: (
+    'displays' : (
+        'display1' : '.display1',
+        'display2' : '.display2',
+        'display3' : '.display3'
+    ),
+    'headings' : (
+        'h1' : ('h1', '.h1'),
+        'h2' : ('h2', '.h2'),
+        'h3' : ('h3', '.h3'),
+        'h4' : ('h4', '.h4'),
+        'h5' : ('h5', '.h5'),
+        'h6' : ('h6', '.h6')
+    ),
+    'leads' : (
+        'base' : ('.lead')
+    ),
+    'elements' : (
+        'base' : ('p', 'address', 'ul', 'dl', 'ol', 'small'),
+        'quotations' : ('blockquote', 'q'),
+        'list-items' : ('li'),
+        'description-titles' : ('dt'),
+        'description-items' : ('dd'),
+        'anchors' : ('a'),
+        'linebreaks' : ('hr')
+    ),
+    'formats' : (
+        'bolds' : ('b', 'strong', '.bold'),
+        'italics' : ('i', 'em', '.italic', 'dfn')
+    )
+) !default;
+
+$display1: font-element('displays', 'display1') !default;
+$display2: font-element('displays', 'display2') !default;
+$display3: font-element('displays', 'display3') !default;
+$displays: ($display1, $display2, $display3) !default;
+
+$h1: font-element('headings', 'h1') !default;
+$h2: font-element('headings', 'h2') !default;
+$h3: font-element('headings', 'h3') !default;
+$h4: font-element('headings', 'h4') !default;
+$h5: font-element('headings', 'h5') !default;
+$h6: font-element('headings', 'h6') !default;
+$headings: ($h1, $h2, $h3, $h4, $h5, $h6) !default;
+
+$base-leads: font-element('leads', 'base') !default;
+$base-elements: font-element('elements', 'base') !default;
+$quotations: font-element('elements', 'quotations') !default;
+$list-items: font-element('elements', 'list-items') !default;
+$description-titles: font-element('elements', 'description-titles') !default;
+$description-items: font-element('elements', 'description-items') !default;
+$anchors: font-element('elements', 'anchors') !default;
+$linebreaks: font-element('elements', 'linebreaks') !default;
+
+$bolds: font-element('formats', 'bolds') !default;
+$italics: font-element('formats', 'italics') !default;
+$formats: ($italics, $bolds) !default;

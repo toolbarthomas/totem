@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+/// Wrap the css-heler content around viewport specific tags.
+///
+/// @param { String } $selector
+///     The css selector we wan't to style
+///
+/// @param { String } $viewport
+///     The viewport settings we wan't to use for our mixin
+///
+/// @return { Value }
+
+@mixin css-helper(
+    $selector: null,
+    $viewport: null
+) {
+    $viewport-min-width: 0;
+    $viewport-max-width: 0;
+
+    @if ($viewport)
+    {
+        $viewport-min-width: viewport($viewport, 'min-width');
+        $viewport-max-width: viewport($viewport, 'max-width');
+
+        $selector: ($selector + '--' + $viewport);
+
+        /// $viewport and smaller
+        @include breakpoint(
+            $max-width: $viewport-max-width
+        ) {
+            #{$selector + '-and-smaller' } {
+                @content;
+            }
+        }
+
+        /// $viewport specific
+        @include breakpoint(
+            $min-width: $viewport-min-width,
+            $max-width: $viewport-max-width
+        ) {
+            #{$selector} {
+                @content;
+            }
+        }
+
+        /// $viewport and larger
+        @include breakpoint(
+            $min-width: viewport($viewport, 'min-width')
+        ) {
+            #{$selector + '-and-larger'} {
+                @content;
+            }
+        }
+    }
+    @else
+    {
+        #{$selector} {
+            @content;
+        }
+    }
+}

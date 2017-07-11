@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/// Alias shorthand to get font style value.
+///
+/// @param { String } $color
+///     Get the property from a specific viewport.
+///
+/// @param { String } $property
+///     The property value to return from the specified $viewport
+///
+/// @return { Value }
+
+@function font-style(
+    $style: false,
+    $property: false
+)
+{
+    @if ($style != false) and ($property != false)
+    {
+        @return get-setting($font-styles, $style, $property);
+    }
+}

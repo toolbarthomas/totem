@@ -1,0 +1,65 @@
+@mixin element-font-styles(
+    $category: false
+) {
+    @if ($category)
+    {
+        @if (font-style($category, 'color') != false)
+        {
+            color: font-style($category, 'color');
+        }
+
+        @if (font-style($category, 'font-family') != false)
+        {
+            font-family: font-style($category, 'font-family');
+        }
+
+        @if (font-style($category, 'font-weight') != false)
+        {
+            font-weight: font-style($category, 'font-weight');
+        }
+
+        @if (font-style($category, 'font-style') != false)
+        {
+            font-style: font-style($category, 'font-style');
+        }
+
+        @if (font-style($category, 'line-height') != false)
+        {
+            line-height: font-style($category, 'line-height');
+        }
+
+        @if (font-style($category, 'letter-spacing') != false)
+        {
+            letter-spacing: font-style($category, 'letter-spacing');
+        }
+
+        @if (font-style($category, 'text-transform') != false)
+        {
+            text-transform: font-style($category, 'text-transform');
+        }
+
+        @if (font-style($category, 'font-smoothing') != false)
+        {
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        @if (font-style($category, 'font-ligatures') != false)
+        {
+            @include font-ligatures(font-style($category, 'font-ligatures'));
+        }
+
+        @if (font-style($category, 'margin') != false)
+        {
+            margin: append(font-style($category, 'margin'), (), space);
+
+            &:first-child {
+                margin-top: 0;
+            }
+
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
