@@ -1,0 +1,3 @@
+[submodule "totem.object.grid"]
+	path = totem.object.grid
+	url = https://toolbarthomas@github.com/toolbarthomas/totem.object.grid.git
