@@ -3,9 +3,9 @@
         "./src",
         "./submodules"
     ],
-    "destination": "./dist/demo",
+    "destination": "./dist/styleguide",
     "title": "Styleguide",
-    "homepage": "styleguide.md",
+    "homepage": "readme.md",
     "css": [
         "/assets/css/totem.css"
     ],
