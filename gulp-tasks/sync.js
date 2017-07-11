@@ -37,7 +37,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
         .pipe(PLUGINS.flatten({
             subPath: 1
         }))
-        .pipe(GULP.dest(PATHS.dest + '/resources/base/javascripts/lib'));
+        .pipe(GULP.dest(PATHS.dest + '/resources/main/javascripts/lib'));
 
         return NODE_MODULES.merge(resources, package_objects, package_components, bower_components);
     }

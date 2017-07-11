@@ -18,7 +18,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
 
         var javascripts = GULP.src([
             PATHS.dest + '/resources/**/javascripts/**/*.js',
-            '!' + PATHS.dest + '/resources/base/javascripts/lib/**/*',
+            '!' + PATHS.dest + '/resources/main/javascripts/lib/**/*',
             '!**/*.min*'
         ], {
             nodir: true

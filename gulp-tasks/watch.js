@@ -14,13 +14,13 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
         });
 
         PLUGINS.watch([
-            PATHS.src + '/resources/base/images/layout/svg-sprite/**/*.svg',
+            PATHS.src + '/resources/main/images/layout/svg-sprite/**/*.svg',
         ], function () {
             return GULP.start('svgstore');
         });
 
         PLUGINS.watch([
-            PATHS.src + '/resources/base/images/layout/sprite/**/*.png',
+            PATHS.src + '/resources/main/images/layout/sprite/**/*.png',
         ], function () {
             return GULP.start('spritesmith');
         });

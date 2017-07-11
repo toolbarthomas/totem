@@ -1,18 +1,18 @@
 module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
     return function (callback)
     {
-        NODE_MODULES.del(PATHS.dest + '/resources/base/images/sprite.*.png');
+        NODE_MODULES.del(PATHS.dest + '/resources/main/images/sprite.*.png');
 
-        var spritesmith = GULP.src(PATHS.src + '/resources/base/images/layout/sprite/**/*.png')
+        var spritesmith = GULP.src(PATHS.src + '/resources/main/images/layout/sprite/**/*.png')
         .pipe(PLUGINS.plumber())
         .pipe(PLUGINS.spritesmith({
             padding: 4,
             imgName: 'sprite.' + REVISION + '.png',
             cssName: '_spritesmith.scss',
-            cssTemplate: PATHS.src + '/resources/base/images/layout/sprite/config.handlebars',
+            cssTemplate: PATHS.src + '/resources/main/images/layout/sprite/config.handlebars',
             cssHandlebarsHelpers: {
                 imageSource: function (image) {
-                    return '/resources/base/images/sprite.' + REVISION + '.png';
+                    return '/resources/main/images/sprite.' + REVISION + '.png';
                 },
                 divideRetina: function (value) {
                     return parseInt(value) / 2;
@@ -22,11 +22,11 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
 
         var sprite = spritesmith.img
         .pipe(NODE_MODULES.buffer())
-        .pipe(GULP.dest(PATHS.dest + '/resources/base/images/layout/'));
+        .pipe(GULP.dest(PATHS.dest + '/resources/main/images/layout/'));
 
 
         var stylesheet = spritesmith.css
-        .pipe(GULP.dest(PATHS.src + '/resources/base/stylesheets/elements/'));
+        .pipe(GULP.dest(PATHS.src + '/resources/main/stylesheets/utilities/'));
 
         return NODE_MODULES.merge(sprite, stylesheet).pipe(PLUGINS.connect.reload());
     }
