@@ -86,8 +86,10 @@ GULP.task('default', function (callback) {
 GULP.task('serve', function (callback) {
     NODE_MODULES.runSequence(
         'default',
-        'connect',
-        'watch',
+        [
+            'connect',
+            'watch'
+        ],
         callback
     );
 });
