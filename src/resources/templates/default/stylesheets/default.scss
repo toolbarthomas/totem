@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+// Default template
+//
+// The standard template for our app.
+// All import logic is defined within each template located in “resources/templates/“ directory (for example; this file).
+// Other templates should have specific import's to reduce the file size of the generated stylesheet.
+// Each template imports all layers for each category within the following order:
+//
+// 1. Main - Global styling for your app goes here; e.g. branding & typography styles.
+// 2. Bower Components - Shared libraries will be directly imported after your main style definitions.
+// 3. Modules - Class-based UI components will be defined here, ID-based styling isn't allowed in this section. Your app can contain multiple Components and must be defined within it's own folder.
+//
+// There is also a generator available within Totem.
+// To create a module, page or template with the desired file structure you can use the following command: “yo totem“ and follow the steps.
+//
+// We use the ITCSS principe for importing our main, bower component and module styles. - https://medium.com/@pistenprinz/css-at-trivago-part-1-structure-and-itcss-52f63ed557ca
+// Page specific styling will be imported at the end and should be scoped to prevent unwanted overruling.
+
+// Bourbon
+@import '../../../../../bower_components/bourbon/app/assets/stylesheets/bourbon';
+
+// 1. Shared - Must use mixins & functions we use within the helpers layer
+@import "../../../main/stylesheets/shared/**";
+@import '../../../../../bower_components/totem.module.*/stylesheets/shared/**';
+@import "../../../modules/*/stylesheets/shared/**";
+
+// 2. Helpers - Helper functions to get a value from a mapped setting.
+@import "../../../main/stylesheets/helpers/**";
+@import '../../../../../bower_components/totem.module.*/stylesheets/helpers/**';
+@import "../../../modules/*/stylesheets/helpers/**";
+
+// 3. Settings - Destination to store your settings.
+@import "../../../main/stylesheets/settings/**";
+@import '../../../../../bower_components/totem.module.*/stylesheets/settings/**';
+@import "../../../modules/*/stylesheets/settings/**";
+
+// 4. Tools - Mixin & Functions to define project styling should be defined here
+@import "../../../main/stylesheets/tools/**";
+@import '../../../../../bower_components/totem.module.*/stylesheets/tools/**';
+@import "../../../modules/*/stylesheets/tools/**";
+
+// 5. Generic - Default styles are defined here, e.g. reset css
+@import '../../../../../bower_components/totem.module.*/stylesheets/generic/**';
+@import "../../../main/stylesheets/generic/**";
+@import "../../../modules/*/stylesheets/generic/**";
+
+// 6. Base - Typography and other global styling definitions should be defined here.
+@import '../../../../../bower_components/totem.module.*/stylesheets/base/**';
+@import "../../../main/stylesheets/base/**";
+@import "../../../modules/*/stylesheets/base/**";
+
+// 7. Components - Typography & global styling for each component/part.
+@import '../../../../../bower_components/totem.module.*/stylesheets/components/**';
+@import "../../../main/stylesheets/components/**";
+@import "../../../modules/*/stylesheets/components/**";
+
+// 8. Utilities - Typography & global styling for each component/part.
+@import '../../../../../bower_components/totem.module.*/stylesheets/utilities/**';
+@import "../../../main/stylesheets/utilities/**";
+@import "../../../modules/*/stylesheets/utilities/**";
+
+// 9. Pages -Specific page styling & overrides should be defined here. - Your template can use multiple page stylesheets and must defined within it's own folder.
+@import '../../../pages/*/stylesheets/**';
