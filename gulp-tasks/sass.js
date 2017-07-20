@@ -1,7 +1,7 @@
 module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
     return function (callback)
     {
-        return GULP.src(PATHS.src + '/resources/templates/*/stylesheets/index.scss')
+        return GULP.src(PATHS.src + '/resources/templates/*/stylesheets/*.scss')
         .pipe(PLUGINS.sourcemaps.init())
         .pipe(PLUGINS.sassGlob({
             ignorePaths: [

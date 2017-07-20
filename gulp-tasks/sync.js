@@ -41,6 +41,6 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
         // }))
         // .pipe(GULP.dest(PATHS.dest + '/resources/main/javascripts/lib'));
 
-        return NODE_MODULES.merge(resources, package_objects, package_components, bower_components);
+        return NODE_MODULES.merge(resources, package_objects);
     }
 }

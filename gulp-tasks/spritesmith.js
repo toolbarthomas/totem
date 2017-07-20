@@ -26,7 +26,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
 
 
         var stylesheet = spritesmith.css
-        .pipe(GULP.dest(PATHS.src + '/resources/main/stylesheets/utilities/'));
+        .pipe(GULP.dest(PATHS.src + '/resources/main/stylesheets/shared/'));
 
         return NODE_MODULES.merge(sprite, stylesheet).pipe(PLUGINS.connect.reload());
     }
