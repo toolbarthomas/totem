@@ -22,10 +22,12 @@
         <link rel="icon" type="image/png" href="/assets/img/layout/appicon.png">
 
         <!-- Apple Touch Icon -->
-        <link rel="apple-touch-icon" href="/resources/base/images/layout/apple-touch-icon.png">
-        <link rel="mask-icon" href="/resources/base/images/layout/appicon.svg" color="#000000">
+        <link rel="apple-touch-icon" href="/resources/main/images/layout/apple-touch-icon.png">
+        <link rel="mask-icon" href="/resources/main/images/layout/appicon.svg" color="#000000">
 
         <link rel="stylesheet" href="/resources/templates/default/stylesheets/index.css" type="text/css">
+
+        {% block scoped_stylesheets %}{% endblock %}
     </head>
     <body>
         <div class="sticky-end">
@@ -42,16 +44,16 @@
         </div>
     </body>
 
-    <script src="/resources/base/javascripts/lib/svg-sprite-injector/svg-sprite-injector.js"></script>
+    <script src="/resources/main/javascripts/lib/svg-sprite-injector/svg-sprite-injector.js"></script>
     <script>
         var cachebreaker = 'cached';
-        svgSpriteInjector('/resources/base/images/layout/svg-sprite.svg', {
+        svgSpriteInjector('/resources/main/images/layout/svg-sprite.svg', {
             revision: cachebreaker
         });
     </script>
 
-    <script src="/resources/base/javascripts/lib/modernizr/modernizr-custom.js"></script>
-    <script src="/resources/base/javascripts/lib/jquery/jquery.min.js"></script>
+    <script src="/resources/main/javascripts/lib/jquery/jquery.min.js"></script>
 
-    <script src="/resources/templates/default/javascripts/index.js"></script>
+    <script src="/resources/templates/default/javascripts/default.js"></script>
+    {% block scoped_javascripts %}{% endblock %}
 </html>

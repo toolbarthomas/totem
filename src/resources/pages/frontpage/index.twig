@@ -1,5 +1,13 @@
-{% extends "templates/default/index.twig" %}
+{% extends "templates/default/default.twig" %}
 
 {% block content %}
     No content defined.
+{% endblock %}
+
+{% block scoped_stylesheets %}
+    <link rel="stylesheet" href="/resources/pages/frontpage/stylesheets/frontpage.css" />
+{% endblock %}
+
+{% block scoped_javascripts %}
+    <script src="/resources/pages/frontpage/javascripts/frontpage.js"></script>
 {% endblock %}
