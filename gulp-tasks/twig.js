@@ -5,7 +5,13 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
                 input: [
                     PATHS.src + '/resources/pages/**/*.twig'
                 ],
-                output: '/pages'
+                output: PATHS.dest + '/pages'
+            },
+            {
+                input: [
+                    PATHS.src + '/resources/modules/**/*.twig'
+                ],
+                output: PATHS.dest + '/resources/modules'
             }
         ];
 
@@ -21,7 +27,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
                 errorLogToConsole: true
             }))
             .pipe(PLUGINS.faker())
-            .pipe(GULP.dest(PATHS.dest + source.output));
+            .pipe(GULP.dest(source.output));
 
             streams.push(stream);
         }, this);
