@@ -1,28 +1,30 @@
 module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
     return function (callback)
     {
-        var objects = GULP.src([
-            PATHS.src + '/resources/objects/**/javascripts/**/*.js'
-        ], {
-            nodir: true,
-            base: '.'
-        })
-        .pipe(PLUGINS.sourcemaps.init())
-        .pipe(PLUGINS.concat('objects.bundle.js'))
-        .pipe(PLUGINS.sourcemaps.write('./'))
-        .pipe(GULP.dest(PATHS.dest + '/resources/main/javascripts/'));
+        var sources = [
+            {
+                input: [
+                    PATHS.src + '/resources/modules/**/javascripts/**/*.js'
+                ],
+                output: PATHS.dest + '/resources/main/javascripts/modules',
+                file_name: 'modules.bundle.js'
+            }
+        ];
 
-        var components = GULP.src([
-            PATHS.src + '/resources/components/**/javascripts/**/*.js'
-        ], {
-            nodir: true,
-            base: '.'
-        })
-        .pipe(PLUGINS.sourcemaps.init())
-        .pipe(PLUGINS.concat('components.bundle.js'))
-        .pipe(PLUGINS.sourcemaps.write('./'))
-        .pipe(GULP.dest(PATHS.dest + '/resources/main/javascripts/'));
+        var streams = [];
+        sources.forEach(function (source) {
+            var stream = GULP.src(source.input, {
+                nodir: true,
+                base: '.'
+            })
+            .pipe(PLUGINS.sourcemaps.init())
+            .pipe(PLUGINS.concat(source.file_name))
+            .pipe(PLUGINS.sourcemaps.write('./'))
+            .pipe(GULP.dest(source.output));
 
-        return NODE_MODULES.merge(objects, components);
+            streams.push(stream);
+        }, this);
+
+        return NODE_MODULES.merge(streams);
     }
 }
