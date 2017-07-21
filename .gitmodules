@@ -1,6 +1,3 @@
 [submodule "git-submodules/totem.object.grid"]
 	path = git-submodules/totem.object.grid
 	url = https://toolbarthomas@github.com/toolbarthomas/totem.object.grid.git
-[submodule "git-submodules/generator-totem"]
-	path = git-submodules/generator-totem
-	url = https://toolbarthomas@github.com/toolbarthomas/generator-totem.git
