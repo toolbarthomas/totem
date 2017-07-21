@@ -83,6 +83,16 @@ GULP.task('default', function (callback) {
     );
 });
 
+GULP.task('build', function (callback) {
+    NODE_MODULES.runSequence(
+        'default',
+        [
+            'minify'
+        ],
+        callback
+    );
+});
+
 GULP.task('serve', function (callback) {
     NODE_MODULES.runSequence(
         'default',
