@@ -29,6 +29,6 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
         }))
         .pipe(GULP.dest(PATHS.dest + '/resources' ));
 
-        return NODE_MODULES.merge(javascripts);
+        return NODE_MODULES.merge(stylesheets, javascripts);
     }
 }
