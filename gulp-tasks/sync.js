@@ -14,11 +14,11 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
             {
                 input: [
                     PATHS.src + '/resources/**',
-                    '!**/sprite/**',
-                    '!**/svg-sprite/**',
-                    '!**/*.scss',
-                    '!**/*.md',
-                    '!**/*.twig',
+                    '!**/sprite/**', // Don't include generator files
+                    '!**/svg-sprite/**',  // Don't include generator files
+                    '!**/*.scss',  // Don't include generator files
+                    '!**/*.md',  // Don't include generator files
+                    '!**/*.twig',  // Don't include generator files
                 ],
                 output: PATHS.dest + '/resources',
                 options: {
@@ -27,8 +27,9 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
             },
             {
                 input: [
-                    PATHS.bower + '/**',
-                    '!' + PATHS.bower + '/bourbon/**'
+                    PATHS.bower + '/**',PATHS.bower + '/**',
+                    '!' + PATHS.bower + '/**/src/**',  // Don't include package source dev file
+                    '!' + PATHS.bower + '/bourbon/**'  // Don't include preprocessor libraries
                 ],
                 output: PATHS.dest + '/resources/main/javascripts/lib',
                 options: {
