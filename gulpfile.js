@@ -18,7 +18,8 @@ const PATHS = {
     src: './src',
     dest: './dist',
     tmp: './.tmp',
-    packages: './submodules'
+    packages: './submodules',
+    bower: 'bower_components',
 }
 
 // Revision timestamp of the current date in seconds

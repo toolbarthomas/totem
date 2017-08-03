@@ -4,10 +4,18 @@
     No content defined.
 {% endblock %}
 
-{% block scoped_stylesheets %}
+{% block page_style %}
+    <style></style>
+{% endblock %}
+
+{% block page_stylesheets %}
     <link rel="stylesheet" href="/resources/pages/frontpage/stylesheets/frontpage.css" />
 {% endblock %}
 
-{% block scoped_javascripts %}
+{% block page_javascripts %}
     <script src="/resources/pages/frontpage/javascripts/frontpage.js"></script>
+{% endblock %}
+
+{% block page_style %}
+    <script></script>
 {% endblock %}

@@ -1,46 +1,42 @@
 module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
     return function (callback)
     {
-        var resources = GULP.src([
-            PATHS.src + '/resources/**',
-            '!**/' + PATHS.src + '/sprite/**',
-            '!**/' + PATHS.src + '/svg-sprite/**',
-            '!**/*.scss',
-            '!**/*.md',
-            '!**/*.twig',
-        ], {
-            nodir: true
-        })
-        .pipe(GULP.dest(PATHS.dest + '/resources'));
+        var sources = [
+            {
+                input: [
+                    PATHS.src + '/resources/**',
+                    '!**/sprite/**',
+                    '!**/svg-sprite/**',
+                    '!**/*.scss',
+                    '!**/*.md',
+                    '!**/*.twig',
+                ],
+                output: PATHS.dest + '/resources',
+                options: {
+                    nodir: true
+                }
+            },
+            {
+                input: [
+                    PATHS.bower + '/**',
+                    '!' + PATHS.bower + '/bourbon/**'
+                ],
+                output: PATHS.dest + '/resources/main/javascripts/lib',
+                options: {
+                    nodir: true
+                }
+            }
+        ];
 
-        var package_objects = GULP.src([
-            PATHS.packages + '/totem.object.*/**'
-        ], {
-            nodir: true
-        })
-        .pipe(GULP.dest(PATHS.dest + '/resources/objects'));
+        var streams = [];
 
-        var package_components;
+        sources.forEach(function(source) {
+            var stream = GULP.src(source.input, source.options)
+                .pipe(GULP.dest(source.output));
 
-        // var package_components = GULP.src([
-        //     PATHS.packages + '/totem.component.*/**',
-        // ], {
-        //     nodir: true
-        // })
-        // .pipe(GULP.dest(PATHS.dest + '/resources/components'));
+            streams.push(stream);
+        });
 
-        // var bower_components = GULP.src([
-        //     './bower_components/jquery/**',
-        //     './bower_components/svg-sprite-injector/**'
-        // ], {
-        //     nodir: true,
-        //     base: '.'
-        // })
-        // .pipe(PLUGINS.flatten({
-        //     subPath: 1
-        // }))
-        // .pipe(GULP.dest(PATHS.dest + '/resources/main/javascripts/lib'));
-
-        return NODE_MODULES.merge(resources, package_objects);
+        return NODE_MODULES.merge(streams);
     }
 }

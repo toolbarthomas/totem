@@ -2,7 +2,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
     return function (callback)
     {
         return svgstore = GULP.src([
-            PATHS.src + '/resources/base/images/layout/svg-sprite/**/*.svg'
+            PATHS.src + '/resources/main/images/layout/svg-sprite/**/*.svg'
         ])
         .pipe(PLUGINS.plumber())
         .pipe(PLUGINS.filter(function(file) {
@@ -36,7 +36,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
         .pipe(PLUGINS.svgstore({
             inlineSvg: true
         }))
-        .pipe(GULP.dest(PATHS.dest + '/resources/base/images/layout'))
+        .pipe(GULP.dest(PATHS.dest + '/resources/main/images/layout'))
         .pipe(PLUGINS.connect.reload());
     }
 }
