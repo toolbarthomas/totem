@@ -4,6 +4,15 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
         var sources = [
             {
                 input: [
+                    PATHS.src + '/browserconfig.xml'
+                ],
+                output: PATHS.dest,
+                options: {
+                    nodir: true
+                }
+            },
+            {
+                input: [
                     PATHS.src + '/resources/**',
                     '!**/sprite/**',
                     '!**/svg-sprite/**',
