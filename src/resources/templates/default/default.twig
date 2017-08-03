@@ -4,6 +4,9 @@
         <meta charset="utf-8" />
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+        <!-- Respsonsive Meta Tags -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
         <title>Default template</title>
 
         <meta name="description" content="" />
@@ -15,17 +18,16 @@
         <meta name="msapplpication-TileColor" content="#000000"/>
         <meta name="theme-color" content="#000000" />
 
-        <!-- Respsonsive Meta Tags -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 
         <!-- Web Application Icon -->
-        <link rel="icon" type="image/png" href="/resources/main/images/layout/appicon.png">
+        <link href="/resources/main/images/layout/appicon.png" rel="icon" type="image/png">
+        <link href="/resources/main/images/layout/appicon.png" rel="mask-icon" color="#000000">
 
         <!-- Apple Touch Icon -->
-        <link rel="apple-touch-icon" href="/resources/main/images/layout/apple-touch-icon.png">
-        <link rel="mask-icon" href="/resources/main/images/layout/appicon.svg" color="#000000">
+        <link href="/resources/main/images/layout/apple-touch-icon.png" rel="apple-touch-icon">
+        <link href="/resources/main/images/layout/appicon.svg" rel="mask-icon" color="#000000">
 
-        <link rel="stylesheet" href="/resources/templates/default/stylesheets/default.css" type="text/css">
+        <link href="/resources/templates/default/stylesheets/default.css" rel="stylesheet" type="text/css">
 
         {% block page_style %}{% endblock %}
         {% block page_stylesheets %}{% endblock %}
