@@ -3,8 +3,8 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
     {
         var resources = GULP.src([
             PATHS.src + '/resources/**',
-            '!**/sprite/**',
-            '!**/svg-sprite/**',
+            '!**/' + PATHS.src + '/sprite/**',
+            '!**/' + PATHS.src + '/svg-sprite/**',
             '!**/*.scss',
             '!**/*.md',
             '!**/*.twig',

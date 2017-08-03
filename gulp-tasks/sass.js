@@ -4,9 +4,9 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
         var sources = [
             {
                 input: [
-                    PATHS.src + '/resources/templates/*/stylesheets/*.scss',
+                    PATHS.src + '/resources/modules/*/stylesheets/*.scss'
                 ],
-                output: PATHS.dest + '/resources/templates',
+                output: PATHS.dest + '/resources/modules',
                 options: {
                     ignorePaths: [
                         '**/__*.scss'
@@ -26,9 +26,9 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
             },
             {
                 input: [
-                    PATHS.src + '/resources/modules/*/stylesheets/*.scss'
+                    PATHS.src + '/resources/templates/*/stylesheets/*.scss'
                 ],
-                output: PATHS.dest + '/resources/modules',
+                output: PATHS.dest + '/resources/templates',
                 options: {
                     ignorePaths: [
                         '**/__*.scss'
