@@ -1,9 +1,9 @@
 {
   "name": "totem",
   "homepage": "https://github.com/toolbarthomas/totem",
-  "version": "1.0.0",
-  "description": "Modular prototype framework for the web.",
-  "main": "totem",
+  "version": "0.7.0",
+  "description": "Modular prototype framework for the web",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -27,21 +27,16 @@
   },
   "devDependencies": {
     "del": "^3.0.0",
-    "generator-totem": "^0.9.2",
     "gulp": "^3.9.1",
-    "gulp-changed": "^3.1.0",
     "gulp-combine-mq": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.0.0",
     "gulp-cssnano": "^2.1.2",
     "gulp-faker": "^1.0.1",
     "gulp-filter": "^5.0.0",
-    "gulp-flatten": "^0.3.1",
     "gulp-load-plugins": "^1.5.0",
-    "gulp-markdown-docs": "^0.1.5",
     "gulp-plumber": "^1.1.0",
     "gulp-rename": "^1.2.2",
-    "gulp-run": "^1.7.1",
     "gulp-sass": "^3.1.0",
     "gulp-sass-glob": "^1.0.8",
     "gulp-sourcemaps": "^2.6.0",
@@ -51,7 +46,6 @@
     "gulp-uglify": "^3.0.0",
     "gulp-watch": "^4.3.11",
     "gulp.spritesmith": "^6.5.1",
-    "kss": "^3.0.0-beta.18",
     "merge-stream": "^1.0.1",
     "run-sequence": "^2.0.0",
     "vinyl-buffer": "^1.0.0"
