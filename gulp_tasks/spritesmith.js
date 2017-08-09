@@ -1,4 +1,4 @@
-module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
+module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, IGNORE_PATHS, REVISION) => {
     return function (callback)
     {
         NODE_MODULES.del(PATHS.dest + '/resources/main/images/sprite.*.png');

@@ -1,4 +1,4 @@
-module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
+module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, IGNORE_PATHS, REVISION) => {
     return function (callback) {
         var sources = [
             {
@@ -9,7 +9,9 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, REVISION) => {
             },
             {
                 input: [
-                    PATHS.src + '/resources/modules/**/*.twig'
+                    PATHS.src + '/resources/modules/**/*.twig',
+                    './bower_components/totem.module.*/**/*.twig',
+                    './git_submodules/totem.module.*/**/*.twig',
                 ],
                 output: PATHS.dest + '/resources/modules'
             }

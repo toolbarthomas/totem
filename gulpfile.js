@@ -7,10 +7,12 @@ const PLUGINS = require('gulp-load-plugins')();
 // Define the required node modules we use for our Gulp workflow
 const NODE_MODULES = {
     buffer: require('vinyl-buffer'),
+    fse: require('fs-extra'),
     del: require('del'),
     merge: require('merge-stream'),
     path: require('path'),
-    runSequence: require('run-sequence')
+    runSequence: require('run-sequence'),
+    sassIncludePaths: require('sass-include-paths')
 }
 
 // All path definitions for our Gulp workflow
@@ -18,12 +20,31 @@ const PATHS = {
     src: './src',
     dest: './dist',
     tmp: './.tmp',
-    packages: './submodules',
+    packages: '',
     bower: 'bower_components',
 }
 
+// Paths to ignore for sass compilation
+const IGNORE_PATHS = [
+    '**/__*'
+];
+
 // Revision timestamp of the current date in seconds
 const REVISION = new Date().getTime();
+
+// Define package Path
+NODE_MODULES.fse.pathExists('git-submodules', (error, exists) => {
+    if (error) {
+        throw (error);
+        return;
+    }
+
+    if (exists) {
+        IGNORE_PATHS.push('bower_components')
+    } else {
+        IGNORE_PATHS.push('git-submodules')
+    }
+});
 
 // Helper function for defining tasks
 function getGulpTask(file)

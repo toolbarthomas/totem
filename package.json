@@ -27,6 +27,7 @@
   },
   "devDependencies": {
     "del": "^3.0.0",
+    "fs-extra": "^4.0.0",
     "gulp": "^3.9.1",
     "gulp-combine-mq": "^0.4.0",
     "gulp-concat": "^2.6.1",
@@ -39,6 +40,7 @@
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
     "gulp-sass-glob": "^1.0.8",
+    "gulp-sass-glob-import": "^0.1.0",
     "gulp-sourcemaps": "^2.6.0",
     "gulp-svgmin": "^1.2.4",
     "gulp-svgstore": "^6.1.0",
@@ -48,6 +50,7 @@
     "gulp.spritesmith": "^6.5.1",
     "merge-stream": "^1.0.1",
     "run-sequence": "^2.0.0",
+    "sass-include-paths": "^4.10.0",
     "vinyl-buffer": "^1.0.0"
   }
 }
