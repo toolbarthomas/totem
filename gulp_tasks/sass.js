@@ -27,12 +27,22 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         var streams = [];
 
         // Ignore all package manager folders when using git_modules for development
-        var sass_globbing_ignore_paths = [];
-        if (process.env.MODULES_PATH === 'git_submodules') {
-            sass_globbing_ignore_paths.push(
-                '**/node_modules/**',
-                '**/bower_components/**'
-            );
+        var sass_globbing_ignore_paths = [
+            '**/git_submodules/**',
+            '**/node_modules/**',
+            '**/bower_components/**'
+        ];
+
+        switch (process.env.MODULES_PATH) {
+            case 'git_submodules':
+                sass_globbing_ignore_paths.splice(0, 1);
+                break;
+            case 'node_modules':
+                sass_globbing_ignore_paths.splice(1, 1);
+                break;
+            default:
+                sass_globbing_ignore_paths.splice(2, 1);
+                break;
         }
 
         sources.forEach(function (source) {
