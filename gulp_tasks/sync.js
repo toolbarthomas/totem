@@ -27,9 +27,9 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             },
             {
                 input: [
-                    PATHS.bower + '/**',PATHS.bower + '/**',
-                    '!' + PATHS.bower + '/**/src/**',  // Don't include package source dev file
-                    '!' + PATHS.bower + '/bourbon/**'  // Don't include preprocessor libraries
+                    process.env.VENDOR_PATH + '/**',
+                    '!' + process.env.VENDOR_PATH + '/**/src/**',  // Don't include package source dev file
+                    '!' + process.env.VENDOR_PATH + '/bourbon/**'  // Don't include preprocessor libraries
                 ],
                 output: process.env.DEST + '/resources/main/javascripts/lib',
                 options: {
