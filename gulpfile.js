@@ -1,12 +1,8 @@
 // Require Node dotenv to enable environment variables
 const ENV = require('dotenv').config();
-
 if (ENV.error) {
     throw 'Cannot load the environment file at: /.env. You can create one by using the included .env.dist file.';
 }
-
-
-console.log(process.env.MODULES_PATH);
 
 // Load Gulp
 const GULP = require('gulp');
