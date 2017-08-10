@@ -17,7 +17,11 @@ const NODE_MODULES = {
     del: require('del'),
     merge: require('merge-stream'),
     path: require('path'),
-    runSequence: require('run-sequence')
+    runSequence: require('run-sequence'),
+    glob: require('glob'),
+    browserify: require('browserify'),
+    vinylSourceStream: require('vinyl-source-stream'),
+    camelCase: require('camelcase')
 }
 
 // Revision timestamp of the current date in seconds
@@ -39,6 +43,7 @@ GULP.task('sass', getGulpTask('sass'));
 GULP.task('svgstore', getGulpTask('svgstore'));
 
 // Scripting tasks
+GULP.task('bundle', getGulpTask('bundle'));
 GULP.task('concat', getGulpTask('concat'));
 
 // Content tasks
@@ -90,6 +95,18 @@ GULP.task('build', function (callback) {
         ],
         callback
     );
+});
+
+GULP.task('foo', function(foo) {
+    var stream = NODE_MODULES.browserify({
+        entries: './src/resources/modules/totem.module.cart/javascripts/totem.module.cart.js',
+        standalone: 'totemModuleCart'
+    }).bundle();
+
+    return stream
+    .pipe(NODE_MODULES.vinylSourceStream('totem.module.cart.js'))
+    .pipe(PLUGINS.derequire())
+    .pipe(GULP.dest(process.env.DEST + '/resources/modules/totem.module.cart/javascripts'));
 });
 
 GULP.task('serve', function (callback) {

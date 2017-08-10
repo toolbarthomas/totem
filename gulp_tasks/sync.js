@@ -29,15 +29,6 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             },
             {
                 input: [
-                    process.env.MODULES_PATH + '/totem.module.*/**/*.js',
-                ].concat(sync_ignores),
-                output: process.env.DEST + '/resources/modules',
-                options: {
-                    nodir: true
-                }
-            },
-            {
-                input: [
                     process.env.VENDOR_PATH + '/svg-sprite-injector/**',
                 ],
                 output: process.env.DEST + '/resources/main/javascripts/lib/svg-sprite-injector',
