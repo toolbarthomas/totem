@@ -3,7 +3,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
 
         // Define all module locations in a globbing pattern (including your external packages: bower, NPM etc.)
         var sources = [
-            // process.env.SRC + '/resources/modules/*/javascripts/*.js',
+            process.env.SRC + '/resources/modules/*/javascripts/*.js',
             process.env.MODULES_PATH + '/totem.module.*/javascripts/*.js'
         ];
 
@@ -15,15 +15,16 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
 
         //Callback function to generate a seperate module
         function makeBundle() {
+            console.log(bundle);
+
             for (var index = 0; index < bundle.length; index++) {
                 var basename = NODE_MODULES.path.basename(bundle[index]);
                 var ext = NODE_MODULES.path.extname(basename);
                 var name = NODE_MODULES.path.basename(bundle[index], ext);
-
                 var destination = bundle[index].replace(process.env.SRC, process.env.DEST);
 
                 var queue = NODE_MODULES.browserify({
-                    entries: basename,
+                    entries: bundle[index],
                     standalone: NODE_MODULES.camelCase(name)
                 }).bundle()
                 .pipe(NODE_MODULES.vinylSourceStream(basename))
