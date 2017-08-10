@@ -1,12 +1,12 @@
-module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, IGNORE_PATHS, REVISION) => {
+module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
     return function (callback)
     {
         var sources = [
             {
                 input: [
-                    PATHS.src + '/resources/modules/**/javascripts/**/*.js'
+                    process.env.SRC + '/resources/modules/**/javascripts/**/*.js'
                 ],
-                output: PATHS.dest + '/resources/main/javascripts/modules',
+                output: process.env.DEST + '/resources/main/javascripts/modules',
                 file_name: 'modules.bundle.js'
             }
         ];

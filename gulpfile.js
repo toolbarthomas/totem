@@ -1,4 +1,14 @@
-// Load Gulp.js
+// Require Node dotenv to enable environment variables
+const ENV = require('dotenv').config();
+
+if (ENV.error) {
+    throw 'Cannot load the environment file at: /.env. You can create one by using the included .env.dist file.';
+}
+
+
+console.log(process.env.MODULES_PATH);
+
+// Load Gulp
 const GULP = require('gulp');
 
 // Load all Gulp plugins dynamicly
@@ -11,45 +21,16 @@ const NODE_MODULES = {
     del: require('del'),
     merge: require('merge-stream'),
     path: require('path'),
-    runSequence: require('run-sequence'),
-    sassIncludePaths: require('sass-include-paths')
+    runSequence: require('run-sequence')
 }
-
-// All path definitions for our Gulp workflow
-const PATHS = {
-    src: './src',
-    dest: './dist',
-    tmp: './.tmp',
-    packages: '',
-    bower: 'bower_components',
-}
-
-// Paths to ignore for sass compilation
-const IGNORE_PATHS = [
-    '**/__*'
-];
 
 // Revision timestamp of the current date in seconds
 const REVISION = new Date().getTime();
 
-// Define package Path
-NODE_MODULES.fse.pathExists('git-submodules', (error, exists) => {
-    if (error) {
-        throw (error);
-        return;
-    }
-
-    if (exists) {
-        IGNORE_PATHS.push('bower_components')
-    } else {
-        IGNORE_PATHS.push('git-submodules')
-    }
-});
-
 // Helper function for defining tasks
 function getGulpTask(file)
 {
-    return require('./gulp-tasks/' + file)(GULP, PLUGINS, NODE_MODULES, PATHS, REVISION);
+    return require('./gulp_tasks/' + file)(GULP, PLUGINS, NODE_MODULES, REVISION);
 }
 
 // Prepare tasks

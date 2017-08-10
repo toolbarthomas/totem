@@ -1,26 +1,26 @@
-module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, IGNORE_PATHS, REVISION) => {
+module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
     return function (callback)
     {
         var sources = [
             {
                 input: [
-                    PATHS.src + '/browserconfig.xml'
+                    process.env.SRC + '/browserconfig.xml'
                 ],
-                output: PATHS.dest,
+                output: process.env.DEST,
                 options: {
                     nodir: true
                 }
             },
             {
                 input: [
-                    PATHS.src + '/resources/**',
+                    process.env.SRC + '/resources/**',
                     '!**/sprite/**', // Don't include generator files
                     '!**/svg-sprite/**',  // Don't include generator files
                     '!**/*.scss',  // Don't include generator files
                     '!**/*.md',  // Don't include generator files
                     '!**/*.twig',  // Don't include generator files
                 ],
-                output: PATHS.dest + '/resources',
+                output: process.env.DEST + '/resources',
                 options: {
                     nodir: true
                 }
@@ -31,7 +31,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, IGNORE_PATHS, REVISION) =>
                     '!' + PATHS.bower + '/**/src/**',  // Don't include package source dev file
                     '!' + PATHS.bower + '/bourbon/**'  // Don't include preprocessor libraries
                 ],
-                output: PATHS.dest + '/resources/main/javascripts/lib',
+                output: process.env.DEST + '/resources/main/javascripts/lib',
                 options: {
                     nodir: true
                 }

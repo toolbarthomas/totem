@@ -1,19 +1,19 @@
-module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, IGNORE_PATHS, REVISION) => {
+module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
     return function (callback) {
         var sources = [
             {
                 input: [
-                    PATHS.src + '/resources/pages/**/*.twig'
+                    process.env.SRC + '/resources/pages/**/*.twig'
                 ],
-                output: PATHS.dest + '/resources/pages'
+                output: process.env.DEST + '/resources/pages'
             },
             {
                 input: [
-                    PATHS.src + '/resources/modules/**/*.twig',
+                    process.env.SRC + '/resources/modules/**/*.twig',
                     './bower_components/totem.module.*/**/*.twig',
                     './git_submodules/totem.module.*/**/*.twig',
                 ],
-                output: PATHS.dest + '/resources/modules'
+                output: process.env.DEST + '/resources/modules'
             }
         ];
 
@@ -25,7 +25,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, IGNORE_PATHS, REVISION) =>
             })
             .pipe(PLUGINS.plumber())
             .pipe(PLUGINS.twig({
-                base: PATHS.src + '/resources',
+                base: process.env.SRC + '/resources',
                 errorLogToConsole: true
             }))
             .pipe(PLUGINS.faker())

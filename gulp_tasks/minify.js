@@ -1,8 +1,8 @@
-module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, IGNORE_PATHS, REVISION) => {
+module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
     return function (callback)
     {
         var stylesheets = GULP.src([
-            PATHS.dest + '/resources/**/stylesheets/**/*.css',
+            process.env.DEST + '/resources/**/stylesheets/**/*.css',
             '!**/*.min*'
         ], {
             nodir: true
@@ -14,11 +14,11 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, IGNORE_PATHS, REVISION) =>
         .pipe(PLUGINS.rename({
             suffix: '.min'
         }))
-        .pipe(GULP.dest(PATHS.dest + '/resources' ));
+        .pipe(GULP.dest(process.env.DEST + '/resources' ));
 
         var javascripts = GULP.src([
-            PATHS.dest + '/resources/**/javascripts/**/*.js',
-            '!' + PATHS.dest + '/resources/main/javascripts/lib/**/*',
+            process.env.DEST + '/resources/**/javascripts/**/*.js',
+            '!' + process.env.DEST + '/resources/main/javascripts/lib/**/*',
             '!**/*.min*'
         ], {
             nodir: true
@@ -27,7 +27,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, PATHS, IGNORE_PATHS, REVISION) =>
         .pipe(PLUGINS.rename({
             suffix: '.min'
         }))
-        .pipe(GULP.dest(PATHS.dest + '/resources' ));
+        .pipe(GULP.dest(process.env.DEST + '/resources' ));
 
         return NODE_MODULES.merge(stylesheets, javascripts);
     }
