@@ -1,6 +1,13 @@
 module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
     return function (callback)
     {
+        // Prevent syncing development files
+        var sync_ignores = [
+            '!**/sprite/**',
+            '!**/svg-sprite/**',
+            '!**/*[.scss,.md,.twig]',
+        ];
+
         var sources = [
             {
                 input: [
@@ -14,12 +21,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             {
                 input: [
                     process.env.SRC + '/resources/**',
-                    '!**/sprite/**', // Don't include generator files
-                    '!**/svg-sprite/**',  // Don't include generator files
-                    '!**/*.scss',  // Don't include generator files
-                    '!**/*.md',  // Don't include generator files
-                    '!**/*.twig',  // Don't include generator files
-                ],
+                ].concat(sync_ignores),
                 output: process.env.DEST + '/resources',
                 options: {
                     nodir: true
@@ -27,11 +29,28 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             },
             {
                 input: [
-                    process.env.VENDOR_PATH + '/**',
-                    '!' + process.env.VENDOR_PATH + '/**/src/**',  // Don't include package source dev file
-                    '!' + process.env.VENDOR_PATH + '/bourbon/**'  // Don't include preprocessor libraries
+                    process.env.MODULES_PATH + '/totem.module.*/**/*.js',
+                ].concat(sync_ignores),
+                output: process.env.DEST + '/resources/modules',
+                options: {
+                    nodir: true
+                }
+            },
+            {
+                input: [
+                    process.env.VENDOR_PATH + '/svg-sprite-injector/**',
                 ],
-                output: process.env.DEST + '/resources/main/javascripts/lib',
+                output: process.env.DEST + '/resources/main/javascripts/lib/svg-sprite-injector',
+                options: {
+                    nodir: true
+                }
+            },
+            {
+                input: [
+                    process.env.VENDOR_PATH + '/jquery/**',
+                    '!' + process.env.VENDOR_PATH + '/**/src/**'  // Don't include package source dev file
+                ],
+                output: process.env.DEST + '/resources/main/javascripts/lib/jquery',
                 options: {
                     nodir: true
                 }
