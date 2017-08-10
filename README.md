@@ -2,11 +2,10 @@
 Modular prototype framework for the web.
 
 ## Installation
-You can install Totem by installing using a package manger (recommended).
+First, install Yeoman and generator-totem using npm (we assume you have pre-installed node.js).
 
-## Getting started
+Then install your new project:
 
-## Directory structure
-
-## Extending Totem
-
+```bash
+yo totem:install
+```
