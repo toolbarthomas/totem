@@ -24,7 +24,6 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         PLUGINS.watch([
             process.env.SRC + '/resources/**/*.twig',
         ], function () {
-            console.log('TWIG');
             return GULP.start('twig');
         });
 
