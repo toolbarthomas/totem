@@ -5,7 +5,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         var sync_ignores = [
             '!**/sprite/**',
             '!**/svg-sprite/**',
-            '!**/*[.scss,.md,.twig]',
+            '!**/*{.scss,.md,.twig}',
         ];
 
         var sources = [
