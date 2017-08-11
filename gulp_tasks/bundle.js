@@ -13,10 +13,29 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         //Define a stream we can return to complete our task
         var streams = [];
 
-        //Callback function to generate a seperate module
-        function makeBundle() {
-            console.log(bundle);
+        // Start index;
+        var source_index = 0;
 
+        let setGlob = new Promise((resolve, reject) => {
+            for (var index = 0; index < sources.length; index++) {
+                NODE_MODULES.glob(sources[source_index], function (error, file) {
+                    if (error) {
+                        return;
+                    }
+
+                    //Add the found files to our bunddle
+                    bundle = bundle.concat(file);
+
+                    source_index++;
+
+                    if (source_index == sources.length) {
+                        resolve("Make bundle!");
+                    }
+                });
+            }
+        });
+
+        return setGlob.then((message) => {
             for (var index = 0; index < bundle.length; index++) {
                 var basename = NODE_MODULES.path.basename(bundle[index]);
                 var ext = NODE_MODULES.path.extname(basename);
@@ -27,31 +46,16 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                     entries: bundle[index],
                     standalone: NODE_MODULES.camelCase(name)
                 }).bundle()
-                .pipe(NODE_MODULES.vinylSourceStream(basename))
-                .pipe(PLUGINS.derequire())
-                .pipe(GULP.dest(process.env.DEST + '/resources/modules/' + name + '/javascripts'));
+                    .pipe(NODE_MODULES.vinylSourceStream(basename))
+                    .pipe(PLUGINS.derequire())
+                    .pipe(GULP.dest(process.env.DEST + '/resources/modules/' + name + '/javascripts'));
 
                 streams.push(queue);
+
+                if (index == (bundle.length - 1)) {
+                    return NODE_MODULES.merge(streams);
+                }
             }
-
-            return NODE_MODULES.merge(streams);
-        }
-
-        //Setup our bundle with our defined sources:
-        for (var index = 0; index < sources.length; index++) {
-            NODE_MODULES.glob(sources[index], function (error, file) {
-                if (error) {
-                    return;
-                }
-
-                //Add the found files to our bunddle
-                bundle = bundle.concat(file);
-
-                //Callback
-                if(index == sources.length) {
-                    makeBundle();
-                }
-            });
-        }
+        });
     }
 }

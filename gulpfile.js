@@ -17,7 +17,7 @@ const NODE_MODULES = {
     del: require('del'),
     merge: require('merge-stream'),
     path: require('path'),
-    runSequence: require('run-sequence'),
+    runSequence: require('run-sequence').use(GULP),
     glob: require('glob'),
     browserify: require('browserify'),
     vinylSourceStream: require('vinyl-source-stream'),
@@ -69,7 +69,10 @@ GULP.task('stylesheets', function(callback) {
 
 GULP.task('javascripts', function(callback) {
     NODE_MODULES.runSequence(
-        'concat',
+        [
+            'concat',
+            'bundle',
+        ],
         callback
     );
 });
@@ -95,18 +98,6 @@ GULP.task('build', function (callback) {
         ],
         callback
     );
-});
-
-GULP.task('foo', function(foo) {
-    var stream = NODE_MODULES.browserify({
-        entries: './src/resources/modules/totem.module.cart/javascripts/totem.module.cart.js',
-        standalone: 'totemModuleCart'
-    }).bundle();
-
-    return stream
-    .pipe(NODE_MODULES.vinylSourceStream('totem.module.cart.js'))
-    .pipe(PLUGINS.derequire())
-    .pipe(GULP.dest(process.env.DEST + '/resources/modules/totem.module.cart/javascripts'));
 });
 
 GULP.task('serve', function (callback) {
