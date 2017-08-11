@@ -18,7 +18,7 @@ const NODE_MODULES = {
     merge: require('merge-stream'),
     path: require('path'),
     runSequence: require('run-sequence').use(GULP),
-    glob: require('glob'),
+    globby: require('globby'),
     browserify: require('browserify'),
     vinylSourceStream: require('vinyl-source-stream'),
     camelCase: require('camelcase')
