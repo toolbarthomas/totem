@@ -1,0 +1,21 @@
+@if variable-exists(spritesmith) {
+    .sprite {
+        position: relative;
+        display: inline-block;
+        vertical-align: middle;
+        background-repeat: no-repeat;
+        background-image: url(map-get($spritesmith, path));
+        overflow: hidden;
+        text-indent: 100%;
+        white-space: nowrap;
+    }
+
+    @each $sprite in map-get($spritesmith, sprites) {
+        #{'.sprite--' + map-get($sprite, name)} {
+            background-position: map-get($sprite, offset_x) map-get($sprite, offset_y);
+            background-size: {{ divideRetina total_width }}px {{ divideRetina total_height }}px;
+            width: {{ divideRetina width }}px;
+            height: {{ divideRetina height }}px;
+        }
+    }
+}

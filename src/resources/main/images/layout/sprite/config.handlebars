@@ -1,14 +1,15 @@
 {{#extend "scss"}}
   {{#content "sprites"}}
-      $sprites: (
-        name: '{{outputName}}',
-        path: '{{spritesheet.escaped_image}}',
+      $spritesmith: (
+        name: '{{spritesheet.escaped_image}}',
+        path: '{{ imageSource }}',
         width: {{divideRetina spritesheet.width}}px,
         height: {{divideRetina spritesheet.height}}px,
         sprites: (
           {{#each sprites}}
-            '{{strings.name}}' : (
+            (
               name: '{{strings.name}}',
+              class: '.{{strings.name}}',
               x: {{divideRetina x}}px,
               y: {{divideRetina y}}px,
               offset_x: {{divideRetina offset_x}}px,
@@ -25,22 +26,11 @@
   {{/content}}
 {{/extend}}
 
-.sprite {
-  position: relative;
-  display: inline-block;
-  vertical-align: middle;
-  background-repeat: no-repeat;
-  background-image: url("{{ imageSource }}");
-  overflow: hidden;
-  text-indent: 100%;
-  white-space: nowrap;
-}
-
 {{#sprites}}
-.sprite--{{name}} {
+{{!-- .sprite--{{name}} {
   background-position: {{ divideRetina offset_x }}px {{ divideRetina offset_y }}px;
   background-size: {{ divideRetina total_width }}px {{ divideRetina total_height }}px;
   width: {{ divideRetina width }}px;
   height: {{ divideRetina height }}px;
-}
+} --}}
 {{/sprites}}
