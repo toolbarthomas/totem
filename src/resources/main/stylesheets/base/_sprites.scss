@@ -5,6 +5,7 @@
         vertical-align: middle;
         background-repeat: no-repeat;
         background-image: url(map-get($spritesmith, path));
+        background-size: map-get($spritesmith, width) map-get($spritesmith, height);
         overflow: hidden;
         text-indent: 100%;
         white-space: nowrap;
@@ -12,10 +13,9 @@
 
     @each $sprite in map-get($spritesmith, sprites) {
         #{'.sprite--' + map-get($sprite, name)} {
+            width: map-get($sprite, width);
+            height: map-get($sprite, height);
             background-position: map-get($sprite, offset_x) map-get($sprite, offset_y);
-            background-size: {{ divideRetina total_width }}px {{ divideRetina total_height }}px;
-            width: {{ divideRetina width }}px;
-            height: {{ divideRetina height }}px;
         }
     }
 }
