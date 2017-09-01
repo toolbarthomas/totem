@@ -5,6 +5,5 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             root: process.env.DEST,
             livereload: true
         });
-
     }
 }

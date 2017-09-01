@@ -47,5 +47,13 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         ], function () {
             return GULP.start('javascripts');
         });
+
+        PLUGINS.watch([
+            process.env.DEST + '/resources/**/stylesheets/**/*.css'
+        ], function () {
+            return GULP.src([
+                process.env.DEST + '/resources/**/stylesheets/**/*.css'
+            ]).pipe(PLUGINS.connect.reload());
+        });
     }
 }
