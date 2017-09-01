@@ -7,14 +7,14 @@
         <!-- Respsonsive Meta Tags -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 
-        <title>Default template</title>
+        <title>{{ shared_data.page_title is not empty ? shared_data.page_title : 'Default template' }}</title>
 
-        <meta name="description" content="" />
+        <meta name="description" content="{{ shared_data.page_description }}" />
         <meta name="robots" content="index, follow" />
         <meta name="author" content="" />
 
         <!-- Microsoft Windows Application Settings -->
-        <meta name="application-name" content=""/>
+        <meta name="application-name" content="{{ shared_data.page_title }}"/>
         <meta name="msapplpication-TileColor" content="#000000"/>
         <meta name="theme-color" content="#000000" />
 
