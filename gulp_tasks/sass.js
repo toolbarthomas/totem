@@ -59,6 +59,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                     ignorePaths: ignore_paths
                 }))
                 .pipe(PLUGINS.sass().on('error', PLUGINS.sass.logError))
+                .pipe(PLUGINS.autoprefixer())
                 .pipe(PLUGINS.sourcemaps.write('./'))
                 .pipe(GULP.dest(source.output))
 
