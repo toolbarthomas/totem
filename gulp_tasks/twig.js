@@ -10,7 +10,8 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             {
                 input: [
                     process.env.SRC + '/resources/modules/**/*.twig',
-                    process.env.MODULES_PATH + '/totem.module.*/**/*.twig'
+                    process.env.MODULES_PATH + '/totem.module.*/**/*.twig',
+                    '!**/totem.module.*/**/bower_components/**/*.twig'
                 ],
                 output: process.env.DEST + '/resources/modules'
             }

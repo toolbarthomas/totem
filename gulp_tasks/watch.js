@@ -16,13 +16,15 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
 
         PLUGINS.watch([
             process.env.SRC + '/resources/**/stylesheets/**/*.scss',
+            process.env.MODULES_PATH + '/**/stylesheets/**/*.scss',
+        
         ], function () {
-            console.log('stylesheets');
             return GULP.start('stylesheets');
         });
 
         PLUGINS.watch([
             process.env.SRC + '/resources/**/*.twig',
+            process.env.MODULES_PATH + '/**/*.twig',
         ], function () {
             return GULP.start('twig');
         });
@@ -30,7 +32,6 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         PLUGINS.watch([
             process.env.SRC + '/resources/main/images/layout/svg-sprite/**/*.svg',
         ], function () {
-            console.log('SVG');
             return GULP.start('svgstore');
         });
 
@@ -42,6 +43,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
 
         PLUGINS.watch([
             process.env.SRC + '/resources/**/javascripts/**/*.js',
+            process.env.MODULES_PATH + '/**/javascripts/**/*.js',
         ], function () {
             return GULP.start('javascripts');
         });

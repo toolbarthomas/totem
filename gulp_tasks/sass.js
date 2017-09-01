@@ -9,47 +9,54 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                     process.env.MODULES_PATH + '/totem.module.*/stylesheets/*.scss',
                 ],
                 output: process.env.DEST + '/resources/modules',
+                ignore_folders: [
+                    'git_submodules',
+                    'node_modules',
+                ]
             },
             {
                 input: [
                     process.env.SRC + '/resources/pages/*/stylesheets/*.scss'
                 ],
                 output: process.env.DEST + '/resources/pages',
+                ignore_folders: [
+                    'git_submodules',
+                    'node_modules',
+                    'bower_components'
+                ]
             },
             {
                 input: [
                     process.env.SRC + '/resources/templates/*/stylesheets/*.scss'
                 ],
                 output: process.env.DEST + '/resources/templates',
+                ignore_folders: [
+                    'git_submodules',
+                    'node_modules',
+                    'bower_components'
+                ]
             }
         ];
 
         var streams = [];
 
-        // Ignore all package manager folders when using git_modules for development
-        var sass_globbing_ignore_paths = [
-            '**/git_submodules/**',
-            '**/node_modules/**',
-            '**/bower_components/**'
-        ];
-
-        switch (process.env.MODULES_PATH) {
-            case 'git_submodules':
-                sass_globbing_ignore_paths.splice(0, 1);
-                break;
-            case 'node_modules':
-                sass_globbing_ignore_paths.splice(1, 1);
-                break;
-            default:
-                sass_globbing_ignore_paths.splice(2, 1);
-                break;
-        }
-
         sources.forEach(function (source) {
+
+            //Remove the specified MODULES_PATH from the .env file. so only import our Modules once.
+            var ignore_paths = source.ignore_folders;
+            ignore_paths = ignore_paths.filter(function (item) {
+                return item !== process.env.MODULES_PATH
+            });
+
+            // Make a globbing path from each ignore path
+            for (var index = 0; index < ignore_paths.length; index++) {
+                ignore_paths[index] = '**/' + ignore_paths[index] + '/**';                
+            }
+
             var stream = GULP.src(source.input)
                 .pipe(PLUGINS.sourcemaps.init())
                 .pipe(PLUGINS.sassGlob({
-                    ignorePaths: sass_globbing_ignore_paths
+                    ignorePaths: ignore_paths
                 }))
                 .pipe(PLUGINS.sass().on('error', PLUGINS.sass.logError))
                 .pipe(PLUGINS.sourcemaps.write('./'))
