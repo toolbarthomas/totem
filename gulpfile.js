@@ -43,7 +43,7 @@ GULP.task('sass', getGulpTask('sass'));
 GULP.task('svgstore', getGulpTask('svgstore'));
 
 // Scripting tasks
-GULP.task('bundle', getGulpTask('bundle'));
+GULP.task('browserify', getGulpTask('browserify'));
 GULP.task('concat', getGulpTask('concat'));
 
 // Content tasks
@@ -69,10 +69,8 @@ GULP.task('stylesheets', function(callback) {
 
 GULP.task('javascripts', function(callback) {
     NODE_MODULES.runSequence(
-        [
-            'concat',
-            'bundle',
-        ],
+        'browserify',
+        'concat',
         callback
     );
 });

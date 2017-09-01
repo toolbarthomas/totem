@@ -1,12 +1,14 @@
+// Concat all Javascript file 
+
 module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
     return function (callback)
     {
         var sources = [
             {
                 input: [
-                    process.env.SRC + '/resources/modules/**/javascripts/**/*.js'
+                    process.env.DEST + '/resources/modules/**/javascripts/**/*.js'
                 ],
-                output: process.env.DEST + '/resources/main/javascripts/modules',
+                output: process.env.DEST + '/resources/main/javascripts',
                 file_name: 'modules.bundle.js'
             }
         ];
