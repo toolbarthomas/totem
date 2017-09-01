@@ -23,9 +23,10 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 var name = NODE_MODULES.path.basename(files[index], ext);
 
                 if (stats.size === 0) {
-                    PLUGINS.util.log(name + ext + ' is empty, this file will be ignored.')
+                    PLUGINS.util.log(NODE_MODULES.chalk.yellow(name + ext + ' is empty, this file will be ignored.'))
                     break;
                 }
+                
 
                 var queue = NODE_MODULES.browserify({
                     entries: files[index],

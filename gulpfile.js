@@ -15,6 +15,7 @@ const NODE_MODULES = {
     buffer: require('vinyl-buffer'),
     fse: require('fs-extra'),
     del: require('del'),
+    chalk: require('chalk'),
     merge: require('merge-stream'),
     path: require('path'),
     runSequence: require('run-sequence').use(GULP),
