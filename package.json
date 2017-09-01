@@ -64,7 +64,6 @@
     "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
-    "bourbon": "^4.3.4",
     "jquery": "^2.2.4",
     "svg-sprite-injector": "^1.0.0"
   }

@@ -22,9 +22,6 @@
 // Each layer is an actual folder defined within the module.
 // To generate the desired file structure for a new module page or template file you can use the included Yoeman Generator: 'yo totem'.
 
-// Bourbon
-@import "../../../../../node_modules/bourbon/app/assets/stylesheets/bourbon";
-
 // 1. Shared - Must use mixins & functions we use within the helpers layer
 @import "../../../main/stylesheets/shared/**";
 @import "../../../../../git_submodules/totem.module*/stylesheets/shared/**";
