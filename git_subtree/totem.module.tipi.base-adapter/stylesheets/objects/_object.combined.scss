@@ -1,0 +1,4 @@
+@import "../../bower_components/tipi.base.combined/__core";
+@if $tipi-base-adapter-enable-combined {
+    @include core_combined;
+}

@@ -1,0 +1,4 @@
+@import "../../bower_components/tipi.base.element-group/__core";
+@if $tipi-base-adapter-enable-element-group {
+    @include core_element-group;
+}
