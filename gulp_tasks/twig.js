@@ -32,7 +32,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
 
                 var data = path.replace(extension, 'data.json');
 
-                // Check if the a data.json exists
+                // Check if data.json exists
                 if (!NODE_MODULES.fse.existsSync(data)) {
                     return {};
                 }
