@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+// totem.module.form Module
+//
+// This file is used to generate a seperate stylesheet for your module
+// 
+
+@import "../../../src/resources/main/stylesheets/shared/**"; //Import location for Totem when this module is defined as a project module.
+@import "../../../../../src/resources/main/stylesheets/shared/**"; //Import location for Totem when this module is defined as an external module.
+@import "shared/**"; //Import location for Totem when this module is defined as a standalone module
+
+@import "../../../src/resources/main/stylesheets/helpers/**"; //Import location for Totem when this module is defined as a project module.
+@import "../../../../../src/resources/main/stylesheets/helpers/**"; //Import location for Totem when this module is defined as an external module.
+@import "helpers/**"; //Import location for Totem when this module is defined as a standalone module
+
+@import "../../../src/resources/main/stylesheets/settings/**"; //Import location for Totem when this module is defined as a project module.
+@import "../../../../../src/resources/main/stylesheets/settings/**"; //Import location for Totem when this module is defined as an external module.
+@import "settings/**"; //Import location for Totem when this module is defined as a standalone module
+
+@import "../../../src/resources/main/stylesheets/tools/**"; //Import location for Totem when this module is defined as a project module.
+@import "../../../../../src/resources/main/stylesheets/tools/**"; //Import location for Totem when this module is defined as an external module.
+@import "tools/**"; //Import location for Totem when this module is defined as a standalone module
+
+@import "generic/**";
+@import "base/**";
+@import "objects/**";
+@import "components/**";
+@import "utilities/**";
