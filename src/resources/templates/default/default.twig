@@ -29,8 +29,8 @@
 
         <link href="/resources/templates/default/stylesheets/default.css" rel="stylesheet" type="text/css">
 
-        {% block page_style %}{% endblock %}
         {% block page_stylesheets %}{% endblock %}
+        {% block page_style %}{% endblock %}
     </head>
     <body>
         <div class="sticky-end">
@@ -58,6 +58,7 @@
     <script src="/resources/main/javascripts/lib/jquery/dist/jquery.min.js"></script>
 
     <script src="/resources/templates/default/javascripts/default.js"></script>
-    {% block page_script %}{% endblock %}
+
     {% block page_javascripts %}{% endblock %}
+    {% block page_script %}{% endblock %}
 </html>
