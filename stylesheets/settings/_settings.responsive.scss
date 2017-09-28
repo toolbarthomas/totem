@@ -1,0 +1,20 @@
+$smartphone-min-width: 		    viewport('smartphone', 'min-width') !default;
+$smartphone-max-width: 		    viewport('smartphone', 'max-width') !default;
+
+$phablet-min-width: 		    viewport('phablet', 'min-width') !default;
+$phablet-max-width: 		    viewport('phablet', 'max-width') !default;
+
+$tablet-min-width: 			    viewport('tablet', 'min-width') !default;
+$tablet-max-width: 			    viewport('tablet', 'max-width') !default;
+
+$tablet-landscape-min-width: 	viewport('tablet-landscape', 'min-width') !default;
+$tablet-landscape-max-width: 	viewport('tablet-landscape', 'max-width') !default;
+
+$desktop-min-width: 	        viewport('desktop', 'min-width') !default;
+$desktop-max-width: 		    viewport('desktop', 'max-width') !default;
+
+$widescreen-min-width: 		    viewport('widescreen', 'min-width') !default;
+$widescreen-max-width: 		    viewport('widescreen', 'max-width') !default;
+
+$highroller-min-width: 		    viewport('highroller', 'min-width') !default;
+$highroller-max-width: 		    viewport('highroller', 'max-width') !default;

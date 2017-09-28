@@ -1,0 +1,4 @@
+@import "../../bower_components/tipi.base.columns/__core";
+@if $tipi-base-adapter-enable-columns {
+    @include core_columns;
+}

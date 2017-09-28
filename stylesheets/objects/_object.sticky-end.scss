@@ -1,0 +1,4 @@
+@import "../../bower_components/tipi.base.sticky-end/__core";
+@if $tipi-base-adapter-enable-sticky-end {
+    @include core_sticky-end;
+}
