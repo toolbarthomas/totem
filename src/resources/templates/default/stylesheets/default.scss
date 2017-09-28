@@ -72,10 +72,10 @@
 @import "../../../modules/*/stylesheets/objects/**";
 
 // 8. Components - Specific UI components will be defined here.
+@import "../../../main/stylesheets/components/**";
 @import "../../../../../git_submodules/totem.module*/stylesheets/components/**";
 @import "../../../../../bower_components/totem.module*/stylesheets/components/**";
 @import "../../../../../node_modules/totem.module*/stylesheets/components/**";
-@import "../../../main/stylesheets/components/**";
 @import "../../../modules/*/stylesheets/components/**";
 
 // 9. Utilities and helper classes with ability to override anything within the project. Usefull to define helper classes like: .hide
