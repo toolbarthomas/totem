@@ -16,3 +16,25 @@ Setting up a module, page or template file is very easy by using the Yeoman Gene
 ```bash
 yo totem
 ```
+## Totem file structure
+The Totem structure has been split up in 4 sections (folders):
+1. main - Global assets & shared libraries should be defined here.
+2. modules - Core styling, layout & logic for each module should be defined here.
+3. pages - Specific page overrides can be defined here.
+4. templates - Each template comes with a stylesheet that should import all the necessary modules we wan't to use. The pre-defined default-template imports every stylesheet that has been created within your project.
+
+
+## Main
+The `main` folder contains all core files that are used by Totem; i.e. mixins, function and variables.
+You can adjust the settings within this section. for typography, responsive breakpoints & colors.
+
+## Modules
+Modules are small parts that can work together with each other. A module is a small part of your application, it's recommended to keep your modules small.
+
+It's recommended to define additional overrides within the **page** section.
+
+## Pages
+A page is simple a section where you define all your modules you wan't to use. Specific overrides for your application should be defined in this section.
+
+## Templates
+A template should only define the base layout for your pages. Your application can contain multiple templates. Import logic will be mostly done within this section. When using the default template you will load all styles on a global level.
