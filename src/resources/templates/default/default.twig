@@ -7,21 +7,19 @@
         <!-- Respsonsive Meta Tags -->
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 
-        <title>{{ shared_data.page_title is not empty ? shared_data.page_title : 'Default template' }}</title>
+        <title>{{ page.title }}</title>
 
-        <meta name="description" content="{{ shared_data.page_description }}" />
+        <meta name="description" content="{{ description }}" />
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="" />
+        <meta name="author" content="{{ author }}" />
 
-        <!-- Microsoft Windows Application Settings -->
-        <meta name="application-name" content="{{ shared_data.page_title }}"/>
-        <meta name="msapplpication-TileColor" content="#000000"/>
-        <meta name="theme-color" content="#000000" />
-
+        <!-- Microsoft Windows Application Settings-->
+        <meta name="application-name" content="{{ name }}"/>
+        <meta name="msapplpication-TileColor" content="{{ color is defined ? color : '#ffffff' }}"/>
+        <meta name="theme-color" content="{{ color is defined ? color : '#ffffff' }}" />
 
         <!-- Web Application Icon -->
         <link href="/resources/main/images/layout/appicon.png" rel="icon" type="image/png">
-        <link href="/resources/main/images/layout/appicon.svg" rel="mask-icon" color="#000000">
 
         <!-- Apple Touch Icon -->
         <link href="/resources/main/images/layout/apple-touch-icon.png" rel="apple-touch-icon">
