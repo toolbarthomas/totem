@@ -9,14 +9,14 @@
 
         <title>{{ page.title }}</title>
 
-        <meta name="description" content="{{ description }}" />
+        <meta name="description" content="{{ app.description }}" />
         <meta name="robots" content="index, follow" />
-        <meta name="author" content="{{ author }}" />
+        <meta name="author" content="{{ app.author }}" />
 
         <!-- Microsoft Windows Application Settings-->
-        <meta name="application-name" content="{{ name }}"/>
-        <meta name="msapplpication-TileColor" content="{{ color is defined ? color : '#ffffff' }}"/>
-        <meta name="theme-color" content="{{ color is defined ? color : '#ffffff' }}" />
+        <meta name="application-name" content="{{ app.name }}"/>
+        <meta name="msapplpication-TileColor" content="{{ color is defined ? app.theme_color : '#ffffff' }}"/>
+        <meta name="theme-color" content="{{ app.theme_color is defined ? color : '#ffffff' }}" />
 
         <!-- Web Application Icon -->
         <link href="/resources/main/images/layout/appicon.png" rel="icon" type="image/png">
