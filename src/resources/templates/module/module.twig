@@ -5,16 +5,20 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
 
-        <title>{{ page.title }}</title>
+        <title>{{ page.title is defined ? page.title : 'Module example' }}</title>
+
+        <link href="/resources/templates/module/stylesheets/module.css" rel="stylesheet" type="text/css">
 
         {% block module_stylesheets %}{% endblock %}
     </head>
     <body>
-        <!-- START Module -->
-        {% block module %}
-            Module has not been defined.
-        {% endblock %}
-        <!-- END Module -->
+        <div class="module-viewer">
+            <div class="module-viewer-wrapper">
+                {% block module %}
+                    Module has not been defined.
+                {% endblock %}
+            </div>
+        </div>
 
         {% block module_javascripts %}{% endblock %}
     </body>
