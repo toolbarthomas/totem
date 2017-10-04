@@ -20,6 +20,13 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
 
         var streams = [];
 
+        // Json file we can use to define global values within the project.
+        var global_json = {};
+        var data = process.env.SRC + '/data.json';
+        if (NODE_MODULES.fse.existsSync(data)) {
+            global_json = JSON.parse(NODE_MODULES.fse.readFileSync(data));
+        }
+
         sources.forEach(function(source) {
             var stream = GULP.src(source.input, {
                 nodir: true
@@ -31,13 +38,14 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 var path = NODE_MODULES.path.relative(file.cwd, file.path);
                 var extension = NODE_MODULES.path.basename(path);
 
-                var data = path.replace(extension, 'data.json');
+                var f = path.replace(extension, 'data.json');
 
                 // Check if data.json exists
-                if (!NODE_MODULES.fse.existsSync(data)) {
+                if (!NODE_MODULES.fse.existsSync(f)) {
                     return {};
                 }
-                return JSON.parse(NODE_MODULES.fse.readFileSync(data));
+
+                return Object.assign(global_json, JSON.parse(NODE_MODULES.fse.readFileSync(f)));
             }))
             .pipe(PLUGINS.twig({
                 base: process.env.SRC + '/resources',
