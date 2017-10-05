@@ -26,12 +26,11 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                     PLUGINS.util.log(NODE_MODULES.chalk.yellow(name + ext + ' is empty, this file will be ignored.'))
                     break;
                 }
-                
 
                 var queue = NODE_MODULES.browserify({
                     entries: files[index],
                     standalone: NODE_MODULES.camelCase(name)
-                }).bundle()
+                }).transform(NODE_MODULES.babelify).bundle()
                     .pipe(NODE_MODULES.vinylSourceStream(basename))
                     .pipe(PLUGINS.derequire())
                     .pipe(GULP.dest(process.env.DEST + '/resources/modules/' + name + '/javascripts'));
