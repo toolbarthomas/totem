@@ -12,17 +12,18 @@ const PLUGINS = require('gulp-load-plugins')();
 
 // Define the required node modules we use for our Gulp workflow
 const NODE_MODULES = {
+    babelify: require('babelify'),
+    browserify: require('browserify'),
     buffer: require('vinyl-buffer'),
-    fse: require('fs-extra'),
-    del: require('del'),
+    camelCase: require('camelcase'),
     chalk: require('chalk'),
+    del: require('del'),
+    fse: require('fs-extra'),
+    globby: require('globby'),
     merge: require('merge-stream'),
     path: require('path'),
     runSequence: require('run-sequence').use(GULP),
-    globby: require('globby'),
-    browserify: require('browserify'),
-    vinylSourceStream: require('vinyl-source-stream'),
-    camelCase: require('camelcase')
+    vinylSourceStream: require('vinyl-source-stream')
 }
 
 // Revision timestamp of the current date in seconds

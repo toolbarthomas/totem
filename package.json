@@ -26,6 +26,7 @@
     "url": "https://github.com/toolbarthomas/totem/issues"
   },
   "devDependencies": {
+    "babelify": "^7.3.0",
     "bower": "^1.8.2",
     "browserify": "^14.4.0",
     "camelcase": "^4.1.0",
