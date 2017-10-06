@@ -17,70 +17,70 @@
 //
 // Page specific styling won't be imported within this stylesheet since we should include them seperately within the document.
 //
-// We use the ITCSS principle for importing our main styles, vendor modules and project module. - https://medium.com/@pistenprinz/css-at-trivago-part-1-structure-and-itcss-52f63ed557ca
+// We use the ITCSS principle for importing our main styles, submodules and project module. - https://medium.com/@pistenprinz/css-at-trivago-part-1-structure-and-itcss-52f63ed557ca
 // One of the key principles of ITCSS is that it seperates our CSS codebase into several sections (called layers).
 // Each layer is an actual folder defined within the module.
 // To generate the desired file structure for a new module page or template file you can use the included Yoeman Generator: 'yo totem'.
 
 // 1. Shared - Must use mixins & functions we use within the helpers layer
 @import "../../../main/stylesheets/shared/**";
-@import "../../../../../vendor/totem.module*/stylesheets/shared/**";
+@import "../../../../../submodules/totem.module*/stylesheets/shared/**";
 @import "../../../../../bower_components/totem.module*/stylesheets/shared/**";
 @import "../../../../../node_modules/totem.module*/stylesheets/shared/**";
 @import "../../../modules/*/stylesheets/shared/**";
 
 // 2. Helpers - Helper functions to get a value from a mapped setting.
 @import "../../../main/stylesheets/helpers/**";
-@import "../../../../../vendor/totem.module*/stylesheets/helpers/**";
+@import "../../../../../submodules/totem.module*/stylesheets/helpers/**";
 @import "../../../../../bower_components/totem.module*/stylesheets/helpers/**";
 @import "../../../../../node_modules/totem.module*/stylesheets/helpers/**";
 @import "../../../modules/*/stylesheets/helpers/**";
 
 // 3. Settings - All variables will be defined on the same level so we can share it in the whole project.
 @import "../../../main/stylesheets/settings/**";
-@import "../../../../../vendor/totem.module*/stylesheets/settings/**";
+@import "../../../../../submodules/totem.module*/stylesheets/settings/**";
 @import "../../../../../bower_components/totem.module*/stylesheets/settings/**";
 @import "../../../../../node_modules/totem.module*/stylesheets/settings/**";
 @import "../../../modules/*/stylesheets/settings/**";
 
 // 4. Tools - Mixins & functions for defining project styling should be defined here
 @import "../../../main/stylesheets/tools/**";
-@import "../../../../../vendor/totem.module*/stylesheets/tools/**";
+@import "../../../../../submodules/totem.module*/stylesheets/tools/**";
 @import "../../../../../bower_components/totem.module*/stylesheets/tools/**";
 @import "../../../../../node_modules/totem.module*/stylesheets/tools/**";
 @import "../../../modules/*/stylesheets/tools/**";
 
 // 5. Generic - Default tag style definitions for your app/module will be defined here. E.g. reset.css
 @import "../../../main/stylesheets/generic/**";
-@import "../../../../../vendor/totem.module*/stylesheets/generic/**";
+@import "../../../../../submodules/totem.module*/stylesheets/generic/**";
 @import "../../../../../bower_components/totem.module*/stylesheets/generic/**";
 @import "../../../../../node_modules/totem.module*/stylesheets/generic/**";
 @import "../../../modules/*/stylesheets/generic/**";
 
 // 6. Base - Typography and other global styling definitions should be defined here.
 @import "../../../main/stylesheets/base/**";
-@import "../../../../../vendor/totem.module*/stylesheets/base/**";
+@import "../../../../../submodules/totem.module*/stylesheets/base/**";
 @import "../../../../../bower_components/totem.module*/stylesheets/base/**";
 @import "../../../../../node_modules/totem.module*/stylesheets/base/**";
 @import "../../../modules/*/stylesheets/base/**";
 
 // 7. Objects - Class-based selectors with undecorated design patterns i.e. layout definitions
 @import "../../../main/stylesheets/objects/**";
-@import "../../../../../vendor/totem.module*/stylesheets/objects/**";
+@import "../../../../../submodules/totem.module*/stylesheets/objects/**";
 @import "../../../../../bower_components/totem.module*/stylesheets/objects/**";
 @import "../../../../../node_modules/totem.module*/stylesheets/objects/**";
 @import "../../../modules/*/stylesheets/objects/**";
 
 // 8. Components - Specific UI components will be defined here.
 @import "../../../main/stylesheets/components/**";
-@import "../../../../../vendor/totem.module*/stylesheets/components/**";
+@import "../../../../../submodules/totem.module*/stylesheets/components/**";
 @import "../../../../../bower_components/totem.module*/stylesheets/components/**";
 @import "../../../../../node_modules/totem.module*/stylesheets/components/**";
 @import "../../../modules/*/stylesheets/components/**";
 
 // 9. Utilities and helper classes with ability to override anything within the project. Usefull to define helper classes like: .hide
 @import "../../../main/stylesheets/utilities/**";
-@import "../../../../../vendor/totem.module*/stylesheets/utilities/**";
+@import "../../../../../submodules/totem.module*/stylesheets/utilities/**";
 @import "../../../../../bower_components/totem.module*/stylesheets/utilities/**";
 @import "../../../../../node_modules/totem.module*/stylesheets/utilities/**";
 @import "../../../modules/*/stylesheets/utilities/**";
