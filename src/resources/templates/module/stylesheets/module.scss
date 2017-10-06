@@ -10,14 +10,14 @@
 // Template stylesheets should divide into the following categories:
 //
 // 1. Main - Global styling for your app goes here; e.g. branding & typography styles.
-// 2. External Modules (Bower, NPM or GIT) - Shared libraries will be directly imported after your main style definitions.
-//    You can define the desired location for your modules e.g. bower_components, node_modules or git modules within the environment file: ./.env.
+// 2. Vendor Modules (Bower, NPM or GIT) - Shared libraries will be directly imported after your main style definitions.
+//    You can define the desired location for your modules e.g. bower_components, node_modules or git submodules within the environment file: ./.env.
 //    Gulp will ignore all other external module locations defined within the template stylesheet when you define the MODULES_PATH variable.
 // 3. Project Modules - Class-based UI components will be defined here, ID-based styling isn't allowed in this section. Your app can contain multiple components and must be defined within it's own folder.
 //
 // Page specific styling won't be imported within this stylesheet since we should include them seperately within the document.
 //
-// We use the ITCSS principle for importing our main styles, external modules and project module. - https://medium.com/@pistenprinz/css-at-trivago-part-1-structure-and-itcss-52f63ed557ca
+// We use the ITCSS principle for importing our main styles, vendor modules and project module. - https://medium.com/@pistenprinz/css-at-trivago-part-1-structure-and-itcss-52f63ed557ca
 // One of the key principles of ITCSS is that it seperates our CSS codebase into several sections (called layers).
 // Each layer is an actual folder defined within the module.
 // To generate the desired file structure for a new module page or template file you can use the included Yoeman Generator: 'yo totem'.
