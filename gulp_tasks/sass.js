@@ -7,10 +7,11 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 input: [
                     process.env.SRC + '/resources/modules/*/stylesheets/*.scss',
                     process.env.MODULES_PATH + '/totem.module.*/stylesheets/*.scss',
+                    '!' + process.env.MODULES_PATH + '/totem.module.tipi*/**' //Prevent seperate module builds for Tipi based packages
                 ],
                 output: process.env.DEST + '/resources/modules',
                 ignore_folders: [
-                    'git_submodules',
+                    'totem_modules',
                     'node_modules',
                 ]
             },
@@ -20,7 +21,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 ],
                 output: process.env.DEST + '/resources/pages',
                 ignore_folders: [
-                    'git_submodules',
+                    'totem_modules',
                     'node_modules',
                     'bower_components'
                 ]
@@ -31,7 +32,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 ],
                 output: process.env.DEST + '/resources/templates',
                 ignore_folders: [
-                    'git_submodules',
+                    'totem_modules',
                     'node_modules',
                     'bower_components'
                 ]
@@ -50,7 +51,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
 
             // Make a globbing path from each ignore path
             for (var index = 0; index < ignore_paths.length; index++) {
-                ignore_paths[index] = '**/' + ignore_paths[index] + '/**';                
+                ignore_paths[index] = '**/' + ignore_paths[index] + '/**';
             }
 
             var stream = GULP.src(source.input)

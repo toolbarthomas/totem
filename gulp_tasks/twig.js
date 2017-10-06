@@ -12,7 +12,9 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                     process.env.SRC + '/resources/modules/**/*.twig',
                     process.env.MODULES_PATH + '/totem.module.*/**/*.twig',
                     '!**/totem.module.*/**/bower_components/**/*.twig',
-                    '!**/modules/*/partials/**/*.twig'
+                    '!**/totem.module.*/**/bower_components/**/*.twig',
+                    '!**/modules/*/partials/**/*.twig',
+                    '!' + process.env.MODULES_PATH + '/totem.module.tipi*/**' // Ignore tipi based twig partials
                 ],
                 output: process.env.DEST + '/resources/modules'
             }
