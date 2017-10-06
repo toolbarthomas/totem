@@ -11,7 +11,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 ],
                 output: process.env.DEST + '/resources/modules',
                 ignore_folders: [
-                    'totem_modules',
+                    'vendor',
                     'node_modules',
                 ]
             },
@@ -21,7 +21,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 ],
                 output: process.env.DEST + '/resources/pages',
                 ignore_folders: [
-                    'totem_modules',
+                    'vendor',
                     'node_modules',
                     'bower_components'
                 ]
@@ -32,7 +32,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 ],
                 output: process.env.DEST + '/resources/templates',
                 ignore_folders: [
-                    'totem_modules',
+                    'vendor',
                     'node_modules',
                     'bower_components'
                 ]
