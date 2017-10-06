@@ -6,12 +6,12 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             {
                 input: [
                     process.env.SRC + '/resources/modules/*/stylesheets/*.scss',
-                    process.env.MODULES_PATH + '/totem.module.*/stylesheets/*.scss',
-                    '!' + process.env.MODULES_PATH + '/totem.module.tipi*/**' //Prevent seperate module builds for Tipi based packages
+                    process.env.SUBMODULES_PATH + '/totem.module.*/stylesheets/*.scss',
+                    '!' + process.env.SUBMODULES_PATH + '/totem.module.tipi*/**' //Prevent seperate module builds for Tipi based packages
                 ],
                 output: process.env.DEST + '/resources/modules',
                 ignore_folders: [
-                    'vendor',
+                    'submodules',
                     'node_modules',
                 ]
             },
@@ -21,7 +21,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 ],
                 output: process.env.DEST + '/resources/pages',
                 ignore_folders: [
-                    'vendor',
+                    'submodules',
                     'node_modules',
                     'bower_components'
                 ]
@@ -32,7 +32,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 ],
                 output: process.env.DEST + '/resources/templates',
                 ignore_folders: [
-                    'vendor',
+                    'submodules',
                     'node_modules',
                     'bower_components'
                 ]
@@ -46,7 +46,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             //Remove the specified MODULES_PATH from the .env file. so only import our Modules once.
             var ignore_paths = source.ignore_folders;
             ignore_paths = ignore_paths.filter(function (item) {
-                return item !== process.env.MODULES_PATH
+                return item !== process.env.SUBMODULES_PATH
             });
 
             // Make a globbing path from each ignore path

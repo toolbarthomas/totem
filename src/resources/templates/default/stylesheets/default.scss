@@ -10,7 +10,7 @@
 // Template stylesheets should divide into the following categories:
 //
 // 1. Main - Global styling for your app goes here; e.g. branding & typography styles.
-// 2. Vendor Modules (Bower, NPM or GIT) - Shared libraries will be directly imported after your main style definitions.
+// 2. Submodules (Bower, NPM or GIT) - Shared libraries will be directly imported after your main style definitions.
 //    You can define the desired location for your modules e.g. bower_components, node_modules or git_submodules within the environment file: ./.env.
 //    Gulp will ignore all other external module locations defined within the template stylesheet when you define the MODULES_PATH variable.
 // 3. Project Modules - Class-based UI components will be defined here, ID-based styling isn't allowed in this section. Your app can contain multiple components and must be defined within it's own folder.

@@ -7,7 +7,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         // Define all module locations in a globbing pattern (including your external packages: bower, NPM etc.)
         var sources = [
             process.env.SRC + '/resources/modules/*/javascripts/*.js',
-            process.env.MODULES_PATH + '/totem.module.*/javascripts/*.js'
+            process.env.SUBMODULES_PATH + '/totem.module.*/javascripts/*.js'
         ];
 
         //Define a stream we can return to complete our task
