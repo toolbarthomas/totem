@@ -1,6 +1,3 @@
 [submodule "submodules/totem.module.tipi-base-adapter"]
 	path = submodules/totem.module.tipi-base-adapter
 	url = https://toolbarthomas@github.com/toolbarthomas/totem.module.tipi-base-adapter
-[submodule "submodules/totem.module.chieftain"]
-	path = submodules/totem.module.chieftain
-	url = https://toolbarthomas@github.com/toolbarthomas/totem.module.chieftain
