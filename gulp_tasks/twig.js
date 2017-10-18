@@ -49,8 +49,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 return Object.assign(global_json, JSON.parse(NODE_MODULES.fse.readFileSync(f)));
             }))
             .pipe(PLUGINS.twig({
-                base: process.env.SRC + '/resources',
-                debug: true
+                base: process.env.SRC + '/resources'
             }))
             .pipe(PLUGINS.faker())
             .pipe(GULP.dest(source.output));
