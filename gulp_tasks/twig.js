@@ -3,17 +3,16 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         var sources = [
             {
                 input: [
-                    process.env.SRC + '/resources/pages/**.twig'
+                    process.env.SRC + '/resources/pages/**/*.twig'
                 ],
                 output: process.env.DEST + '/resources/pages'
             },
             {
                 input: [
-                    process.env.SRC + '/resources/modules/**.twig',
-                    process.env.SUBMODULES_PATH + '/totem.module.*/**.twig',
-                    '!**/totem.module.*/**/bower_components/**.twig',
-                    '!**/totem.module.*/**/bower_components/**.twig',
-                    '!**/partials/**.twig',
+                    process.env.SRC + '/resources/modules/**/*.twig',
+                    process.env.SUBMODULES_PATH + '/totem.module.*/**/*.twig',
+                    '!**/totem.module.*/**/bower_components/**/*.twig',
+                    '!**/partials/**/*.twig',
                     '!' + process.env.SUBMODULES_PATH + '/totem.module.tipi*/**' // Ignore tipi based twig partials
                 ],
                 output: process.env.DEST + '/resources/modules'
@@ -51,7 +50,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             }))
             .pipe(PLUGINS.twig({
                 base: process.env.SRC + '/resources',
-                errorLogToConsole: true
+                debug: true
             }))
             .pipe(PLUGINS.faker())
             .pipe(GULP.dest(source.output));
