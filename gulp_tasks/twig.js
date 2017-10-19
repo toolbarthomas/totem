@@ -12,7 +12,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 input: [
                     process.env.SRC + '/resources/modules/**/*.twig', // Project Modules
                     process.env.SUBMODULES_PATH + '/totem.module.*/**/*.twig', // External Modules,
-                    '!**/totem.module.*/**/bower_components/**',
+                    '!**/totem.module.*/**/bower_components/**', // Can remove if no package has bower
                     '!**/partials/**',
                     '!**/totem.module.tipi/**'
                 ],

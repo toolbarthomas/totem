@@ -17,9 +17,9 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             },
             {
                 input: [
-                    process.env.SRC + '/resources/pages/*/stylesheets/*.scss'
+                    process.env.SRC + '/resources/groups/*/stylesheets/*.scss'
                 ],
-                output: process.env.DEST + '/resources/pages',
+                output: process.env.DEST + '/resources/groups',
                 ignore_folders: [
                     'submodules',
                     'node_modules',
