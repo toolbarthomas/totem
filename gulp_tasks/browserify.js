@@ -5,10 +5,29 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
     return function (callback) {
 
         // Define all module locations in a globbing pattern (including your external packages: bower, NPM etc.)
-        var sources = [
-            process.env.SRC + '/resources/modules/*/javascripts/*.js',
-            process.env.SUBMODULES_PATH + '/totem.module.*/javascripts/*.js'
+        var data = [
+            {
+                'path': process.env.SRC + '/resources/templates/*/javascripts/*.js',
+                'type': 'template'
+            },
+            {
+                'path': process.env.SRC + '/resources/groups/*/javascripts/*.js',
+                'type': 'group'
+            },
+            {
+                'path': process.env.SRC + '/resources/modules/*/javascripts/*.js',
+                'type': 'group'
+            },
+            {
+                'path': process.env.SUBMODULES_PATH + '/totem.module.*/javascripts/*.js',
+                'type': 'module'
+            }
         ];
+
+        var sources = [];
+        data.forEach(function (source) {
+            sources.push(source.path);
+        }, this);
 
         //Define a stream we can return to complete our task
         var streams = [];
@@ -27,13 +46,27 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                     break;
                 }
 
+                var subfolder = '';
+                switch (data[index].type) {
+                    case 'template':
+                        subfolder = '/resources/templates/';
+                        break;
+                    case 'group':
+                        subfolder = '/resources/groups/';
+                        break;
+                    default:
+                        subfolder = '/resources/modules/';
+                        break;
+                }
+
+
                 var queue = NODE_MODULES.browserify({
                     entries: files[index],
                     standalone: NODE_MODULES.camelCase(name)
                 }).transform(NODE_MODULES.babelify).bundle()
                     .pipe(NODE_MODULES.vinylSourceStream(basename))
                     .pipe(PLUGINS.derequire())
-                    .pipe(GULP.dest(process.env.DEST + '/resources/modules/' + name + '/javascripts'));
+                    .pipe(GULP.dest(process.env.DEST + subfolder + name + '/javascripts'));
 
                 streams.push(queue);
             }
