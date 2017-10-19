@@ -3,17 +3,18 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         var sources = [
             {
                 input: [
-                    process.env.SRC + '/resources/pages/**/*.twig'
+                    process.env.SRC + '/resources/groups/*/*.twig',
+                    process.env.SRC + '/resources/groups/*/pages/**/*.twig'
                 ],
-                output: process.env.DEST + '/resources/pages'
+                output: process.env.DEST + '/resources/groups'
             },
             {
                 input: [
-                    process.env.SRC + '/resources/modules/**/*.twig',
-                    process.env.SUBMODULES_PATH + '/totem.module.*/**/*.twig',
-                    '!**/totem.module.*/**/bower_components/**/*.twig',
-                    '!**/partials/**/*.twig',
-                    '!' + process.env.SUBMODULES_PATH + '/totem.module.tipi*/**' // Ignore tipi based twig partials
+                    process.env.SRC + '/resources/modules/**/*.twig', // Project Modules
+                    process.env.SUBMODULES_PATH + '/totem.module.*/**/*.twig', // External Modules,
+                    '!**/totem.module.*/**/bower_components/**',
+                    '!**/partials/**',
+                    '!**/totem.module.tipi/**'
                 ],
                 output: process.env.DEST + '/resources/modules'
             }

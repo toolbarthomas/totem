@@ -20,7 +20,7 @@ yo totem
 The Totem structure has been split up in 4 sections (folders):
 1. main - Global assets & shared libraries should be defined here.
 2. modules - Core styling, layout & logic for each module should be defined here.
-3. pages - Specific page overrides can be defined here.
+3. group (pages) - Specific page overrides can be defined here.
 4. templates - Each template comes with a stylesheet that should import all the necessary modules we wan't to use. The pre-defined default-template imports every stylesheet that has been created within your project.
 
 
@@ -33,8 +33,8 @@ Modules are small parts that can work together with each other. A module is a sm
 
 It's recommended to define additional overrides within the **page** section.
 
-## Pages
-A page is simple a section where you define all your modules you wan't to use. Specific overrides for your application should be defined in this section.
+## Groups & pages
+A group marks down a section of your application. You should group pages that displays the same entity within the same directory. A group is splitted into folders to keep your project clean. Each page has the option to pass additional styling within.
 
 ## Templates
 A template should only define the base layout for your pages. Your application can contain multiple templates. Import logic will be mostly done within this section. When using the default template you will load all styles on a global level.
