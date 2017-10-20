@@ -15,7 +15,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         GULP.watch([
             process.env.SRC + '/resources/**/stylesheets/**/*.scss',
             process.env.SUBMODULES_PATH + '/**/stylesheets/**/*.scss'
-        ], ['stylesheets']);
+        ], ['sass']);
 
         GULP.watch([
             process.env.SRC + '/resources/**/*.twig',
