@@ -1,0 +1,14 @@
+@charset "UTF-8";
+
+$box-models: (
+    'border-radius': (
+        'base': 2px,
+        'medium': null,
+        'large': null
+    ),
+    'gutter': (
+        'base': 16px,
+        'medium': 25px,
+        'large': 40px
+    )
+) !default;
