@@ -67,6 +67,6 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             streams.push(stream);
         }, this);
 
-        return NODE_MODULES.merge(streams);
+        return NODE_MODULES.merge(streams).pipe(PLUGINS.livereload());
     }
 }
