@@ -1,38 +1,50 @@
 module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
-    return function (callback)
-    {
+    return function (callback) {
         PLUGINS.livereload.listen();
 
-        GULP.watch([
-            process.env.SRC + '/resources/**',
-            '!' + process.env.SRC + '/resources/**/stylesheets/**/*.scss',
-            '!' + process.env.SRC + '/resources/**/*.twig',
-            '!' + process.env.SRC + '/resources/main/images/layout/svg-sprite/**/*.svg',
-            '!' + process.env.SRC + '/resources/main/images/layout/sprite/**/*.png',
-            '!' + process.env.SRC + '/resources/**/javascripts/**/*.js'
-        ], ['sync']);
+        PLUGINS.watch([
+            'resources/**',
+            '!**/resources/**/stylesheets/**/*.scss',
+            '!**/resources/**/*.twig',
+            '!**/resources/main/images/layout/svg-sprite/**/*.svg',
+            '!**/resources/main/images/layout/sprite/**/*.png',
+            '!**/resources/**/javascripts/**/*.js'
+        ], {
+                read: false,
+                cwd: process.env.SRC
+            }, function () {
+                return GULP.start('sync');
+            });
 
-        GULP.watch([
-            process.env.SRC + '/resources/**/stylesheets/**/*.scss',
-            process.env.SUBMODULES_PATH + '/**/stylesheets/**/*.scss'
-        ], ['sass']);
+        PLUGINS.watch([
+            'resources/**/stylesheets/**/*.scss'
+        ], {
+                cwd: process.env.SRC
+            }, function () {
+                return GULP.start('stylesheets');
+            });
 
-        GULP.watch([
-            process.env.SRC + '/resources/**/*.twig',
-            process.env.SUBMODULES_PATH + '/**/*.twig'
-        ], ['twig']);
+        PLUGINS.watch([
+            'resources/main/images/layout/svg-sprite/**/*.svg'
+        ], {
+                cwd: process.env.SRC
+            }, function () {
+                return GULP.start('svgstore');
+            });
 
-        GULP.watch([
-            process.env.SRC + '/resources/main/images/layout/svg-sprite/**/*.svg'
-        ], ['svgstore']);
+        PLUGINS.watch([
+            'resources/main/images/layout/sprite/**/*.png'
+        ], {
+                cwd: process.env.SRC
+            }, function () {
+                return GULP.start('spritesmith');
+            });
 
-        GULP.watch([
-            process.env.SRC + '/resources/main/images/layout/sprite/**/*.png'
-        ], ['spritesmith']);
-
-        GULP.watch([
-            process.env.SRC + '/resources/**/javascripts/**/*.js',
-            process.env.SUBMODULES_PATH + '/**/javascripts/**/*.js'
-        ], ['javascripts']);
+        PLUGINS.watch([
+            process.env.SRC + 'resources/**/javascripts/**/*.js',
+            process.env.SRC + '**/javascripts/**/*.js'
+        ], function () {
+            return GULP.start('javascripts');
+        });
     }
 }
