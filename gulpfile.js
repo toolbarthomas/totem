@@ -4,6 +4,16 @@ if (ENV.error) {
     throw 'Cannot load the environment file at: /.env. You can create one by using the included .env.dist file.';
 }
 
+// Check if our source path is defined
+if(!process.env.SRC) {
+    throw 'The src path from our .env file is not defined, please check again.';
+}
+
+// Check if our source path is defined
+if(!process.env.DEST) {
+    throw 'The desination path from our .env file is not defined, please check again.';
+}
+
 // Load Gulp
 const GULP = require('gulp');
 
