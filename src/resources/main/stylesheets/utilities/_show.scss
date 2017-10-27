@@ -1,0 +1,5 @@
+@include show();
+
+@each $viewport in $viewports {
+    @include show(nth($viewport, 1));
+}

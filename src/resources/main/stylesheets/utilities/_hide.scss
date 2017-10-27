@@ -1,0 +1,5 @@
+@include hide();
+
+@each $viewport in $viewports {
+    @include hide(nth($viewport, 1));
+}
