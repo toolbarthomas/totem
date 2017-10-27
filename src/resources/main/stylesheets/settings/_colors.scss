@@ -4,47 +4,54 @@ $colors: (
     'primary': (
         'base': #4694ff,
         'light': light(#4694ff, 20%),
-        'dark': shade(#4694ff, 20%)
+        'dark': shade(#4694ff, 20%),
+        'contrast': #ffffff
     ),
     'support': (
         'base': #f45d3a,
         'light': light(#f45d3a, 20%),
-        'dark': shade(#f45d3a, 20%)
+        'dark': shade(#f45d3a, 20%),
+        'contrast': #ffffff
     ),
     'action': (
-        'base': #43c85c,
-        'light': light(#43c85c, 20%),
-        'dark': shade(#43c85c, 20%)
+        'base': #20ac8d,
+        'light': light(#20ac8d, 20%),
+        'dark': shade(#20ac8d, 20%),
+        'contrast': #ffffff
     ),
     'error': (
         'base': #DC3939,
         'light': light(#DC3939, 20%),
-        'dark': shade(#DC3939, 20%)
+        'dark': shade(#DC3939, 20%),
+        'contrast': false
     ),
     'warning': (
         'base': #ff9e13,
         'light': light(#ff9e13, 20%),
-        'dark': shade(#ff9e13, 20%)
+        'dark': shade(#ff9e13, 20%),
+        'contrast': false
     ),
     'success': (
         'base': #92C865,
         'light': light(#92C865, 20%),
-        'dark': shade(#92C865, 20%)
+        'dark': shade(#92C865, 20%),
+        'contrast': false
     ),
     'notice': (
         'base': #79A9FF,
         'light': light(#79A9FF, 20%),
-        'dark': shade(#79A9FF, 20%)
+        'dark': shade(#79A9FF, 20%),
+        'contrast': false
     ),
     'body': (
         'base': #ffffff,
-        'light': null,
+        'light': false,
         'dark': #e9e9e9
     ),
     'anchor' : (
         'base' : inherit,
         'light' : false,
-        'dark' : false
+        'dark' : false,
     ),
     'border': (
         'base': #bbbbbb,
