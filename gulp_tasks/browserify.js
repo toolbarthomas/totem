@@ -7,71 +7,69 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         // Define all module locations in a globbing pattern (including your external packages: bower, NPM etc.)
         var data = [
             {
-                'path': process.env.SRC + '/resources/templates/*/javascripts/*.js',
-                'type': 'template'
+                'path': process.env.SRC + '/resources/modules/*/javascripts/*.js',
+                'type': 'module'
+            },
+            {
+                'path': process.env.SUBMODULES_PATH + '/totem.module.*/javascripts/*.js',
+                'type': 'module'
             },
             {
                 'path': process.env.SRC + '/resources/groups/*/javascripts/*.js',
                 'type': 'group'
             },
             {
-                'path': process.env.SRC + '/resources/modules/*/javascripts/*.js',
-                'type': 'group'
-            },
-            {
-                'path': process.env.SUBMODULES_PATH + '/totem.module.*/javascripts/*.js',
-                'type': 'module'
+                'path': process.env.SRC + '/resources/templates/*/javascripts/*.js',
+                'type': 'template'
             }
         ];
 
-        var sources = [];
-        data.forEach(function (source) {
-            sources.push(source.path);
-        }, this);
-
-        //Define a stream we can return to complete our task
         var streams = [];
 
-        return NODE_MODULES.globby(sources).then(files => {
-            for (var index = 0; index < files.length; index++) {
+        // Iterate trough all types and iterate over it
+        data.forEach(function (source) {
+            NODE_MODULES.globby(source.path).then(files => {
+                for (var index = 0; index < files.length; index++) {
+                    var stats = NODE_MODULES.fse.statSync(files[index]);
 
-                var stats = NODE_MODULES.fse.statSync(files[index]);
+                    var basename = NODE_MODULES.path.basename(files[index]);
+                    var ext = NODE_MODULES.path.extname(basename);
+                    var name = NODE_MODULES.path.basename(files[index], ext);
 
-                var basename = NODE_MODULES.path.basename(files[index]);
-                var ext = NODE_MODULES.path.extname(basename);
-                var name = NODE_MODULES.path.basename(files[index], ext);
+                    if (stats.size === 0) {
+                        PLUGINS.util.log(NODE_MODULES.chalk.yellow(name + ext + ' is empty, this file will be ignored.'))
+                        continue;
+                    }
 
-                if (stats.size === 0) {
-                    PLUGINS.util.log(NODE_MODULES.chalk.yellow(name + ext + ' is empty, this file will be ignored.'))
-                    break;
+                    PLUGINS.util.log(NODE_MODULES.chalk.yellow(name + ext + ' is not empty'))
+
+                    var subfolder = '';
+                    switch (source.type) {
+                        case 'template':
+                            subfolder = '/resources/templates/';
+                            break;
+                        case 'group':
+                            subfolder = '/resources/groups/';
+                            break;
+                        default:
+                            subfolder = '/resources/modules/';
+                            break;
+                    }
+
+                    var stream = NODE_MODULES.browserify({
+                        entries: files[index],
+                        standalone: NODE_MODULES.camelCase(name)
+                    }).transform(NODE_MODULES.babelify).bundle()
+                        .pipe(NODE_MODULES.vinylSourceStream(basename))
+                        .pipe(PLUGINS.derequire())
+                        .pipe(GULP.dest(process.env.DEST + subfolder + name + '/javascripts'));
+
+                    streams.push(stream);
                 }
+            });
 
-                var subfolder = '';
-                switch (data[index].type) {
-                    case 'template':
-                        subfolder = '/resources/templates/';
-                        break;
-                    case 'group':
-                        subfolder = '/resources/groups/';
-                        break;
-                    default:
-                        subfolder = '/resources/modules/';
-                        break;
-                }
+        }, this);
 
-
-                var queue = NODE_MODULES.browserify({
-                    entries: files[index],
-                    standalone: NODE_MODULES.camelCase(name)
-                }).transform(NODE_MODULES.babelify).bundle()
-                    .pipe(NODE_MODULES.vinylSourceStream(basename))
-                    .pipe(PLUGINS.derequire())
-                    .pipe(GULP.dest(process.env.DEST + subfolder + name + '/javascripts'));
-
-                streams.push(queue);
-            }
-
-            return NODE_MODULES.merge(streams);
-        });
+        return NODE_MODULES.merge(streams);
     }
 }
