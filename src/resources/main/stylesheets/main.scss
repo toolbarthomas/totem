@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+///
+// @name: main
+// @type: Main
+///
+
+///
+// This stylesheet wil generate all main styles
+///
+
+@import "shared/**";
+
+@import "helpers/**";
+
+@import "settings/**";
+
+@import "tools/**";
+
+@import "generic/**";
+
+@import "base/**";
+
+@import "objects/**";
+
+@import "components/**";
+
+@import "utilities/**";
