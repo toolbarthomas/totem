@@ -5,14 +5,22 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         var sources = [
             {
                 input: [
+                    process.env.SRC + '/resources/main/stylesheets/*.scss'
+                ],
+                output: process.env.DEST + '/resources/main/stylesheets',
+                ignore_folders: []
+            },
+            {
+                input: [
                     process.env.SRC + '/resources/modules/*/stylesheets/*.scss',
                     process.env.SUBMODULES_PATH + '/totem.module.*/stylesheets/*.scss',
                     '!' + process.env.SUBMODULES_PATH + '/totem.module.tipi*/**' //Prevent seperate module builds for Tipi based packages
                 ],
                 output: process.env.DEST + '/resources/modules',
                 ignore_folders: [
-                    'submodules',
+                    'totem_submodules',
                     'node_modules',
+                    'bower_components'
                 ]
             },
             {
@@ -20,22 +28,14 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                     process.env.SRC + '/resources/groups/*/stylesheets/*.scss'
                 ],
                 output: process.env.DEST + '/resources/groups',
-                ignore_folders: [
-                    'submodules',
-                    'node_modules',
-                    'bower_components'
-                ]
+                ignore_folders: []
             },
             {
                 input: [
                     process.env.SRC + '/resources/templates/*/stylesheets/*.scss'
                 ],
                 output: process.env.DEST + '/resources/templates',
-                ignore_folders: [
-                    'submodules',
-                    'node_modules',
-                    'bower_components'
-                ]
+                ignore_folders: []
             }
         ];
 

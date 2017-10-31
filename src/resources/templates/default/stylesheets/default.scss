@@ -55,7 +55,6 @@
 @import "tools/**";
 
 // 5. Generic - Default tag style definitions for your app/module will be defined here. E.g. reset.css
-@import "../../../main/stylesheets/generic/**";
 @import "../../../../../../totem_submodules/totem*/stylesheets/generic/**";
 @import "../../../../../bower_components/totem*/stylesheets/generic/**";
 @import "../../../../../node_modules/totem*/stylesheets/generic/**";
@@ -63,7 +62,6 @@
 @import "generic/**";
 
 // 6. Base - Typography and other global styling definitions should be defined here.
-@import "../../../main/stylesheets/base/**";
 @import "../../../../../../totem_submodules/totem*/stylesheets/base/**";
 @import "../../../../../bower_components/totem*/stylesheets/base/**";
 @import "../../../../../node_modules/totem*/stylesheets/base/**";
@@ -71,7 +69,6 @@
 @import "base/**";
 
 // 7. Objects - Class-based selectors with undecorated design patterns i.e. layout definitions
-@import "../../../main/stylesheets/objects/**";
 @import "../../../../../../totem_submodules/totem*/stylesheets/objects/**";
 @import "../../../../../bower_components/totem*/stylesheets/objects/**";
 @import "../../../../../node_modules/totem*/stylesheets/objects/**";
@@ -79,7 +76,6 @@
 @import "objects/**";
 
 // 8. Components - Specific UI components will be defined here.
-@import "../../../main/stylesheets/components/**";
 @import "../../../../../../totem_submodules/totem*/stylesheets/components/**";
 @import "../../../../../bower_components/totem*/stylesheets/components/**";
 @import "../../../../../node_modules/totem*/stylesheets/components/**";
@@ -87,7 +83,6 @@
 @import "components/**";
 
 // 9. Utilities and helper classes with ability to override anything within the project. Usefull to define helper classes like: .hide
-@import "../../../main/stylesheets/utilities/**";
 @import "../../../../../../totem_submodules/totem*/stylesheets/utilities/**";
 @import "../../../../../bower_components/totem*/stylesheets/utilities/**";
 @import "../../../../../node_modules/totem*/stylesheets/utilities/**";
