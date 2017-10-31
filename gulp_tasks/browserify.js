@@ -26,9 +26,13 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
 
         var streams = [];
 
+        var processed = 0;
+
         // Iterate trough all types and iterate over it
         data.forEach(function (source) {
-            NODE_MODULES.globby(source.path).then(files => {
+            return NODE_MODULES.globby(source.path).then(files => {
+                processed++;
+
                 for (var index = 0; index < files.length; index++) {
                     var stats = NODE_MODULES.fse.statSync(files[index]);
 
@@ -60,16 +64,17 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                         entries: files[index],
                         standalone: NODE_MODULES.camelCase(name)
                     }).transform(NODE_MODULES.babelify).bundle()
-                        .pipe(NODE_MODULES.vinylSourceStream(basename))
-                        .pipe(PLUGINS.derequire())
-                        .pipe(GULP.dest(process.env.DEST + subfolder + name + '/javascripts'));
+                    .pipe(NODE_MODULES.vinylSourceStream(basename))
+                    .pipe(PLUGINS.derequire())
+                    .pipe(GULP.dest(process.env.DEST + subfolder + name + '/javascripts'));
 
                     streams.push(stream);
                 }
+
+                if(processed == data.length) {
+                    return NODE_MODULES.merge(streams);
+                }
             });
-
-        }, this);
-
-        return NODE_MODULES.merge(streams);
+        });
     }
 }
