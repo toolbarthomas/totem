@@ -10,10 +10,10 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             '!**/resources/**/svg-sprite/**/*.svg',
             '!**/resources/**/sprite/**/*.png',
         ], {
-                read: false
-            }, function () {
-                return GULP.start('sync');
-            });
+            read: false
+        }, function () {
+            return GULP.start('sync');
+        });
 
         PLUGINS.watch([
             process.env.SRC + '/resources/**/stylesheets/**/*.scss',
@@ -37,6 +37,12 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             process.env.SRC + '/resources/**/sprite/**/*.png',
         ], function () {
             return GULP.start('spritesmith');
+        });
+
+        PLUGINS.watch([
+            process.env.SRC + '/resources/**/*.twig',
+        ], function () {
+            return GULP.start('twig');
         });
     }
 }
