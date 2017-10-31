@@ -35,9 +35,9 @@
     "del": "^3.0.0",
     "dotenv": "^4.0.0",
     "fs-extra": "^4.0.2",
-    "globby": "^6.1.0",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
+    "gulp-buffer": "0.0.2",
     "gulp-combine-mq": "^0.4.0",
     "gulp-concat": "^2.6.1",
     "gulp-connect": "^5.0.0",
@@ -56,6 +56,7 @@
     "gulp-sourcemaps": "^2.6.1",
     "gulp-svgmin": "^1.2.4",
     "gulp-svgstore": "^6.1.0",
+    "gulp-tap": "^1.0.1",
     "gulp-twig": "^1.1.1",
     "gulp-uglify": "^3.0.0",
     "gulp-util": "^3.0.8",
@@ -63,8 +64,7 @@
     "gulp.spritesmith": "^6.5.1",
     "merge-stream": "^1.0.1",
     "run-sequence": "^2.2.0",
-    "vinyl-buffer": "^1.0.0",
-    "vinyl-source-stream": "^1.1.0"
+    "vinyl-buffer": "^1.0.0"
   },
   "dependencies": {
     "jquery": "3.2.1",

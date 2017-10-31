@@ -5,76 +5,56 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
     return function (callback) {
 
         // Define all module locations in a globbing pattern (including your external packages: bower, NPM etc.)
-        var data = [
+        var sources = [
             {
-                'path': process.env.SRC + '/resources/modules/*/javascripts/*.js',
-                'type': 'module'
+                input: [
+                    process.env.SRC + '/resources/modules/*/javascripts/*.js',
+                    process.env.SUBMODULES_PATH + '/totem.module.*/javascripts/*.js'
+                ],
+                output: process.env.DEST + '/resources/modules',
             },
             {
-                'path': process.env.SUBMODULES_PATH + '/totem.module.*/javascripts/*.js',
-                'type': 'module'
+                input: [
+                    process.env.SRC + '/resources/groups/*/javascripts/*.js'
+                ],
+                output: process.env.DEST + '/resources/groups',
             },
             {
-                'path': process.env.SRC + '/resources/groups/*/javascripts/*.js',
-                'type': 'group'
-            },
-            {
-                'path': process.env.SRC + '/resources/templates/*/javascripts/*.js',
-                'type': 'template'
+                input: [
+                    process.env.SRC + '/resources/templates/*/javascripts/*.js'
+                ],
+                output: process.env.DEST + '/resources/templates',
             }
         ];
 
         var streams = [];
 
-        var processed = 0;
+        sources.forEach(function(source) {
+            var stream = GULP.src(source.input)
+            .pipe(PLUGINS.filter(function (file) {
+                return file.stat && file.contents.length;
+            }))
+            .pipe(PLUGINS.tap(function (file) {
+                var basename = NODE_MODULES.path.basename(file.path);
+                var ext = NODE_MODULES.path.extname(basename);
+                var name = NODE_MODULES.path.basename(file.path, ext);
 
-        // Iterate trough all types and iterate over it
-        data.forEach(function (source) {
-            return NODE_MODULES.globby(source.path).then(files => {
-                processed++;
+                PLUGINS.util.log(NODE_MODULES.chalk.yellow('Bundling file: ' + name + ext));
 
-                for (var index = 0; index < files.length; index++) {
-                    var stats = NODE_MODULES.fse.statSync(files[index]);
+                // replace file contents with browserify's bundle stream
+                file.contents = NODE_MODULES.browserify(file.path, {
+                    debug: true,
+                    standalone: NODE_MODULES.camelCase(name)
+                }).bundle();
+            }))
+            .pipe(PLUGINS.buffer())            // transform streaming contents into buffer contents (because gulp-sourcemaps does not support streaming contents)
+            .pipe(PLUGINS.sourcemaps.init({ loadMaps: true })) //load and init sourcemaps
+            .pipe(PLUGINS.sourcemaps.write('./'))
+            .pipe(GULP.dest(source.output));
 
-                    var basename = NODE_MODULES.path.basename(files[index]);
-                    var ext = NODE_MODULES.path.extname(basename);
-                    var name = NODE_MODULES.path.basename(files[index], ext);
+            streams.push(stream);
+        }, this);
 
-                    if (stats.size === 0) {
-                        PLUGINS.util.log(NODE_MODULES.chalk.yellow(name + ext + ' is empty, this file will be ignored.'))
-                        continue;
-                    }
-
-                    PLUGINS.util.log(NODE_MODULES.chalk.yellow(name + ext + ' is not empty'))
-
-                    var subfolder = '';
-                    switch (source.type) {
-                        case 'template':
-                            subfolder = '/resources/templates/';
-                            break;
-                        case 'group':
-                            subfolder = '/resources/groups/';
-                            break;
-                        default:
-                            subfolder = '/resources/modules/';
-                            break;
-                    }
-
-                    var stream = NODE_MODULES.browserify({
-                        entries: files[index],
-                        standalone: NODE_MODULES.camelCase(name)
-                    }).transform(NODE_MODULES.babelify).bundle()
-                    .pipe(NODE_MODULES.vinylSourceStream(basename))
-                    .pipe(PLUGINS.derequire())
-                    .pipe(GULP.dest(process.env.DEST + subfolder + name + '/javascripts'));
-
-                    streams.push(stream);
-                }
-
-                if(processed == data.length) {
-                    return NODE_MODULES.merge(streams);
-                }
-            });
-        });
+        return NODE_MODULES.merge(streams);
     }
 }

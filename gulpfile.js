@@ -29,11 +29,9 @@ const NODE_MODULES = {
     chalk: require('chalk'),
     del: require('del'),
     fse: require('fs-extra'),
-    globby: require('globby'),
     merge: require('merge-stream'),
     path: require('path'),
-    runSequence: require('run-sequence').use(GULP),
-    vinylSourceStream: require('vinyl-source-stream')
+    runSequence: require('run-sequence').use(GULP)
 }
 
 // Revision timestamp of the current date in seconds
