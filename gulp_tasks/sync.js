@@ -52,6 +52,9 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
 
         sources.forEach(function(source) {
             var stream = GULP.src(source.input, source.options)
+                .pipe(PLUGINS.filter(function (file) {
+                    return file.stat && file.contents.length;
+                }))
                 .pipe(GULP.dest(source.output));
 
             streams.push(stream);
