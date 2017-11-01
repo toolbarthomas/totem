@@ -57,7 +57,9 @@ GULP.task('browserify', getGulpTask('browserify'));
 GULP.task('concat', getGulpTask('concat'));
 
 // Content tasks
-GULP.task('twig', getGulpTask('twig'));
+GULP.task('twig.prepare', getGulpTask('twig-prepare'));
+GULP.task('twig.render', getGulpTask('twig-render'));
+GULP.task('twig.cleanup', getGulpTask('twig-cleanup'));
 
 // Development tasks
 GULP.task('connect', getGulpTask('connect'));
@@ -84,6 +86,17 @@ GULP.task('javascripts', function(callback) {
         callback
     );
 });
+
+// Content tasks
+GULP.task('twig', function (callback) {
+    NODE_MODULES.runSequence(
+        'twig.prepare',
+        'twig.render',
+        'twig.cleanup',
+        callback
+    )
+});
+
 
 GULP.task('default', function (callback) {
     NODE_MODULES.runSequence(
