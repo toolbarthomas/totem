@@ -25,11 +25,9 @@
         <link href="/resources/main/images/layout/apple-touch-icon.png" rel="apple-touch-icon">
         <link href="/resources/main/images/layout/appicon.svg" rel="mask-icon" color="#000000">
 
-        <link href="/resources/main/stylesheets/main.css" rel="stylesheet" type="text/css">
-        <link href="/resources/templates/default/stylesheets/default.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="/resources/main/stylesheets/main.css">
 
-        {% block page_stylesheets %}{% endblock %}
-        {% block page_style %}{% endblock %}
+        {% block head %}{% endblock %}
     </head>
     <body>
         <div class="sticky-end">
@@ -58,6 +56,5 @@
 
     <script src="/resources/templates/default/javascripts/default.js"></script>
 
-    {% block page_javascripts %}{% endblock %}
-    {% block page_script %}{% endblock %}
+    {% block foot %}{% endblock %}
 </html>

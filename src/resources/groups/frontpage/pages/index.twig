@@ -1,19 +1,18 @@
 {% extends "templates/default/default.twig" %}
 
+{% block head %}
+    {% include 'tmp/totem.module.loadcss/partials/loadcss.twig' with {
+        stylesheets: [
+            '/resources/templates/default/stylesheets/default.css',
+            '/resources/groups/frontpage/stylesheets/frontpage.css'
+        ]
+    } %}
+{% endblock %}
+
 {% block content %}
     No content defined.
 {% endblock %}
 
-{% block page_stylesheets %}
-    <link href="/resources/groups/frontpage/stylesheets/frontpage.css" rel="stylesheet"/>
-{% endblock %}
-
-{% block page_style %}
-{% endblock %}
-
-{% block page_javascripts %}
+{% block foot %}
     <script src="/resources/groups/frontpage/javascripts/frontpage.js"></script>
-{% endblock %}
-
-{% block page_script %}
 {% endblock %}
