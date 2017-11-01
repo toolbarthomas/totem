@@ -9,3 +9,5 @@ bower_components
 .env
 *.map
 *.log
+
+src/resources/tmp
