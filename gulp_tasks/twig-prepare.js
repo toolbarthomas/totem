@@ -26,7 +26,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         }
 
         var stream = GULP.src([
-            process.env.SUBMODULES_PATH + '/**/*.{twig,json}',
+            process.env.SUBMODULES_PATH + '/**/*.{twig,json,js}',
         ])
         .pipe(PLUGINS.filter(function (file) {
             return file.stat && file.contents.length;

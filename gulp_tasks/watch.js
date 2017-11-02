@@ -9,6 +9,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             '!**/resources/**/javascripts/**/*.js',
             '!**/resources/**/svg-sprite/**/*.svg',
             '!**/resources/**/sprite/**/*.png',
+            '!**/resources/tmp/**/*',
         ], {
             read: false
         }, function () {
@@ -17,12 +18,15 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
 
         PLUGINS.watch([
             process.env.SRC + '/resources/**/stylesheets/**/*.scss',
+            process.env.SUBMODULES_PATH + '/totem.module*/stylesheets/**/*.scss',
         ], function () {
             return GULP.start('stylesheets');
         });
 
         PLUGINS.watch([
             process.env.SRC + '/resources/**/javascripts/**/*.js',
+            process.env.SUBMODULES_PATH + '/totem.module*/javascripts/**/*.js',
+            '!**/lib/**/*.js'
         ], function () {
             return GULP.start('javascripts');
         });
@@ -41,7 +45,8 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
 
         PLUGINS.watch([
             process.env.SRC + '/resources/**/*.twig',
-            '!' + process.env.SRC + '/resources/tmp/**/*.twig',
+            process.env.SUBMODULES_PATH + '/totem.module*/**/*.twig',
+            '!**/resources/tmp/**/*',
         ], function () {
             return GULP.start('twig');
         });

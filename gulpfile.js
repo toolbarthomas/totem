@@ -90,9 +90,9 @@ GULP.task('javascripts', function(callback) {
 // Content tasks
 GULP.task('twig', function (callback) {
     NODE_MODULES.runSequence(
-        'twig.prepare',
+        // 'twig.prepare',
         'twig.render',
-        'twig.cleanup',
+        // 'twig.cleanup',
         callback
     )
 });
@@ -105,6 +105,8 @@ GULP.task('default', function (callback) {
         [
             'stylesheets',
             'javascripts',
+        ],
+        [
             'twig'
         ],
         callback

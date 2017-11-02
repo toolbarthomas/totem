@@ -6,18 +6,19 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             {
                 input: [
                     process.env.SRC + '/resources/groups/*/*.twig',
-                    process.env.SRC + '/resources/groups/*/pages/**/*.twig'
+                    process.env.SRC + '/resources/groups/*/pages/**/*.twig',
+                    '!' + process.env.SRC + '/resources/groups/*/partials/**/*.twig'
                 ],
                 output: process.env.DEST + '/resources/groups'
             },
             {
                 input: [
-                    process.env.SRC + '/resources/modules/**/*.twig', // Project Modules
-                    process.env.SUBMODULES_PATH + '/totem.module.*/**/*.twig', // External Modules,
-                    '!' + process.env.SUBMODULES_PATH + '/totem.module.*/**/node_modules/**/*.twig', // External Modules,
-                    '!**/totem.module.*/**/bower_components/**', // Can remove if no package has bower
-                    '!**/partials/**',
-                    '!**/totem.module.tipi/**'
+                    process.env.SRC + '/resources/modules/**/*.twig',
+                    process.env.SUBMODULES_PATH + '/totem.module.*/**/*.twig',
+                    '!' + process.env.SRC + '/**/{node_modules,bower_components}/**/*.twig',
+                    '!' + process.env.SUBMODULES_PATH + '/**/{node_modules,bower_components}/**/*.twig',
+                    '!' + process.env.SRC + '/resources/modules/**/partials/**/*.twig',
+                    '!' + process.env.SUBMODULES_PATH + '/totem.module.*/**/partials/**/*.twig',
                 ],
                 output: process.env.DEST + '/resources/modules'
             }
