@@ -1,7 +1,7 @@
-{% extends "templates/default/default.twig" %}
+{% extends "src/resources/templates/default/default.twig" %}
 
 {% block head %}
-    {% include 'tmp/totem.module.loadcss/partials/loadcss.twig' with {
+    {% include 'src/resources/modules/totem.module.loadcss/partials/loadcss.twig' with {
         stylesheets: [
             '/resources/templates/default/stylesheets/default.css',
             '/resources/groups/frontpage/stylesheets/frontpage.css'
@@ -16,4 +16,5 @@
 {% block foot %}
     <script src="/resources/templates/default/javascripts/default.js"></script>
     <script src="/resources/groups/frontpage/javascripts/frontpage.js"></script>
+    <script src=""></script>
 {% endblock %}

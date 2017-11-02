@@ -89,7 +89,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 return data;
             }))
             .pipe(PLUGINS.twig({
-                base: process.env.SRC + '/resources'
+                base: './'
             }))
             .pipe(PLUGINS.faker())
             .pipe(GULP.dest(source.output));
