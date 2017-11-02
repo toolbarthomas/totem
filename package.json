@@ -67,7 +67,6 @@
     "vinyl-buffer": "^1.0.0"
   },
   "dependencies": {
-    "jquery": "3.2.1",
-    "svg-sprite-injector": "1.0.0"
+    "jquery": "3.2.1"
   }
 }

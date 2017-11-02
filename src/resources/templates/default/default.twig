@@ -44,15 +44,7 @@
         </div>
     </body>
 
-    <script src="/resources/main/javascripts/lib/svg-sprite-injector/svg-sprite-injector.js"></script>
-    <script>
-        var revision = 'cached';
-        svgSpriteInjector('/resources/main/images/layout/svg-sprite.svg', {
-            revision: revision
-        });
-    </script>
-
-    <script src="/resources/main/javascripts/lib/jquery/dist/jquery.min.js"></script>
+    {% include 'node_modules/totem.module.svgsprite/partials/svg-sprite-injector.twig' %}
 
     {% block foot %}{% endblock %}
 </html>
