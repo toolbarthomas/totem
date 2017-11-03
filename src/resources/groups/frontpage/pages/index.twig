@@ -1,8 +1,7 @@
-{% extends "src/resources/templates/default/default.twig" %}
+{% extends "totem::src/resources/templates/default/default.twig" %}
 
 {% block head %}
-    {% include 'node_modules/totem.module.loadcss/partials/loadcss.twig' with {
-        base: 'node_modules/',
+    {% include 'totem_submodules::totem.module.loadcss/partials/loadcss.twig' with {
         stylesheets: [
             '/resources/templates/default/stylesheets/default.css',
             '/resources/groups/frontpage/stylesheets/frontpage.css'
