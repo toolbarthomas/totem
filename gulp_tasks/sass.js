@@ -5,18 +5,18 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         var sources = [
             {
                 input: [
-                    process.env.SRC + '/resources/main/stylesheets/*.scss'
+                    process.env.TOTEM_SRC + '/resources/main/stylesheets/*.scss'
                 ],
-                output: process.env.DEST + '/resources/main/stylesheets',
+                output: process.env.TOTEM_DEST + '/resources/main/stylesheets',
                 ignore_folders: []
             },
             {
                 input: [
-                    process.env.SRC + '/resources/modules/*/stylesheets/*.scss',
-                    process.env.SUBMODULES_PATH + '/totem.module.*/stylesheets/*.scss',
-                    '!' + process.env.SUBMODULES_PATH + '/totem.module.tipi*/**' //Prevent seperate module builds for Tipi based packages
+                    process.env.TOTEM_SRC + '/resources/modules/*/stylesheets/*.scss',
+                    process.env.TOTEM_SUBMODULES + '/totem.module.*/stylesheets/*.scss',
+                    '!' + process.env.TOTEM_SUBMODULES + '/totem.module.tipi*/**' //Prevent seperate module builds for Tipi based packages
                 ],
-                output: process.env.DEST + '/resources/modules',
+                output: process.env.TOTEM_DEST + '/resources/modules',
                 ignore_folders: [
                     'totem_submodules',
                     'node_modules',
@@ -25,16 +25,16 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             },
             {
                 input: [
-                    process.env.SRC + '/resources/groups/*/stylesheets/*.scss'
+                    process.env.TOTEM_SRC + '/resources/groups/*/stylesheets/*.scss'
                 ],
-                output: process.env.DEST + '/resources/groups',
+                output: process.env.TOTEM_DEST + '/resources/groups',
                 ignore_folders: []
             },
             {
                 input: [
-                    process.env.SRC + '/resources/templates/*/stylesheets/*.scss'
+                    process.env.TOTEM_SRC + '/resources/templates/*/stylesheets/*.scss'
                 ],
-                output: process.env.DEST + '/resources/templates',
+                output: process.env.TOTEM_DEST + '/resources/templates',
                 ignore_folders: []
             }
         ];
@@ -46,7 +46,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             //Remove the specified MODULES_PATH from the .env file. so only import our Modules once.
             var ignore_paths = source.ignore_folders;
             ignore_paths = ignore_paths.filter(function (item) {
-                return item !== process.env.SUBMODULES_PATH
+                return item !== process.env.TOTEM_SUBMODULES
             });
 
             // Make a globbing path from each ignore path

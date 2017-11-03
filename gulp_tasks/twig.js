@@ -5,28 +5,28 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         var sources = [
             {
                 input: [
-                    process.env.SRC + '/resources/groups/*/*.twig',
-                    process.env.SRC + '/resources/groups/*/pages/**/*.twig',
-                    '!' + process.env.SRC + '/resources/groups/*/partials/**/*.twig'
+                    process.env.TOTEM_SRC + '/resources/groups/*/*.twig',
+                    process.env.TOTEM_SRC + '/resources/groups/*/pages/**/*.twig',
+                    '!' + process.env.TOTEM_SRC + '/resources/groups/*/partials/**/*.twig'
                 ],
-                output: process.env.DEST + '/resources/groups'
+                output: process.env.TOTEM_DEST + '/resources/groups'
             },
             {
                 input: [
-                    process.env.SRC + '/resources/modules/**/*.twig',
-                    process.env.SUBMODULES_PATH + '/totem.module.*/**/*.twig',
-                    '!' + process.env.SRC + '/**/{node_modules,bower_components}/**/*.twig',
-                    '!' + process.env.SUBMODULES_PATH + '/**/{node_modules,bower_components}/**/*.twig',
-                    '!' + process.env.SRC + '/resources/modules/**/partials/**/*.twig',
-                    '!' + process.env.SUBMODULES_PATH + '/totem.module.*/**/partials/**/*.twig',
+                    process.env.TOTEM_SRC + '/resources/modules/**/*.twig',
+                    process.env.TOTEM_SUBMODULES + '/totem.module.*/**/*.twig',
+                    '!' + process.env.TOTEM_SRC + '/**/{node_modules,bower_components}/**/*.twig',
+                    '!' + process.env.TOTEM_SUBMODULES + '/**/{node_modules,bower_components}/**/*.twig',
+                    '!' + process.env.TOTEM_SRC + '/resources/modules/**/partials/**/*.twig',
+                    '!' + process.env.TOTEM_SUBMODULES + '/totem.module.*/**/partials/**/*.twig',
                 ],
-                output: process.env.DEST + '/resources/modules'
+                output: process.env.TOTEM_DEST + '/resources/modules'
             }
         ];
 
         // Define the global json file so can share data between multiple pages
         var global_json = {
-            path: process.env.SRC + '/data.json',
+            path: process.env.TOTEM_SRC + '/data.json',
             data: {}
         };
 
@@ -89,7 +89,11 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 return data;
             }))
             .pipe(PLUGINS.twig({
-                base: './'
+                base: './',
+                namespaces: {
+                    'totem_submodules': '../totem_submodules/',
+                    'totem': '../totem/'
+                }
             }))
             .pipe(PLUGINS.faker())
             .pipe(GULP.dest(source.output));

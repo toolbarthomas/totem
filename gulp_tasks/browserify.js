@@ -8,22 +8,22 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         var sources = [
             {
                 input: [
-                    process.env.SRC + '/resources/modules/*/javascripts/*.js',
-                    process.env.SUBMODULES_PATH + '/totem.module.*/javascripts/*.js'
+                    process.env.TOTEM_SRC + '/resources/modules/*/javascripts/*.js',
+                    process.env.TOTEM_SUBMODULES + '/totem.module.*/javascripts/*.js'
                 ],
-                output: process.env.DEST + '/resources/modules',
+                output: process.env.TOTEM_DEST + '/resources/modules',
             },
             {
                 input: [
-                    process.env.SRC + '/resources/groups/*/javascripts/*.js'
+                    process.env.TOTEM_SRC + '/resources/groups/*/javascripts/*.js'
                 ],
-                output: process.env.DEST + '/resources/groups',
+                output: process.env.TOTEM_DEST + '/resources/groups',
             },
             {
                 input: [
-                    process.env.SRC + '/resources/templates/*/javascripts/*.js'
+                    process.env.TOTEM_SRC + '/resources/templates/*/javascripts/*.js'
                 ],
-                output: process.env.DEST + '/resources/templates',
+                output: process.env.TOTEM_DEST + '/resources/templates',
             }
         ];
 

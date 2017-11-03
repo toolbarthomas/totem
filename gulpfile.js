@@ -5,12 +5,12 @@ if (ENV.error) {
 }
 
 // Check if our source path is defined
-if(!process.env.SRC) {
+if (!process.env.TOTEM_SRC) {
     throw 'The src path from our .env file is not defined, please check again.';
 }
 
 // Check if our source path is defined
-if(!process.env.DEST) {
+if (!process.env.TOTEM_DEST) {
     throw 'The desination path from our .env file is not defined, please check again.';
 }
 
@@ -57,9 +57,7 @@ GULP.task('browserify', getGulpTask('browserify'));
 GULP.task('concat', getGulpTask('concat'));
 
 // Content tasks
-GULP.task('twig.prepare', getGulpTask('twig-prepare'));
-GULP.task('twig.render', getGulpTask('twig-render'));
-GULP.task('twig.cleanup', getGulpTask('twig-cleanup'));
+GULP.task('twig', getGulpTask('twig'));
 
 // Development tasks
 GULP.task('connect', getGulpTask('connect'));
@@ -86,17 +84,6 @@ GULP.task('javascripts', function(callback) {
         callback
     );
 });
-
-// Content tasks
-GULP.task('twig', function (callback) {
-    NODE_MODULES.runSequence(
-        // 'twig.prepare',
-        'twig.render',
-        // 'twig.cleanup',
-        callback
-    )
-});
-
 
 GULP.task('default', function (callback) {
     NODE_MODULES.runSequence(

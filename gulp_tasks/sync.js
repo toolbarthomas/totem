@@ -11,37 +11,18 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         var sources = [
             {
                 input: [
-                    process.env.SRC + '/browserconfig.xml'
+                    process.env.TOTEM_SRC + '/browserconfig.xml'
                 ],
-                output: process.env.DEST,
+                output: process.env.TOTEM_DEST,
                 options: {
                     nodir: true
                 }
             },
             {
                 input: [
-                    process.env.SRC + '/resources/**',
+                    process.env.TOTEM_SRC + '/resources/**',
                 ].concat(sync_ignores),
-                output: process.env.DEST + '/resources',
-                options: {
-                    nodir: true
-                }
-            },
-            {
-                input: [
-                    process.env.VENDOR_PATH + '/svg-sprite-injector/**',
-                ],
-                output: process.env.DEST + '/resources/main/javascripts/lib/svg-sprite-injector',
-                options: {
-                    nodir: true
-                }
-            },
-            {
-                input: [
-                    process.env.VENDOR_PATH + '/jquery/**',
-                    '!' + process.env.VENDOR_PATH + '/**/src/**'  // Don't include package source dev file
-                ],
-                output: process.env.DEST + '/resources/main/javascripts/lib/jquery',
+                output: process.env.TOTEM_DEST + '/resources',
                 options: {
                     nodir: true
                 }

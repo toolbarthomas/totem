@@ -1,4 +1,4 @@
-// Concat all Javascript file 
+// Concat all Javascript file
 
 module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
     return function (callback)
@@ -6,9 +6,9 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         var sources = [
             {
                 input: [
-                    process.env.DEST + '/resources/modules/**/javascripts/**/*.js'
+                    process.env.TOTEM_DEST + '/resources/modules/**/javascripts/**/*.js'
                 ],
-                output: process.env.DEST + '/resources/main/javascripts',
+                output: process.env.TOTEM_DEST + '/resources/main/javascripts',
                 file_name: 'modules.bundle.js'
             }
         ];
