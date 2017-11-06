@@ -3,7 +3,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         PLUGINS.livereload.listen();
 
         PLUGINS.watch([
-            process.env.SRC + '/resources/**',
+            process.env.TOTEM_SRC + '/resources/**',
             '!**/resources/**/*.twig',
             '!**/resources/**/stylesheets/**/*.scss',
             '!**/resources/**/javascripts/**/*.js',
@@ -17,14 +17,14 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         });
 
         PLUGINS.watch([
-            process.env.SRC + '/resources/**/stylesheets/**/*.scss',
+            process.env.TOTEM_SRCg + '/resources/**/stylesheets/**/*.scss',
             process.env.TOTEM_SUBMODULES + '/totem.module*/stylesheets/**/*.scss',
         ], function () {
             return GULP.start('stylesheets');
         });
 
         PLUGINS.watch([
-            process.env.SRC + '/resources/**/javascripts/**/*.js',
+            process.env.TOTEM_SRC + '/resources/**/javascripts/**/*.js',
             process.env.TOTEM_SUBMODULES + '/totem.module*/javascripts/**/*.js',
             '!**/lib/**/*.js'
         ], function () {
@@ -32,19 +32,19 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         });
 
         PLUGINS.watch([
-            process.env.SRC + '/resources/**/svg-sprite/**/*.svg',
+            process.env.TOTEM_SRC + '/resources/**/svg-sprite/**/*.svg',
         ], function () {
             return GULP.start('svgstore');
         });
 
         PLUGINS.watch([
-            process.env.SRC + '/resources/**/sprite/**/*.png',
+            process.env.TOTEM_SRC + '/resources/**/sprite/**/*.png',
         ], function () {
             return GULP.start('spritesmith');
         });
 
         PLUGINS.watch([
-            process.env.SRC + '/resources/**/*.twig',
+            process.env.TOTEM_SRC + '/resources/**/*.twig',
             process.env.TOTEM_SUBMODULES + '/totem.module*/**/*.twig',
             '!**/resources/tmp/**/*',
         ], function () {

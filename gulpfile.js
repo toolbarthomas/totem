@@ -26,7 +26,6 @@ const NODE_MODULES = {
     browserify: require('browserify'),
     buffer: require('vinyl-buffer'),
     camelCase: require('camelcase'),
-    chalk: require('chalk'),
     del: require('del'),
     fse: require('fs-extra'),
     merge: require('merge-stream'),

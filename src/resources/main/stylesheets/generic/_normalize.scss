@@ -212,6 +212,13 @@ textarea {
     border: none;
 }
 
+input {
+    &[type=checkbox],
+    &[type=radio] {
+        border-radius: initial;
+    }
+}
+
 textarea {
     overflow: auto;
     vertical-align: top;

@@ -93,6 +93,13 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 namespaces: {
                     'totem_submodules': '../totem_submodules/',
                     'totem': '../totem/'
+                },
+                onError: function(error) {
+                    if(!error) {
+                        return;
+                    }
+
+                    console.log(error);
                 }
             }))
             .pipe(PLUGINS.faker())

@@ -39,8 +39,6 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 var ext = NODE_MODULES.path.extname(basename);
                 var name = NODE_MODULES.path.basename(file.path, ext);
 
-                PLUGINS.util.log(NODE_MODULES.chalk.yellow('Bundling file: ' + name + ext));
-
                 // replace file contents with browserify's bundle stream
                 file.contents = NODE_MODULES.browserify(file.path, {
                     debug: true,
