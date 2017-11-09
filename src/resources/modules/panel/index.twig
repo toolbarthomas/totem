@@ -1,0 +1,41 @@
+{#
+    panel
+
+    This file is used to generate a single view for `panel`.
+    Sources should be defined within the module's view.
+
+    Do not use this file for defining core html for this module.
+    You should define your code within `panel/partials`.
+#}
+
+{% extends "totem::src/resources/templates/module/module.twig" %}
+
+{% block head %}
+    <link href="stylesheets/panel.bundle.css" rel="stylesheet"/>
+{% endblock %}
+
+{% block module %}
+
+    {% for i in 0..3 %}
+        {% embed "totem::src/resources/modules/panel/partials/panel.twig" %}
+
+            {% block header %}
+                <span class="panel-title">Hallo wereld</span>
+            {% endblock %}
+
+            {% block main %}
+                <p class="lead">Consequat cupidatat ipsum exercitation eu.</p>
+            {% endblock %}
+
+            {% block footer %}
+                <p>Dit is een footer tekst</p>
+            {% endblock %}
+
+        {% endembed %}
+    {% endfor %}
+
+{% endblock %}
+
+{% block foot %}
+    <script src="javascripts/panel.js"></script>
+{% endblock %}

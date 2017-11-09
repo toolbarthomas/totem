@@ -17,7 +17,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         });
 
         PLUGINS.watch([
-            process.env.TOTEM_SRCg + '/resources/**/stylesheets/**/*.scss',
+            process.env.TOTEM_SRC + '/resources/**/stylesheets/**/*.scss',
             process.env.TOTEM_SUBMODULES + '/totem.module*/stylesheets/**/*.scss',
         ], function () {
             return GULP.start('stylesheets');

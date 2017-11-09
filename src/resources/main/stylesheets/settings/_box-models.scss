@@ -2,16 +2,19 @@
 
 $box-models: (
     'border-radius': (
+        'small': null,
         'base': 2px,
         'medium': null,
         'large': null
     ),
     'gutter': (
+        'small': 8px,
         'base': 16px,
         'medium': 25px,
         'large': 40px
     ),
     'spacing': (
+        'small': 10px,
         'base': 20px,
         'medium': 40px,
         'large': 60px

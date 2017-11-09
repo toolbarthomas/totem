@@ -1,0 +1,21 @@
+{% set main = block('main') %}
+{% set header = block('header') %}
+{% set footer = block('footer') %}
+
+<div class="panel">
+    {% if header is not empty %}
+    <header class="panel__header">
+        {{ header }}
+    </header>
+    {% endif %}
+    {% if main is not empty %}
+    <article class="panel__main">
+        {{ main }}
+    </article>
+    {% endif %}
+    {% if panel_footer is not empty %}
+    <footer class="panel__footer">
+        {{ panel_footer }}
+    </footer>
+    {% endif %}
+</div>

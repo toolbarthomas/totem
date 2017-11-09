@@ -1,0 +1,15 @@
+.wrapper {
+    max-width: wrapper-style('default', 'max-width');
+    padding-left: wrapper-style('default', 'gutter');
+    padding-left: wrapper-style('default', 'gutter');
+    margin: wrapper-style('default', 'gutter') auto;
+
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}

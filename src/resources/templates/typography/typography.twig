@@ -1,0 +1,44 @@
+<!doctype html>
+<html class="no-js">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0" />
+
+        <title>{{ page.title }}</title>
+
+        <!-- Microsoft Windows Application Settings-->
+        <meta name="application-name" content="{{ app.name }}"/>
+        <meta name="msapplpication-TileColor" content="{{ color is defined ? app.theme_color : '#ffffff' }}"/>
+        <meta name="theme-color" content="{{ app.theme_color is defined ? color : '#ffffff' }}" />
+
+        <!-- Web Application Icon -->
+        <link href="/resources/main/images/layout/appicon.png" rel="icon" type="image/png">
+
+        <!-- Apple Touch Icon -->
+        <link href="/resources/main/images/layout/apple-touch-icon.png" rel="apple-touch-icon">
+        <link href="/resources/main/images/layout/appicon.svg" rel="mask-icon" color="#000000">
+
+        <link rel="stylesheet" href="/resources/main/stylesheets/main.css">
+
+        {% block head %}{% endblock %}
+    </head>
+    <body>
+        <div class="sticky-end">
+            <div class="sticky-end-body">
+                {% block header %}{% endblock %}
+
+                <div class="wrapper">
+                {% block content %}
+                    No content defined.
+                {% endblock %}
+                </div>
+            </div>
+            <div class="sticky-end-footer">
+                {% block footer %}{% endblock %}
+            </div>
+        </div>
+    </body>
+
+    {% block foot %}{% endblock %}
+</html>

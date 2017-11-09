@@ -16,6 +16,9 @@
 @import "../../../main/stylesheets/tools/**"; //Import location for Totem when this module is defined as a project module.
 @import "tools/**"; //Import location for Totem when this module is defined as a standalone module
 
+@import "../../../main/stylesheets/properties/**"; //Import location for Totem when this module is defined as a project module.
+@import "properties/**"; //Import location for Totem when this module is defined as a standalone module
+
 @import "generic/**";
 @import "base/**";
 @import "objects/**";

@@ -1,0 +1,45 @@
+
+
+.panel {
+    position: relative;
+    background-color: color('body', 'base');
+    border: solid 2px color('border', 'light');
+    border-radius: box-model('border-radius', 'base');
+
+    margin-top: box-model('spacing', 'base');
+    margin-bottom: box-model('spacing', 'base');
+
+    &:first-child {
+        margin-top: 0;
+    }
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.panel--popup {
+    max-width: viewport('phablet', 'min-width');
+}
+
+.panel__main,
+.panel__header,
+.panel__footer {
+    padding: box-model('gutter', 'base');
+}
+
+.panel__header {
+    border-bottom: inherit;
+
+    &:last-child {
+        border-bottom: 0;
+    }
+}
+
+.panel__footer {
+    border-top: inherit;
+
+    &:first-child {
+        border-bottom: 0;
+    }
+}

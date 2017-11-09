@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+/// Alias shorthand to get wrapper values.
+///
+/// @param { String } $type
+///     Get the property from a specific wrapper.
+///
+/// @param { String } $property
+///     The property value to return from the specified $viewport
+///
+/// @return { Value }
+
+@function wrapper-style(
+    $type: false,
+    $property: false
+)
+{
+    @if ($type != false) and ($property != false)
+    {
+        @return get-setting($wrapper-styles, $type, $property);
+    }
+}

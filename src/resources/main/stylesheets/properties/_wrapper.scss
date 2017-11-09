@@ -1,0 +1,6 @@
+$wrapper-styles: (
+    'default': (
+        'max-width': viewport('widescreen', 'min-width'),
+        'gutter': box-model('gutter', 'base')
+    )
+)

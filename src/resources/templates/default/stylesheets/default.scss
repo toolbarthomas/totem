@@ -54,35 +54,43 @@
 @import "../../../modules/*/stylesheets/tools/**";
 @import "tools/**";
 
-// 5. Generic - Default tag style definitions for your app/module will be defined here. E.g. reset.css
+// 5. Properties - Additional settings in Sass mapping format to share properties with. This layer can also use tools.
+@import "../../../main/stylesheets/properties/**";
+@import "../../../../../../totem_submodules/totem*/stylesheets/properties/**";
+@import "../../../../../bower_components/totem*/stylesheets/properties/**";
+@import "../../../../../node_modules/totem*/stylesheets/properties/**";
+@import "../../../modules/*/stylesheets/properties/**";
+@import "properties/**";
+
+// 6. Generic - Default tag style definitions for your app/module will be defined here. E.g. reset.css
 @import "../../../../../../totem_submodules/totem*/stylesheets/generic/**";
 @import "../../../../../bower_components/totem*/stylesheets/generic/**";
 @import "../../../../../node_modules/totem*/stylesheets/generic/**";
 @import "../../../modules/*/stylesheets/generic/**";
 @import "generic/**";
 
-// 6. Base - Typography and other global styling definitions should be defined here.
+// 7. Base - Typography and other global styling definitions should be defined here.
 @import "../../../../../../totem_submodules/totem*/stylesheets/base/**";
 @import "../../../../../bower_components/totem*/stylesheets/base/**";
 @import "../../../../../node_modules/totem*/stylesheets/base/**";
 @import "../../../modules/*/stylesheets/base/**";
 @import "base/**";
 
-// 7. Objects - Class-based selectors with undecorated design patterns i.e. layout definitions
+// 8. Objects - Class-based selectors with undecorated design patterns i.e. layout definitions
 @import "../../../../../../totem_submodules/totem*/stylesheets/objects/**";
 @import "../../../../../bower_components/totem*/stylesheets/objects/**";
 @import "../../../../../node_modules/totem*/stylesheets/objects/**";
 @import "../../../modules/*/stylesheets/objects/**";
 @import "objects/**";
 
-// 8. Components - Specific UI components will be defined here.
+// 9. Components - Specific UI components will be defined here.
 @import "../../../../../../totem_submodules/totem*/stylesheets/components/**";
 @import "../../../../../bower_components/totem*/stylesheets/components/**";
 @import "../../../../../node_modules/totem*/stylesheets/components/**";
 @import "../../../modules/*/stylesheets/components/**";
 @import "components/**";
 
-// 9. Utilities and helper classes with ability to override anything within the project. Usefull to define helper classes like: .hide
+// 10. Utilities and helper classes with ability to override anything within the project. Usefull to define helper classes like: .hide
 @import "../../../../../../totem_submodules/totem*/stylesheets/utilities/**";
 @import "../../../../../bower_components/totem*/stylesheets/utilities/**";
 @import "../../../../../node_modules/totem*/stylesheets/utilities/**";
