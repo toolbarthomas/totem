@@ -110,11 +110,21 @@
     <link href="/resources/templates/typography/stylesheets/typography.css" rel="stylesheet"/>
     <link href="/resources/groups/typography/stylesheets/typography.css" rel="stylesheet"/>
 
-    <style>{% include "totem_submodules::totem.module.code-block/node_modules/prismjs/themes/prism.css" ignore missing %}</style>
+    <style>{% include "totem_submodules::totem.module.code-block/node_modules/prism-themes/themes/prism-duotone-space.css" ignore missing %}</style>
 {% endblock %}
 
 {% block foot %}
     <script src="/resources/templates/default/javascripts/default.js"></script>
     <script src="/resources/groups/typography/javascripts/typography.js"></script>
-    <script>{% include "totem_submodules::totem.module.code-block/node_modules/prismjs/prism.js" ignore missing %}</script>
+    <script>
+        {% include "totem_submodules::totem.module.code-block/node_modules/prismjs/prism.js" ignore missing %}
+        {% include "totem_submodules::totem.module.code-block/node_modules/prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js" ignore missing %}
+
+        Prism.plugins.NormalizeWhitespace.setDefaults({
+            'remove-trailing': true,
+            'remove-indent': true,
+            'left-trim': true,
+            'right-trim': true,
+        });
+    </script>
 {% endblock %}
