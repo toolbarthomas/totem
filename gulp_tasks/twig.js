@@ -15,8 +15,8 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 input: [
                     process.env.TOTEM_SRC + '/resources/modules/**/*.twig',
                     process.env.TOTEM_SUBMODULES + '/totem.module.*/**/*.twig',
-                    '!' + process.env.TOTEM_SRC + '/**/{node_modules,bower_components}/**/*.twig',
-                    '!' + process.env.TOTEM_SUBMODULES + '/**/{node_modules,bower_components}/**/*.twig',
+                    '!' + process.env.TOTEM_SRC + '/**/node_modules/**/*.twig',
+                    '!' + process.env.TOTEM_SUBMODULES + '/**/node_modules/**/*.twig',
                     '!' + process.env.TOTEM_SRC + '/resources/modules/**/partials/**/*.twig',
                     '!' + process.env.TOTEM_SUBMODULES + '/totem.module.*/**/partials/**/*.twig',
                 ],
