@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 ///
-// @name: typography
+// @name: Typography
 // @type: Page
 ///
 
@@ -10,43 +10,38 @@
 //
 // The following import order will also include all non output styles from all modules and the core of Totem:
 // 1. [../../../main/stylesheets/...] Will import the non output core stylesheets from Totem
-// 2. [../../../../../{submodulesbower_components,}/totem*/stylesheets/...] Is the import location if the module is defined within the project (src/resources/modules/)
+// 2. [../../../../../node_modules/totem*/stylesheets/...] Is the import location if the module is defined within the project (src/resources/modules/)
 // 3. [.../**] Is the import location for all stylesheets for the current module.
 ///
 
 @import "../../../main/stylesheets/shared/**";
-@import "../../../../../totem_submodules/totem*/stylesheets/shared/**";
-@import "../../../../../bower_components/totem*/stylesheets/shared/**";
+@import "../../../../../../totem_submodules/totem*/stylesheets/shared/**";
 @import "../../../../../node_modules/totem*/stylesheets/shared/**";
 @import "../../../modules/*/stylesheets/shared/**";
 @import "shared/**";
 
 @import "../../../main/stylesheets/helpers/**";
-@import "../../../../../totem_submodules/totem*/stylesheets/helpers/**";
-@import "../../../../../bower_components/totem*/stylesheets/helpers/**";
+@import "../../../../../../totem_submodules/totem*/stylesheets/helpers/**";
 @import "../../../../../node_modules/totem*/stylesheets/helpers/**";
-@import "../../../modules/stylesheets/helpers/**";
+@import "../../../modules/*/stylesheets/helpers/**";
 @import "helpers/**";
 
 @import "../../../main/stylesheets/settings/**";
-@import "../../../../../totem_submodules/totem*/stylesheets/settings/**";
-@import "../../../../../bower_components/totem*/stylesheets/settings/**";
+@import "../../../../../../totem_submodules/totem*/stylesheets/settings/**";
 @import "../../../../../node_modules/totem*/stylesheets/settings/**";
-@import "../../../modules/stylesheets/settings/**";
+@import "../../../modules/*/stylesheets/settings/**";
 @import "settings/**";
 
-@import "../../../../../totem_submodules/totem*/stylesheets/tools/**";
-@import "../../../../../bower_components/totem*/stylesheets/tools/**";
+@import "../../../../../../totem_submodules/totem*/stylesheets/tools/**";
 @import "../../../../../node_modules/totem*/stylesheets/tools/**";
 @import "../../../main/stylesheets/tools/**";
-@import "../../../modules/stylesheets/tools/**";
+@import "../../../modules/*/stylesheets/tools/**";
 @import "tools/**";
 
-@import "../../../../../totem_submodules/totem*/stylesheets/properties/**";
-@import "../../../../../bower_components/totem*/stylesheets/properties/**";
+@import "../../../../../../totem_submodules/totem*/stylesheets/properties/**";
 @import "../../../../../node_modules/totem*/stylesheets/properties/**";
 @import "../../../main/stylesheets/properties/**";
-@import "../../../modules/stylesheets/properties/**";
+@import "../../../modules/*/stylesheets/properties/**";
 @import "tools/**";
 
 @import "generic/**";
