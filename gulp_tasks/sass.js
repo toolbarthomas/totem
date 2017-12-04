@@ -25,14 +25,16 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             },
             {
                 input: [
-                    process.env.TOTEM_SRC + '/resources/groups/*/stylesheets/*.scss'
+                    process.env.TOTEM_SRC + '/resources/groups/*/stylesheets/*.scss',
+                    process.env.TOTEM_SUBMODULES + '/totem.group.*/stylesheets/*.scss'
                 ],
                 output: process.env.TOTEM_DEST + '/resources/groups',
                 ignore_folders: []
             },
             {
                 input: [
-                    process.env.TOTEM_SRC + '/resources/templates/*/stylesheets/*.scss'
+                    process.env.TOTEM_SRC + '/resources/templates/*/stylesheets/*.scss',
+                    process.env.TOTEM_SUBMODULES + '/totem.template.*/stylesheets/*.scss',
                 ],
                 output: process.env.TOTEM_DEST + '/resources/templates',
                 ignore_folders: []

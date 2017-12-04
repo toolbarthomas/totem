@@ -15,13 +15,15 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             },
             {
                 input: [
-                    process.env.TOTEM_SRC + '/resources/groups/*/javascripts/*.js'
+                    process.env.TOTEM_SRC + '/resources/groups/*/javascripts/*.js',
+                    process.env.TOTEM_SUBMODULES + '/totem.group.*/javascripts/*.js'
                 ],
                 output: process.env.TOTEM_DEST + '/resources/groups',
             },
             {
                 input: [
-                    process.env.TOTEM_SRC + '/resources/templates/*/javascripts/*.js'
+                    process.env.TOTEM_SRC + '/resources/templates/*/javascripts/*.js',
+                    process.env.TOTEM_SUBMODULES + '/totem.template.*/javascripts/*.js'
                 ],
                 output: process.env.TOTEM_DEST + '/resources/templates',
             }
