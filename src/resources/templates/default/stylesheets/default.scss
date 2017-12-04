@@ -1,7 +1,11 @@
 @charset "UTF-8";
 
-// Default template
-//
+///
+// @name: Default
+// @type: Template
+///
+
+///
 // The standard template for our app.
 //
 // All import logic is defined within each template located in 'resources/templates/' directory (for example; this file).
@@ -21,6 +25,8 @@
 // One of the key principles of ITCSS is that it seperates our CSS codebase into several sections (called layers).
 // Each layer is an actual folder defined within the module.
 // To generate the desired file structure for a new module page or template file you can use the included Yoeman Generator: 'yo totem'.
+//
+///
 
 // 1. Shared - Must use mixins & functions we use within the helpers layer
 @import "../../../main/stylesheets/shared/**";
