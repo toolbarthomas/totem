@@ -1,4 +1,4 @@
-{% extends "totem::src/resources/templates/typography/typography.twig" %}
+{% extends "totem_submodules::totem.template.typography/index.twig" %}
 
 {% block content %}
 
@@ -107,7 +107,7 @@
 {% endblock %}
 
 {% block head %}
-    <link href="/resources/templates/typography/stylesheets/typography.css" rel="stylesheet"/>
+    <link href="/resources/templates/totem.template.typography/stylesheets/typography.css" rel="stylesheet"/>
     <link href="/resources/groups/typography/stylesheets/typography.css" rel="stylesheet"/>
 
     <style>{% include "totem_submodules::totem.module.code-block/node_modules/prism-themes/themes/prism-atom-dark.css" ignore missing %}</style>
