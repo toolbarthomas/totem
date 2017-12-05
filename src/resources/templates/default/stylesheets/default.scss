@@ -3,23 +3,6 @@
 ///
 // @name: Default
 // @type: Template
-///
-
-///
-// The standard template for our app.
-//
-// All import logic is defined within each template located in 'resources/templates/' directory (for example; this file).
-// The default template will import all styles (main, extarnal modules & project modules) we use within our project, except for page specific styling.
-// Other template stylesheets should have specific imports to prevent unwanted styling.
-// Template stylesheets should divide into the following categories:
-//
-// 1. Main - Global styling for your app goes here; e.g. branding & typography styles.
-// 2. Submodules (NPM or GIT) - Shared libraries will be directly imported after your main style definitions.
-//    You can define the desired location for your modules e.g. node_modules or git_submodules within the environment file: ./.env.
-//    Gulp will ignore all other external module locations defined within the template stylesheet when you define the MODULES_PATH variable.
-// 3. Project Modules - Class-based UI components will be defined here, ID-based styling isn't allowed in this section. Your app can contain multiple components and must be defined within it's own folder.
-//
-// Page specific styling won't be imported within this stylesheet since we should include them seperately within the document.
 //
 // We use the ITCSS principle for importing our main styles, bsubmodules and project module. - https://medium.com/@pistenprinz/css-at-trivago-part-1-structure-and-itcss-52f63ed557ca
 // One of the key principles of ITCSS is that it seperates our CSS codebase into several sections (called layers).
@@ -28,67 +11,170 @@
 //
 ///
 
+///
 // 1. Shared - Must use mixins & functions we use within the helpers layer
-@import "../../../main/stylesheets/shared/**";
-@import "../../../../../../totem_submodules/totem*/stylesheets/shared/**";
-@import "../../../../../node_modules/totem*/stylesheets/shared/**";
-@import "../../../modules/*/stylesheets/shared/**";
+///
+
+// Import Main
+@import "../../../main/stylesheets/shared/**"; // Root: ./totem
+@import "../../../totem/src/resources/main/stylesheets/shared/**"; // Root: ./totem../totem_submodules
+@import "../../../src/resources/main/stylesheets/shared/**"; // Root: ./totem/node_modules
+
+// Import project modules
+@import "../../../modules/*/stylesheets/shared/**"; // Root: ./totem
+@import "../../../totem/src/resources/modules/*/stylesheets/shared/**"; // Root: ./totem../totem_submodules
+@import "../../../src/resources/modules/*/stylesheets/shared/**"; // Root: ./totem/node_modules
+
+// Import NPM modules
+@import "../../../../../node_modules/totem*/stylesheets/shared/**"; // Root: ./totem
+@import "../../../node_modules/totem*/stylesheets/shared/**"; // Root:  ./totem/node_modules && ./totem/../totem_submodules
+
+// Import GIT modules
+@import "../../../../../../totem_submodules/totem*/stylesheets/shared/**"; // Root: ./totem
+@import "../../../totem_submodules/totem*/stylesheets/shared/**"; // Root:  ./totem/node_modules && ./totem/../totem_submodules
+
+// Import local styles
 @import "shared/**";
 
+
+
+///
 // 2. Helpers - Helper functions to get a value from a mapped setting.
-@import "../../../main/stylesheets/helpers/**";
-@import "../../../../../../totem_submodules/totem*/stylesheets/helpers/**";
-@import "../../../../../node_modules/totem*/stylesheets/helpers/**";
-@import "../../../modules/*/stylesheets/helpers/**";
+///
+
+// Import Main
+@import "../../../main/stylesheets/helpers/**"; // Root: ./totem
+@import "../../../totem/src/resources/main/stylesheets/helpers/**"; // Root: ./totem../totem_submodules
+@import "../../../src/resources/main/stylesheets/helpers/**"; // Root: ./totem/node_modules
+
+// Import project modules
+@import "../../../modules/*/stylesheets/helpers/**"; // Root: ./totem
+@import "../../../totem/src/resources/modules/*/stylesheets/helpers/**"; // Root: ./totem../totem_submodules
+@import "../../../src/resources/modules/*/stylesheets/helpers/**"; // Root: ./totem/node_modules
+
+// Import NPM modules
+@import "../../../../../node_modules/totem*/stylesheets/helpers/**"; // Root: ./totem
+@import "../../../node_modules/totem*/stylesheets/helpers/**"; // Root:  ./totem/node_modules && ./totem/../totem_submodules
+
+// Import GIT modules
+@import "../../../../../../totem_submodules/totem*/stylesheets/helpers/**"; // Root: ./totem
+@import "../../../totem_submodules/totem*/stylesheets/helpers/**"; // Root:  ./totem/node_modules && ./totem/../totem_submodules
+
+// Import local styles
 @import "helpers/**";
 
+
+
+///
 // 3. Settings - All variables will be defined on the same level so we can share it in the whole project.
-@import "../../../main/stylesheets/settings/**";
-@import "../../../../../../totem_submodules/totem*/stylesheets/settings/**";
-@import "../../../../../node_modules/totem*/stylesheets/settings/**";
-@import "../../../modules/*/stylesheets/settings/**";
+///
+
+// Import Main
+@import "../../../main/stylesheets/settings/**"; // Root: ./totem
+@import "../../../totem/src/resources/main/stylesheets/settings/**"; // Root: ./totem../totem_submodules
+@import "../../../src/resources/main/stylesheets/settings/**"; // Root: ./totem/node_modules
+
+// Import project modules
+@import "../../../modules/*/stylesheets/settings/**"; // Root: ./totem
+@import "../../../totem/src/resources/modules/*/stylesheets/settings/**"; // Root: ./totem../totem_submodules
+@import "../../../src/resources/modules/*/stylesheets/settings/**"; // Root: ./totem/node_modules
+
+// Import NPM modules
+@import "../../../../../node_modules/totem*/stylesheets/settings/**"; // Root: ./totem
+@import "../../../node_modules/totem*/stylesheets/settings/**"; // Root:  ./totem/node_modules && ./totem/../totem_submodules
+
+// Import GIT modules
+@import "../../../../../../totem_submodules/totem*/stylesheets/settings/**"; // Root: ./totem
+@import "../../../totem_submodules/totem*/stylesheets/settings/**"; // Root:  ./totem/node_modules && ./totem/../totem_submodules
+
+// Import local styles
 @import "settings/**";
 
+
+
+///
 // 4. Tools - Mixins & functions for defining project styling should be defined here
-@import "../../../main/stylesheets/tools/**";
-@import "../../../../../../totem_submodules/totem*/stylesheets/tools/**";
-@import "../../../../../node_modules/totem*/stylesheets/tools/**";
-@import "../../../modules/*/stylesheets/tools/**";
+///
+
+// Import Main
+@import "../../../main/stylesheets/tools/**"; // Root: ./totem
+@import "../../../totem/src/resources/main/stylesheets/tools/**"; // Root: ./totem../totem_submodules
+@import "../../../src/resources/main/stylesheets/tools/**"; // Root: ./totem/node_modules
+
+// Import project modules
+@import "../../../modules/*/stylesheets/tools/**"; // Root: ./totem
+@import "../../../totem/src/resources/modules/*/stylesheets/tools/**"; // Root: ./totem../totem_submodules
+@import "../../../src/resources/modules/*/stylesheets/tools/**"; // Root: ./totem/node_modules
+
+// Import NPM modules
+@import "../../../../../node_modules/totem*/stylesheets/tools/**"; // Root: ./totem
+@import "../../../node_modules/totem*/stylesheets/tools/**"; // Root:  ./totem/node_modules && ./totem/../totem_submodules
+
+// Import GIT modules
+@import "../../../../../../totem_submodules/totem*/stylesheets/tools/**"; // Root: ./totem
+@import "../../../totem_submodules/totem*/stylesheets/tools/**"; // Root:  ./totem/node_modules && ./totem/../totem_submodules
+
+// Import local styles
 @import "tools/**";
 
+
+
+///
 // 5. Properties - Additional settings in Sass mapping format to share properties with. This layer can also use tools.
-@import "../../../main/stylesheets/properties/**";
-@import "../../../../../../totem_submodules/totem*/stylesheets/properties/**";
-@import "../../../../../node_modules/totem*/stylesheets/properties/**";
-@import "../../../modules/*/stylesheets/properties/**";
+///
+
+// Import Main
+@import "../../../main/stylesheets/properties/**"; // Root: ./totem
+@import "../../../totem/src/resources/main/stylesheets/properties/**"; // Root: ./totem../totem_submodules
+@import "../../../src/resources/main/stylesheets/properties/**"; // Root: ./totem/node_modules
+
+// Import project modules
+@import "../../../modules/*/stylesheets/properties/**"; // Root: ./totem
+@import "../../../totem/src/resources/modules/*/stylesheets/properties/**"; // Root: ./totem../totem_submodules
+@import "../../../src/resources/modules/*/stylesheets/properties/**"; // Root: ./totem/node_modules
+
+// Import NPM modules
+@import "../../../../../node_modules/totem*/stylesheets/properties/**"; // Root: ./totem
+@import "../../../node_modules/totem*/stylesheets/properties/**"; // Root:  ./totem/node_modules && ./totem/../totem_submodules
+
+// Import GIT modules
+@import "../../../../../../totem_submodules/totem*/stylesheets/properties/**"; // Root: ./totem
+@import "../../../totem_submodules/totem*/stylesheets/properties/**"; // Root:  ./totem/node_modules && ./totem/../totem_submodules
+
+// Import local styles
 @import "properties/**";
 
+
+
+///
 // 6. Generic - Default tag style definitions for your app/module will be defined here. E.g. reset.css
-@import "../../../../../../totem_submodules/totem*/stylesheets/generic/**";
-@import "../../../../../node_modules/totem*/stylesheets/generic/**";
-@import "../../../modules/*/stylesheets/generic/**";
+///
 @import "generic/**";
 
+
+
+///
 // 7. Base - Typography and other global styling definitions should be defined here.
-@import "../../../../../../totem_submodules/totem*/stylesheets/base/**";
-@import "../../../../../node_modules/totem*/stylesheets/base/**";
-@import "../../../modules/*/stylesheets/base/**";
+///
 @import "base/**";
 
+
+
+///
 // 8. Objects - Class-based selectors with undecorated design patterns i.e. layout definitions
-@import "../../../../../../totem_submodules/totem*/stylesheets/objects/**";
-@import "../../../../../node_modules/totem*/stylesheets/objects/**";
-@import "../../../modules/*/stylesheets/objects/**";
+///
 @import "objects/**";
 
+
+
+///
 // 9. Components - Specific UI components will be defined here.
-@import "../../../../../../totem_submodules/totem*/stylesheets/components/**";
-@import "../../../../../node_modules/totem*/stylesheets/components/**";
-@import "../../../modules/*/stylesheets/components/**";
+///
 @import "components/**";
 
+
+
+///
 // 10. Utilities and helper classes with ability to override anything within the project. Usefull to define helper classes like: .hide
-@import "../../../../../../totem_submodules/totem*/stylesheets/utilities/**";
-@import "../../../../../node_modules/totem*/stylesheets/utilities/**";
-@import "../../../modules/*/stylesheets/utilities/**";
+///
 @import "utilities/**";
