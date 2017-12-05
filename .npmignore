@@ -1,6 +1,5 @@
 /dist
 /test
-/.tmp
 
 vendor
 node_modules
