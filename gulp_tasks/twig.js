@@ -5,9 +5,9 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
         var sources = [
             {
                 input: [
-                    process.env.TOTEM_SRC + '/resources/groups/*/*.twig',
-                    process.env.TOTEM_SRC + '/resources/groups/*/pages/**/*.twig',
-                    '!' + process.env.TOTEM_SRC + '/resources/groups/*/partials/**/*.twig'
+                    process.env.TOTEM_SRC + '/resources/groups/**/*.twig',
+                    process.env.TOTEM_SUBMODULES + '/totem.group*/**/*.twig',
+                    '!**/groups/**/partials/**/*.twig'
                 ],
                 output: process.env.TOTEM_DEST + '/resources/groups'
             },
