@@ -18,5 +18,12 @@ $box-models: (
         'base': 20px,
         'medium': 40px,
         'large': 60px
+    ),
+    'box-shadow': (
+        'z1' : (0 1px 3px rgba(0,0,0,0.09), 0 1px 2px rgba(0,0,0,0.18)),
+        'z2' : (0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.17)),
+        'z3' : (0 10px 20px rgba(0,0,0,0.17), 0 6px 6px rgba(0,0,0,0.17)),
+        'z4' : (0 14px 28px rgba(0,0,0,0.16), 0 10px 10px rgba(0,0,0,0.16)),
+        'z5' : (0 19px 38px rgba(0,0,0,0.24), 0 15px 12px rgba(0,0,0,0.16))
     )
 ) !default;
