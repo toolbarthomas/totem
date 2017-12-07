@@ -1,8 +1,8 @@
 .wrapper {
-    max-width: wrapper-style('default', 'max-width');
-    padding-left: wrapper-style('default', 'gutter');
-    padding-left: wrapper-style('default', 'gutter');
-    margin: wrapper-style('default', 'gutter') auto;
+    max-width: wrapper-style('base', 'max-width');
+    padding-left: wrapper-style('base', 'gutter');
+    padding-left: wrapper-style('base', 'gutter');
+    margin: wrapper-style('base', 'gutter') auto;
 
 
     &:first-child {
