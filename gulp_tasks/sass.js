@@ -14,7 +14,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 input: [
                     process.env.TOTEM_SRC + '/resources/modules/*/stylesheets/*.scss',
                     process.env.TOTEM_SUBMODULES + '/totem.module.*/stylesheets/*.scss',
-                    '!' + process.env.TOTEM_SUBMODULES + '/totem.module.tipi*/**' //Prevent seperate module builds for Tipi based packages
+                    // '!' + process.env.TOTEM_SUBMODULES + '/totem.module.tipi*/**' //Prevent seperate module builds for Tipi based packages
                 ],
                 output: process.env.TOTEM_DEST + '/resources/modules',
                 ignore_folders: [
@@ -69,6 +69,8 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             streams.push(stream);
         }, this);
 
-        return NODE_MODULES.merge(streams).pipe(PLUGINS.livereload());
+        return NODE_MODULES.merge(streams).pipe(PLUGINS.livereload({
+            quiet: true
+        }));
     }
 }
