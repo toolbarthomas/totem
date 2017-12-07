@@ -1,6 +1,5 @@
 /dist
 /test
-/.tmp
 
 node_modules
 bower_components
@@ -10,4 +9,4 @@ bower_components
 *.map
 *.log
 
-src/resources/tmp
+/data.json
