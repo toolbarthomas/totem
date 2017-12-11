@@ -13,8 +13,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             {
                 input: [
                     process.env.TOTEM_SRC + '/resources/modules/*/stylesheets/*.scss',
-                    process.env.TOTEM_SUBMODULES + '/totem.module.*/stylesheets/*.scss',
-                    // '!' + process.env.TOTEM_SUBMODULES + '/totem.module.tipi*/**' //Prevent seperate module builds for Tipi based packages
+                    process.env.TOTEM_SUBMODULES + '/totem.module.*/stylesheets/*.scss'
                 ],
                 output: process.env.TOTEM_DEST + '/resources/modules',
                 ignore_folders: [
