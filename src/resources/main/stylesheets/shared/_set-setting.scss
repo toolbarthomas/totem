@@ -19,12 +19,5 @@
     $value: false,
     $item: 'default'
 ) {
-    @if (not $value) or (not $map)
-    {
-        @warn warning('No value ( $value ) has been specified, font settings will not be updated.');
-    }
-    @else
-    {
-        @return map-combine($map, ($item: ($key : $value)));
-    }
+    @return map-combine($map, ($item: ($key : $value)));
 }
