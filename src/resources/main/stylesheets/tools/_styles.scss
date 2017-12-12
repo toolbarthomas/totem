@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+/// Helper mixin for generating module styles
+///
+/// @param { List } $list
+///     Define wich list to iterate from. Each list should be
+///     Formatted within the following syntax:
+///
+///     $list: (
+///         $selector: (
+///             'color': inherit
+///         )
+///         ...
+///     )
+///
+
+@mixin styles($list) {
+
+    // Return warning, when the mixin has no $list parameter defined
+    @if not $list {
+
+        @warn $list + 'is not defined';
+
+    }
+
+    //Ouput styles for each $selector
+    @else {
+
+        @each $selector, $properties in $list {
+            #{$selector} {
+                @each $property, $value in $properties {
+                    @if $value {
+                        #{$property}: #{$value};
+                    }
+                }
+            }
+        }
+
+    }
+}
