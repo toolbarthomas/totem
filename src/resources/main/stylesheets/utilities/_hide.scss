@@ -1,5 +1,3 @@
-@include hide();
-
-@each $viewport in $viewports {
-    @include hide(nth($viewport, 1));
-}
+@include css-helper('.hide') {
+    display: block !important;
+};

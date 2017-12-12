@@ -1,9 +1,6 @@
 .wrapper {
-    max-width: wrapper-style('base', 'max-width');
-    padding-left: wrapper-style('base', 'gutter');
-    padding-left: wrapper-style('base', 'gutter');
-    margin: wrapper-style('base', 'gutter') auto;
-
+    margin-left: auto;
+    margin-right: auto;
 
     &:first-child {
         margin-top: 0;
@@ -12,4 +9,8 @@
     &:last-child {
         margin-bottom: 0;
     }
+}
+
+@if mixin-exists('extend-styles') {
+    @include extend-styles($wrapper-styles);
 }

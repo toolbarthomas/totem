@@ -1,7 +1,0 @@
-@mixin hide(
-    $viewport: null
-) {
-    @include css-helper('.hide', $viewport) {
-        display: none !important;
-    }
-}

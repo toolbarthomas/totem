@@ -1,5 +1,3 @@
-@include show();
-
-@each $viewport in $viewports {
-    @include show(nth($viewport, 1));
-}
+@include css-helper('.show') {
+    display: block !important;
+};
