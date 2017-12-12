@@ -14,7 +14,7 @@
 ///     )
 ///
 
-@mixin styles($list) {
+@mixin extend-styles($list) {
     // Return warning, when the mixin has no $list parameter defined
     @if not $list {
 
