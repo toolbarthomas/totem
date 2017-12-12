@@ -44,8 +44,9 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
 
         PLUGINS.watch([
             './data.json',
+            process.env.TOTEM_SUBMODULES + '/data.json',
             process.env.TOTEM_SRC + '/resources/**/*.twig',
-            process.env.TOTEM_SUBMODULES + '/totem*/**/*.twig'
+            process.env.TOTEM_SUBMODULES + '/totem*/**/*.twig',
         ], function () {
             return GULP.start('twig');
         });
