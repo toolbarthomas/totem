@@ -3,8 +3,5 @@ $wrapper-styles: (
         'margin': box-model('margin', 'base'),
         'padding': box-model('padding', 'base'),
         'max-width': viewport('widescreen', 'min-width')
-    ),
-    '.wrapper--small': (
-        'max-width': viewport('phablet', 'min-width')
     )
 );
