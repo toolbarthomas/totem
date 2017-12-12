@@ -15,12 +15,10 @@
 ///
 
 @mixin styles($list) {
-
     // Return warning, when the mixin has no $list parameter defined
     @if not $list {
 
-        @warn $list + 'is not defined';
-
+        @warn warning('Missing argument: $list.');
     }
 
     //Ouput styles for each $selector

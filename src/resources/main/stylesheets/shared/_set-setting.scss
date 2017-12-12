@@ -21,10 +21,10 @@
 ) {
     @if (not $value) or (not $map)
     {
-        @warn '[ Totem ] - No value ( $value ) has been specified, font settings will not  be updated.';
+        @warn warning('No value ( $value ) has been specified, font settings will not be updated.');
     }
     @else
     {
-        @return map-combine($font, ($item: ($key : $value)));
+        @return map-combine($map, ($item: ($key : $value)));
     }
 }

@@ -13,7 +13,8 @@
     /// Return a warning when the length of the given $sizes is higher then we have within $sizes
     @if $sizes-length > $font-sizes-length
     {
-        @warn '[ Totem ] - Wrong number of arguments (#{$sizes-length} for #{$font-sizes-length}), the last #{($sizes-length - $font-sizes-length)} will be ignored.';
+
+        @warn warning('Wrong number of arguments (#{$sizes-length} for #{$font-sizes-length}), the last #{($sizes-length - $font-sizes-length)} will be ignored.');
     }
 
     /// Compare the given sizes with the global sizes and append the last given argument as fallback
