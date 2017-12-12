@@ -1,6 +1,6 @@
 @charset "UTF-8";
 
-/// Helper mixin for generating module styles
+/// Mixin used within modules for extending it's base styling
 ///
 /// @param { List } $list
 ///     Define wich list to iterate from. Each list should be
