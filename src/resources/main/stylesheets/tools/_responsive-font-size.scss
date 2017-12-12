@@ -11,16 +11,13 @@
     $sizes-length: length($sizes);
 
     /// Return a warning when the length of the given $sizes is higher then we have within $sizes
-    @if $sizes-length > $font-sizes-length
-    {
-
+    @if $sizes-length > $font-sizes-length {
         @warn warning('Wrong number of arguments (#{$sizes-length} for #{$font-sizes-length}), the last #{($sizes-length - $font-sizes-length)} will be ignored.');
     }
 
     /// Compare the given sizes with the global sizes and append the last given argument as fallback
     $missing-font-sizes: $font-sizes-length - $sizes-length;
-    @if $missing-font-sizes > 0
-    {
+    @if $missing-font-sizes > 0 {
         @for $i from 1 through $missing-font-sizes
         {
             $sizes: append($sizes, nth($sizes, length($sizes)), comma);
@@ -31,14 +28,12 @@
     $defined-sizes: ();
     $i: 0;
 
-    @each $size in $sizes
-    {
+    @each $size in $sizes {
         /// Set the default value to check if we have found our $font-size value;
         $font-size-found: false;
 
         /// Prevent adding extra values if the length of $responsive_font_sizes is smaller than the givin $font_sizes
-        @if $i < length($font-sizes)
-        {
+        @if $i < length($font-sizes) {
             /// Compare if the current font size is present within our default font sizes
             @each $variant in map-keys(map-get($font-sizes, 'smartphone'))
             {
@@ -62,8 +57,7 @@
     $i: 1;
 
     /// Output each size for each viewport we have defined within the $font-sizes list
-    @each $font-size in $font-sizes
-    {
+    @each $font-size in $font-sizes {
         /// Get our breakpoint keyname.
         $specific-breakpoint: nth(map-keys($font-sizes), $i);
 

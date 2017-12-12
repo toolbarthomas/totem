@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
-/// Mixin used within modules for extending it's base styling
+/// Output styles defined as Sass maps.
+/// Modules can use this mixin to hook extra styling without breaking the css flow
 ///
 /// @param { List } $list
 ///     Define wich list to iterate from. Each list should be
@@ -17,13 +18,11 @@
 @mixin extend-styles($list) {
     // Return warning, when the mixin has no $list parameter defined
     @if not $list {
-
         @warn warning('Missing argument: $list.');
     }
 
     //Ouput styles for each $selector
     @else {
-
         @each $selector, $properties in $list {
             #{$selector} {
                 @each $property, $value in $properties {
@@ -33,6 +32,5 @@
                 }
             }
         }
-
     }
 }

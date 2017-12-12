@@ -1,8 +1,7 @@
 @mixin font-ligatures(
     $enable-font-ligatures: none
-){
-    @if ($enable-font-ligatures != none)
-    {
+) {
+    @if ($enable-font-ligatures != none) {
         -moz-font-feature-settings: "liga" $enable-font-ligatures;
         -ms-font-feature-settings: "liga" $enable-font-ligatures;
         -o-font-feature-settings: "liga" $enable-font-ligatures;
@@ -10,9 +9,7 @@
         font-feature-settings: "liga" $enable-font-ligatures;
         -webkit-font-variant-ligatures: $enable-font-ligatures;
         font-variant-ligatures: $enable-font-ligatures;
-    }
-    @else
-    {
+    } @else {
         -moz-font-feature-settings: "liga" 0;
         -ms-font-feature-settings: "liga" 0;
         -o-font-feature-settings: "liga" 0;
