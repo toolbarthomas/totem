@@ -6,6 +6,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             '!**/sprite/**',
             '!**/svg-sprite/**',
             '!**/*.{scss,md,twig,html}',
+            '!**/data.json'
         ];
 
         var sources = [
