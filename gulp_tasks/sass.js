@@ -7,36 +7,28 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 input: [
                     process.env.TOTEM_SRC + '/resources/main/stylesheets/*.scss'
                 ],
-                output: process.env.TOTEM_DEST + '/resources/main/stylesheets',
-                ignore_folders: []
+                output: process.env.TOTEM_DEST + '/resources/main/stylesheets'
             },
             {
                 input: [
                     process.env.TOTEM_SRC + '/resources/modules/*/stylesheets/*.scss',
                     process.env.TOTEM_SUBMODULES + '/totem.module.*/stylesheets/*.scss'
                 ],
-                output: process.env.TOTEM_DEST + '/resources/modules',
-                ignore_folders: [
-                    'totem_submodules',
-                    'node_modules',
-                    'bower_components'
-                ]
+                output: process.env.TOTEM_DEST + '/resources/modules'
             },
             {
                 input: [
                     process.env.TOTEM_SRC + '/resources/groups/*/stylesheets/*.scss',
                     process.env.TOTEM_SUBMODULES + '/totem.group.*/stylesheets/*.scss'
                 ],
-                output: process.env.TOTEM_DEST + '/resources/groups',
-                ignore_folders: []
+                output: process.env.TOTEM_DEST + '/resources/groups'
             },
             {
                 input: [
                     process.env.TOTEM_SRC + '/resources/templates/*/stylesheets/*.scss',
                     process.env.TOTEM_SUBMODULES + '/totem.template.*/stylesheets/*.scss',
                 ],
-                output: process.env.TOTEM_DEST + '/resources/templates',
-                ignore_folders: []
+                output: process.env.TOTEM_DEST + '/resources/templates'
             }
         ];
 
@@ -44,22 +36,9 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
 
         sources.forEach(function (source) {
 
-            //Remove the specified MODULES_PATH from the .env file. so only import our Modules once.
-            var ignore_paths = source.ignore_folders;
-            ignore_paths = ignore_paths.filter(function (item) {
-                return item !== process.env.TOTEM_SUBMODULES
-            });
-
-            // Make a globbing path from each ignore path
-            for (var index = 0; index < ignore_paths.length; index++) {
-                ignore_paths[index] = '**/' + ignore_paths[index] + '/**';
-            }
-
             var stream = GULP.src(source.input)
                 .pipe(PLUGINS.sourcemaps.init())
-                .pipe(PLUGINS.sassGlob({
-                    ignorePaths: ignore_paths
-                }))
+                .pipe(PLUGINS.sassGlob())
                 .pipe(PLUGINS.sass().on('error', PLUGINS.sass.logError))
                 .pipe(PLUGINS.autoprefixer())
                 .pipe(PLUGINS.sourcemaps.write('./'))

@@ -1,19 +1,18 @@
 @charset "UTF-8";
 
 ///
-// @name: Default
+// @name: default
 // @type: Template
-//
-// We use the ITCSS principle for importing our main styles, bsubmodules and project module. - https://medium.com/@pistenprinz/css-at-trivago-part-1-structure-and-itcss-52f63ed557ca
-// One of the key principles of ITCSS is that it seperates our CSS codebase into several sections (called layers).
-// Each layer is an actual folder defined within the module.
-// To generate the desired file structure for a new module page or template file you can use the included Yoeman Generator: 'yo totem'.
-//
 ///
 
 ///
 // 1. Shared - Must use mixins & functions we use within the helpers layer
 ///
+
+// Import Core
+@import "../../../../../node_modules/node_modules/totem.core/stylesheets/shared/**"; // Import totem.core as NPM module if this file is defined within ./totem
+@import "../../../../../../totem_submodules/totem.core/stylesheets/shared/**"; // Import totem.core as GIT module if this file is defined within ./totem
+@import "../../totem.core/stylesheets/shared/**"; // Import totem.core as NPM module or GIT module if this file is defined within NPM or GIT
 
 // Import Main
 @import "../../../main/stylesheets/shared/**"; // Root: ./totem
@@ -42,6 +41,11 @@
 // 2. Helpers - Helper functions to get a value from a mapped setting.
 ///
 
+// Import Core
+@import "../../../../../node_modules/node_modules/totem.core/stylesheets/helpers/**"; // Import totem.core as NPM module if this file is defined within ./totem
+@import "../../../../../../totem_submodules/totem.core/stylesheets/helpers/**"; // Import totem.core as GIT module if this file is defined within ./totem
+@import "../../totem.core/stylesheets/helpers/**"; // Import totem.core as NPM module or GIT module if this file is defined within NPM or GIT
+
 // Import Main
 @import "../../../main/stylesheets/helpers/**"; // Root: ./totem
 @import "../../../totem/src/resources/main/stylesheets/helpers/**"; // Root: ./totem../totem_submodules
@@ -68,6 +72,11 @@
 ///
 // 3. Settings - All variables will be defined on the same level so we can share it in the whole project.
 ///
+
+// Import Core
+@import "../../../../../node_modules/node_modules/totem.core/stylesheets/settings/**"; // Import totem.core as NPM module if this file is defined within ./totem
+@import "../../../../../../totem_submodules/totem.core/stylesheets/settings/**"; // Import totem.core as GIT module if this file is defined within ./totem
+@import "../../totem.core/stylesheets/settings/**"; // Import totem.core as NPM module or GIT module if this file is defined within NPM or GIT
 
 // Import Main
 @import "../../../main/stylesheets/settings/**"; // Root: ./totem
@@ -96,6 +105,11 @@
 // 4. Tools - Mixins & functions for defining project styling should be defined here
 ///
 
+// Import Core
+@import "../../../../../node_modules/node_modules/totem.core/stylesheets/tools/**"; // Import totem.core as NPM module if this file is defined within ./totem
+@import "../../../../../../totem_submodules/totem.core/stylesheets/tools/**"; // Import totem.core as GIT module if this file is defined within ./totem
+@import "../../totem.core/stylesheets/tools/**"; // Import totem.core as NPM module or GIT module if this file is defined within NPM or GIT
+
 // Import Main
 @import "../../../main/stylesheets/tools/**"; // Root: ./totem
 @import "../../../totem/src/resources/main/stylesheets/tools/**"; // Root: ./totem../totem_submodules
@@ -122,6 +136,11 @@
 ///
 // 5. Properties - Additional settings in Sass mapping format to share properties with. This layer can also use tools.
 ///
+
+// Import Core
+@import "../../../../../node_modules/node_modules/totem.core/stylesheets/properties/**"; // Import totem.core as NPM module if this file is defined within ./totem
+@import "../../../../../../totem_submodules/totem.core/stylesheets/properties/**"; // Import totem.core as GIT module if this file is defined within ./totem
+@import "../../totem.core/stylesheets/properties/**"; // Import totem.core as NPM module or GIT module if this file is defined within NPM or GIT
 
 // Import Main
 @import "../../../main/stylesheets/properties/**"; // Root: ./totem

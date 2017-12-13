@@ -6,26 +6,97 @@
 ///
 
 ///
-// Stylesheet that contains all critical styling
-//
+// 1. Shared - Must use mixins & functions we use within the helpers layer
 ///
 
+// Import Core
+@import "../../../../node_modules/totem.core/stylesheets/shared/**"; // Import totem.core when defined within ./totem/node_modules/..
+@import "../../../../../totem_submodules/totem.core/stylesheets/shared/**"; // Import totem.core when defined wotjom ./totem../totem_submodules/...
+
+// Import Main
 @import "shared/**";
 
+
+
+///
+// 2. Helpers - Helper functions to get a value from a mapped setting.
+///
+
+// Import Core
+@import "../../../../node_modules/totem.core/stylesheets/helpers/**"; // Import totem.core when defined within ./totem/node_modules/..
+@import "../../../../../totem_submodules/totem.core/stylesheets/helpers/**"; // Import totem.core when defined wotjom ./totem../totem_submodules/...
+
+// Import Main
 @import "helpers/**";
 
+
+
+///
+// 3. Settings - All variables will be defined on the same level so we can share it in the whole project.
+///
+
+// Import Core
+@import "../../../../node_modules/totem.core/stylesheets/settings/**"; // Import totem.core when defined within ./totem/node_modules/..
+@import "../../../../../totem_submodules/totem.core/stylesheets/settings/**"; // Import totem.core when defined wotjom ./totem../totem_submodules/...
+
+// Import Main
 @import "settings/**";
 
+
+
+///
+// 4. Tools - Mixins & functions for defining project styling should be defined here
+///
+
+// Import Core
+@import "../../../../node_modules/totem.core/stylesheets/tools/**"; // Import totem.core when defined within ./totem/node_modules/..
+@import "../../../../../totem_submodules/totem.core/stylesheets/tools/**"; // Import totem.core when defined wotjom ./totem../totem_submodules/...
+
+// Import Main
 @import "tools/**";
 
+///
+// 5. Properties - Additional settings in Sass mapping format to share properties with. This layer can also use tools.
+///
+
+// Import Core
+@import "../../../../node_modules/totem.core/stylesheets/properties/**"; // Import totem.core when defined within ./totem/node_modules/..
+@import "../../../../../totem_submodules/totem.core/stylesheets/properties/**"; // Import totem.core when defined wotjom ./totem../totem_submodules/...
+
+// Import Main
 @import "properties/**";
 
+
+
+///
+// 6. Generic - Default tag style definitions for your app/module will be defined here. E.g. reset.css
+///
 @import "generic/**";
 
+
+
+///
+// 7. Base - Typography and other global styling definitions should be defined here.
+///
 @import "base/**";
 
+
+
+///
+// 8. Objects - Class-based selectors with undecorated design patterns i.e. layout definitions
+///
 @import "objects/**";
 
+
+
+///
+// 9. Components - Specific UI components will be defined here.
+///
 @import "components/**";
 
+
+
+///
+// 10. Utilities and helper classes with ability to override anything within the project. Usefull to define helper classes like: .hide
+///
 @import "utilities/**";
