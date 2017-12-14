@@ -1,0 +1,279 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figcaption, figure, footer, header, hgroup, main, nav,
+output, ruby, section, summary, time, mark, audio, video, menu {
+    margin: 0;
+    padding: 0;
+    border: none;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+nav,
+section,
+summary {
+    display: block;
+}
+
+time,
+mark {
+    display: inline;
+}
+
+audio,
+canvas,
+video {
+    display: inline-block;
+}
+
+summary {
+    display: list-item;
+}
+
+audio:not([controls]) {
+    display: none;
+    height: 0;
+}
+
+[hidden] {
+    display: none !important;
+}
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    height: 100%;
+    font-size: 62.5%;
+}
+
+html,
+body {
+    position: relative;
+    height: 100%;
+}
+
+body {
+    line-height: normal;
+}
+
+a {
+    text-decoration: none;
+    background-color: transparent;
+    -webkit-text-decoration-skip: objects;
+
+    &:active,
+    &:hover {
+        outline: 0;
+        text-decoration: underline;
+    }
+
+    img {
+        outline: 0;
+    }
+
+    &:focus {
+        outline: thin dotted !important;
+        outline: 4px auto -webkit-focus-ring-color !important;
+        text-decoration: underline;
+    }
+}
+
+img {
+    display: block;
+    border: none;
+    margin: 0;
+    -ms-interpolation-mode: bicubic;
+}
+
+svg:not(:root) {
+    overflow: hidden;
+}
+
+blockquote,
+q {
+    quotes: none;
+
+    &:before,
+    &:after {
+        content: '';
+        content: none;
+    }
+}
+
+strong,
+b {
+    font-weight: bolder;
+}
+
+em,
+i,
+dfn {
+    font-style: italic;
+}
+
+small {
+    font-size: 80%;
+}
+
+sub,
+sup {
+    font-size: smaller;
+    line-height: 0;
+}
+
+sub {
+    vertical-align: super;
+}
+
+sub {
+    vertical-align: sub;
+}
+
+mark {
+    background-color: yellow;
+    color: black;
+}
+
+hr {
+    box-sizing: content-box;
+    height: 0;
+    overflow: visible;
+}
+
+fieldset {
+    min-width: 0;
+}
+
+legend {
+    color: inherit;
+    max-width: 100%;
+    white-space: normal;
+}
+
+textarea {
+    font-size: 100%;
+}
+
+button,
+input,
+select,
+textarea {
+    font-size: 100%;
+    font-family: inherit;
+    margin: 0;
+    vertical-align: baseline;
+    line-height: normal;
+}
+
+input[type="image"],
+button,
+select,
+input[type="checkbox"],
+input[type="radio"],
+input[type="submit"],
+input[type="button"] {
+    cursor: pointer;
+}
+
+button,
+input[type="submit"],
+input[type="button"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: transparent;
+}
+
+button,
+input,
+textarea {
+    text-transform: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border-radius: 0;
+    border: none;
+}
+
+input {
+    &[type=checkbox],
+    &[type=radio] {
+        border-radius: initial;
+    }
+}
+
+textarea {
+    overflow: auto;
+    vertical-align: top;
+    resize: vertical;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+    border: none;
+    padding: 0;
+}
+
+button:-moz-focusring,
+input:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+    height: auto;
+}
+
+[type="search"] {
+    -webkit-appearance: textfield;
+    outline-offset: -2px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    outline: none !important;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+@media only screen and (max-width:400px) {
+    @-ms-viewport{
+        width: device-width;
+    }
+}
+
+script,
+template {
+    display: none !important;
+}
+
+@include selection-style(
+    $color: color('selection', 'color'),
+    $background: color('selection', 'background')
+);
