@@ -66,6 +66,7 @@
     "vinyl-buffer": "^1.0.0"
   },
   "dependencies": {
+    "totem.core": "^0.7.0",
     "totem.module.code-block": "^0.7.0",
     "totem.module.loadcss": "^0.6.0",
     "totem.module.svgsprite": "^0.5.0",
