@@ -3,10 +3,13 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
     {
         // Prevent syncing development files
         var sync_ignores = [
-            '!**/sprite/**',
-            '!**/svg-sprite/**',
-            '!**/*.{scss,md,twig,html}',
-            '!**/data.json'
+            '!' + process.env.TOTEM_SRC + '/resources/**/sprite/**',
+            '!' + process.env.TOTEM_SRC + '/resources/**/svg-sprite/**',
+            '!' + process.env.TOTEM_SRC + '/resources/modules/**/javascripts/**',
+            '!' + process.env.TOTEM_SRC + '/resources/groups/**/javascripts/**',
+            '!' + process.env.TOTEM_SRC + '/resources/templates/**/javascripts/**',
+            '!' + process.env.TOTEM_SRC + '/resources/**.{scss,md,twig,html}',
+            '!' + process.env.TOTEM_SRC + '/resources/**/data.json'
         ];
 
         var sources = [
