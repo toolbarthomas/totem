@@ -16,6 +16,15 @@
 // Import Main
 @import "shared/**";
 
+// Import NPM Modules
+
+// Import GIT Modules
+
+// Import Project Modules
+
+// Import Extends
+@import "../../extends/stylesheets/shared/**";
+
 
 
 ///
@@ -28,6 +37,15 @@
 
 // Import Main
 @import "helpers/**";
+
+// Import NPM Modules
+
+// Import GIT Modules
+
+// Import Project Modules
+
+// Import Extends
+@import "../../extends/stylesheets/helpers/**";
 
 
 
@@ -42,6 +60,15 @@
 // Import Main
 @import "settings/**";
 
+// Import NPM Modules
+
+// Import GIT Modules
+
+// Import Project Modules
+
+// Import Extends
+@import "../../extends/stylesheets/settings/**";
+
 
 
 ///
@@ -55,6 +82,15 @@
 // Import Main
 @import "tools/**";
 
+// Import NPM Modules
+
+// Import GIT Modules
+
+// Import Project Modules
+
+// Import Extends
+@import "../../extends/stylesheets/tools/**";
+
 ///
 // 5. Properties - Additional settings in Sass mapping format to share properties with. This layer can also use tools.
 ///
@@ -66,37 +102,89 @@
 // Import Main
 @import "properties/**";
 
+// Import NPM Modules
+
+// Import GIT Modules
+
+// Import Project Modules
+
+// Import Extends
+@import "../../extends/stylesheets/properties/**";
+
 
 
 ///
 // 6. Generic - Default tag style definitions for your app/module will be defined here. E.g. reset.css
 ///
+
+// Import Main
 @import "generic/**";
+
+// Import NPM Modules
+
+// Import GIT Modules
+
+// Import Project Modules
 
 
 
 ///
 // 7. Base - Typography and other global styling definitions should be defined here.
 ///
+
+// Import Main
 @import "base/**";
+
+// Import NPM Modules
+
+// Import GIT Modules
+
+// Import Project Modules
 
 
 
 ///
 // 8. Objects - Class-based selectors with undecorated design patterns i.e. layout definitions
 ///
+
+// Import Main
 @import "objects/**";
+
+// Import NPM Modules
+
+// Import GIT Modules
+
+// Import Project Modules
 
 
 
 ///
 // 9. Components - Specific UI components will be defined here.
 ///
+
+// Import Main
 @import "components/**";
+
+// Import NPM Modules
+
+// Import GIT Modules
+
+// Import Project Modules
 
 
 
 ///
 // 10. Utilities and helper classes with ability to override anything within the project. Usefull to define helper classes like: .hide
 ///
+
+// Import Main
 @import "utilities/**";
+
+// Import NPM Modules
+
+// Import GIT Modules
+
+// Import Project Modules
+
+// Import Extends
+@import "../../extends/stylesheets/utilities/**";
