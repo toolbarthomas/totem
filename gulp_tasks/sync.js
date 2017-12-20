@@ -8,7 +8,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             '!' + process.env.TOTEM_SRC + '/resources/modules/**/javascripts/**',
             '!' + process.env.TOTEM_SRC + '/resources/groups/**/javascripts/**',
             '!' + process.env.TOTEM_SRC + '/resources/templates/**/javascripts/**',
-            '!' + process.env.TOTEM_SRC + '/resources/**.{scss,md,twig,html}',
+            '!' + process.env.TOTEM_SRC + '/**/**.{scss,md,twig,html}',
             '!' + process.env.TOTEM_SRC + '/resources/**/data.json'
         ];
 
