@@ -12,7 +12,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
             cssTemplate: process.env.TOTEM_SRC + '/resources/main/images/layout/sprite/config.handlebars',
             cssHandlebarsHelpers: {
                 imageSource: function (image) {
-                    return '/resources/main/images/sprite.' + REVISION + '.png';
+                    return '/resources/main/images/layout/sprite.' + REVISION + '.png';
                 },
                 divideRetina: function (value) {
                     return parseInt(value) / 2;
