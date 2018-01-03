@@ -33,6 +33,7 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
 
         sources.forEach(function(source) {
             var stream = GULP.src(source.input)
+            .pipe(PLUGINS.plumber())
             .pipe(PLUGINS.filter(function (file) {
                 return file.stat && file.contents.length;
             }))
@@ -45,7 +46,12 @@ module.exports = (GULP, PLUGINS, NODE_MODULES, REVISION) => {
                 file.contents = NODE_MODULES.browserify(file.path, {
                     debug: true,
                     standalone: NODE_MODULES.camelCase(name)
-                }).bundle();
+                }).bundle()
+                .on('error', function (error) {
+                    console.log(error);
+
+                    this.emit('end');
+                });
             }))
             .pipe(PLUGINS.buffer())            // transform streaming contents into buffer contents (because gulp-sourcemaps does not support streaming contents)
             .pipe(PLUGINS.sourcemaps.init({ loadMaps: true })) //load and init sourcemaps
