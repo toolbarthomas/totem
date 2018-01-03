@@ -181,9 +181,9 @@
 @import "../../../src/resources/modules/*/stylesheets/properties/**"; // Root: ./totem/node_modules
 
 // Import Extends
-@import "../../../extends/stylesheets/extends/**"; // Root: ./totem
-@import "../../../totem/src/resources/extends/stylesheets/extends/**"; // Root: ./totem../totem_submodules
-@import "../../../src/resources/extends/stylesheets/extends/**"; // Root: ./totem/node_modules
+@import "../../../extends/stylesheets/properties/**"; // Root: ./totem
+@import "../../../totem/src/resources/extends/stylesheets/properties/**"; // Root: ./totem../totem_submodules
+@import "../../../src/resources/extends/stylesheets/properties/**"; // Root: ./totem/node_modules
 
 // Import local styles
 @import "properties/**";

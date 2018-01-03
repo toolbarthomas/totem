@@ -40,6 +40,6 @@ A group marks down a section of your application. You should group pages that di
 A template should only define the base layout for your pages. Your application can contain multiple templates. Import logic will be mostly done within this section. When using the default template you will load all styles on a global level.
 
 ## Extends
-The Extends layer can be used for extending external modules within your Project if your installed modules supports imports within the extends layer.
+The Extends layer can be used for extending external modules within your Project. Modules should have the correct import paths to this layer (i.e. extends/**).
 
 The Extends layer can only contain non output files (no styling) and should only be used if your installed modules supports imports within this layer.
